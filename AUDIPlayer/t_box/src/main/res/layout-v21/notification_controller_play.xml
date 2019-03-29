@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootPlayer"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/artistTrackPlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_marginTop="5dp"
+
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/Black"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/previousPlayer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:drawable/ic_media_previous"
+            android:backgroundTint="@color/button_notification_state"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/pausePlayer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/button_notification_state"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/nextPlayer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="@android:drawable/ic_media_next"
+            android:backgroundTint="@color/button_notification_state"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/exitPlayer"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="0dp"
+            android:background="@android:drawable/ic_menu_close_clear_cancel"
+            android:backgroundTint="@color/button_notification_state"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleTrackPlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textColor="@color/Black"
+        android:textSize="12sp" />
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="encoder_uart:jar">
+    <output-path>$PROJECT_DIR$/../AUDIPlayer/Encoder_UART</output-path>
+    <root id="archive" name="encoder_uart.jar">
+      <element id="module-output" name="encoder_uart" />
+    </root>
+  </artifact>
+</component>

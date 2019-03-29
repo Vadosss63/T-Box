@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">T-Box</string>
+    <string name="timerTrack">00:00</string>
+    <string name="ok_button">Ok</string>
+    <string name="cancel_button">Отмена</string>
+    <string name="CMD">CMD</string>
+    <string name="CMD_data">Data</string>
+
+    <string name="ServiceClass">com.gmail.parusovvadim.remountreciveraudio.UARTService</string>
+    <string name="ServicePackage">com.gmail.parusovvadim.remountreciveraudio</string>
+
+</resources>

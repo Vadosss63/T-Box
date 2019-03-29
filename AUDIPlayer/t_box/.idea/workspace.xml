@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07aac767-fd11-4619-b450-42af5547a549" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/TransliteraterAUDI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliteraterAUDI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/xml/automotive_app_desc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PlayerAUDI.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/release/app-release.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTimeTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTimeTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/libs/d2xx.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/d2xx.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/androidTest/java/com/gmail/parusovvadim/audioplayer/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/androidTest/java/com/gmail/parusovvadim/t_box/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/cpp/native-lib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/cpp/native-lib.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/BluetoothPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/ChangeFolderFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/ChangeFolderFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/ControllerPlayerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/ControllerPlayerFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/DataPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/Folder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/NodeDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/NodeDirectory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/NotificationSoundControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/NotificationSoundControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/SettingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/SettingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/SettingApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/Track.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/UARTPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/UARTService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/encoder_uart/EncoderByteMainHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/encoder_uart/EncoderByteMainHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/encoder_uart/EncoderFolders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/encoder_uart/EncoderFolders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/encoder_uart/EncoderMainHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/encoder_uart/EncoderMainHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/encoder_uart/EncoderTimeTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/encoder_uart/EncoderTimeTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/java/com/gmail/parusovvadim/audioplayer/encoder_uart/EncoderTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/encoder_uart/EncoderTrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/color/button_item_state.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/color/button_item_state.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/color/button_notification_state.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/color/button_notification_state.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/color/track_item_state.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/color/track_item_state.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/folder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/folder_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/folder_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/ic_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/ic_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/menu_pressed_anim.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/menu_pressed_anim.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/menupressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/menupressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/menupressed2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/menupressed2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/play_pause.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/play_pause.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/drawable/song_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/song_image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout-v21/folder_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout-v21/folder_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout-v21/notification_controller_play.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout-v21/notification_controller_play.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/folder_up_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/folder_up_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/fragment_controller.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_controller.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/fragment_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/layout/music_track_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/music_track_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/xml/automotive_app_desc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/main/res/xml/device_filter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/xml/device_filter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audi_o_player/src/test/java/com/gmail/parusovvadim/audioplayer/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gmail/parusovvadim/t_box/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../settings.gradle" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1589071211">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="bat" value="1" />
+          <entry key="class" value="5" />
+          <entry key="gitignore" value="1" />
+          <entry key="gradle" value="1" />
+          <entry key="gradlew" value="1" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="11" />
+          <entry key="pro" value="1" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="5" />
+          <entry key="Groovy" value="1" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="11" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="ProGuard File" value="1" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="48" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="48" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliteraterAUDI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>audi_o_player</find>
+    </findStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliterAUDI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/SettingActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MPlayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliteraterAUDI.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1173" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AUDIPlayer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="t_box" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="AUDIPlayer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="t_box" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="AUDIPlayer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="t_box" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="t_box" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="android.project.structure.last.selected" value="t_box" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="device.picker.selection" value="9b5cb4e" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gmail.parusovvadim.t_box" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.t_box">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="T-Box" type="AndroidRunConfigurationType" factoryName="Android App">
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="t_box" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="t_box" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Android App.T-Box" />
+      <item itemvalue="Android App.t_box" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07aac767-fd11-4619-b450-42af5547a549" name="Default Changelist" comment="" />
+      <created>1551332438187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551332438187</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49832776" visible="true" weight="0.122329056" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Build Variants" order="3" sideWeight="0.50167227" side_tool="true" weight="0.18002136" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.3297769" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="4" visible="true" weight="0.22599418" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.3297769" />
+      <window_info anchor="bottom" id="Logcat" order="6" weight="0.36247334" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3297769" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4985507" visible="true" weight="0.18002136" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Build Variants" order="3" sideWeight="0.5014493" side_tool="true" weight="0.18002136" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="0" />
+      <window_info anchor="bottom" id="Logcat" order="1" />
+      <window_info active="true" anchor="bottom" id="Debug" order="2" visible="true" weight="0.3297769" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Terminal" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="8" weight="0.24927256" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2399" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="60" column="20" lean-forward="true" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="498" column="18" lean-forward="true" selection-start-line="498" selection-start-column="18" selection-end-line="498" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/runConfigurations.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliterAUDI.java" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/String.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="272" column="18" selection-start-line="272" selection-start-column="18" selection-end-line="272" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/SettingApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/content/ContextWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="356" column="25" selection-start-line="356" selection-start-column="25" selection-end-line="356" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/content/Intent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="474" column="15" selection-start-line="474" selection-start-column="15" selection-end-line="474" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="1116" selection-start-line="1116" selection-end-line="1116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/app/Instrumentation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="368" column="20" selection-start-line="368" selection-start-column="20" selection-end-line="368" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/parusovvadim/t_box/TransliteraterAUDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

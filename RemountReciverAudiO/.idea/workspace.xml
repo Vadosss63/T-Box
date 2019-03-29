@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83fde3d7-7398-4c83-9f42-a0bea2896053" name="Default Changelist" comment="AddARC">
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/ChangeFolderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/ControllerPlayerFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/Folder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/MPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/NodeDirectory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/NotificationSoundControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/SettingActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/SettingApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/Track.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1868372385">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="3" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gradle" value="3" />
+          <entry key="java" value="29" />
+          <entry key="png" value="1" />
+          <entry key="xml" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Groovy" value="3" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="29" />
+          <entry key="XML" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="344" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="344" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1256742483">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="10" />
+          <entry key="gradle" value="3" />
+          <entry key="java" value="46" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="10" />
+          <entry key="Groovy" value="3" />
+          <entry key="JAVA" value="46" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="gradle" value="4" />
+          <entry key="java" value="901" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Groovy" value="4" />
+          <entry key="JAVA" value="901" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1325475815">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="txt" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="6" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="RemountReciverAudiO" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding>
+                <element signature="method#onCreate#0;class#UARTService#0" />
+                <element signature="method#onStartCommand#0;class#UARTService#0" />
+                <element signature="method#RunCheck#0;class#UARTService#0" />
+                <element signature="method#onDestroy#0;class#UARTService#0" />
+                <element signature="method#CreateUART#0;class#UARTService#0" />
+                <element signature="method#Parser#0;class#UARTService#0" />
+                <element signature="method#ChangeDisk#0;class#UARTService#0" />
+                <element signature="method#SendDataByte#0;class#UARTService#0" />
+                <element signature="method#SendTime#0;class#UARTService#0" />
+                <element signature="method#SendSelectTrack#0;class#UARTService#0" />
+                <element signature="method#ReadCommand#0;class#UARTService#0" />
+                <element signature="method#StartSync#0;class#UARTService#0" />
+                <element signature="class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#CheckAnswer#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#addCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#getCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\Vadosss63\MyAPKStore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/HandlerNotification.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/TransliteraterAUDI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderByteMainHeader.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="C:\Users\Vadosss63\Desktop\AUDIPlayer\RemountReciverAudiO\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="device.picker.selection" value="9b5cb4e" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs/encoder_uart.jar" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83fde3d7-7398-4c83-9f42-a0bea2896053" name="Default Changelist" comment="" />
+      <created>1551456258505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551456258505</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Build Variants" order="2" sideWeight="0.502447" side_tool="true" weight="0.16163142" />
+      <window_info id="Favorites" order="3" side_tool="true" weight="0.32930514" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4959514" visible="true" weight="0.14690171" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Structure" order="7" sideWeight="0.5040486" side_tool="true" weight="0.16163142" />
+      <window_info anchor="bottom" id="Build" order="0" visible="true" weight="0.19829424" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="3" />
+      <window_info anchor="bottom" id="Logcat" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.32952693" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.28516003" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Assistant" order="5" visible="true" weight="0.20619336" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AddARC" />
+    <option name="LAST_COMMIT_MESSAGE" value="AddARC" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/Sdk/sources/android-27/android/media/session/MediaController.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://C:/Android/Sdk/sources/android-27/android/content/Context.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/HandlerNotification.java" />
+    <entry file="file://C:/Android/Sdk/sources/android-27/android/app/Notification.java" />
+    <entry file="file://C:/Android/Sdk/sources/android-27/android/app/NotificationManager.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Thread.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTrack.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderMainHeader.java" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="2888" column="16" selection-start-line="2888" selection-start-column="16" selection-end-line="2888" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/annotation/SuppressLint.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/ElementType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/RetentionPolicy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Override.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/os/Handler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTimeTrack.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderFolders.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderByteMainHeader.java" />
+    <entry file="jar://$PROJECT_DIR$/app/libs/encoder_uart.jar!/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/TransliteraterAUDI.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4947">
+          <caret line="326" column="8" lean-forward="true" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="85" column="24" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/NotificationReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="method#onCreate#0;class#UARTService#0" />
+            <element signature="method#onStartCommand#0;class#UARTService#0" />
+            <element signature="method#RunCheck#0;class#UARTService#0" />
+            <element signature="method#onDestroy#0;class#UARTService#0" />
+            <element signature="method#CreateUART#0;class#UARTService#0" />
+            <element signature="method#Parser#0;class#UARTService#0" />
+            <element signature="method#ChangeDisk#0;class#UARTService#0" />
+            <element signature="method#SendDataByte#0;class#UARTService#0" />
+            <element signature="method#SendTime#0;class#UARTService#0" />
+            <element signature="method#SendSelectTrack#0;class#UARTService#0" />
+            <element signature="method#ReadCommand#0;class#UARTService#0" />
+            <element signature="method#StartSync#0;class#UARTService#0" />
+            <element signature="class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#CheckAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#addCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#getCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

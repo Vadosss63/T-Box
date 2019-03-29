@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@color/Black"
+    android:orientation="horizontal"
+    android:textSize="23sp"
+    tools:ignore="MissingDefaultResource">
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/Black"
+        android:text="@string/ok_button"
+        android:textColor="@color/track_item_state" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/Black"
+        android:text="@string/cancel_button"
+        android:textColor="@color/track_item_state" />
+
+</LinearLayout>

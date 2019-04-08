@@ -14,26 +14,103 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+    class SenderThread extends Thread
+    {
+
+        private boolean m_isStartThread = true;
+
+        class ErrorSender
+        {
+            Byte m_answer = -1;
+        }
+
+        final ErrorSender m_errorSender = new ErrorSender();
+
+        private void SetAnswer(byte answer)
+        {
+            synchronized(m_errorSender)
+            {
+                m_errorSender.m_answer = answer;
+                m_errorSender.notify();
+            }
+        }
+
+        // блокирует поток на 5 секунд
+        private byte GetAnswer() throws InterruptedException
+        {
+            byte answer;
+            synchronized(m_errorSender)
+            {
+                if(m_errorSender.m_answer == -1) m_errorSender.wait(5000);
+                answer = m_errorSender.m_answer;
+                m_errorSender.m_answer = (byte) -1; // Выполняем сброс ответа
+            }
+            return answer;
+        }
+
+        @Override
+        public void run()
+        {
+            while(m_isStartThread)
+            {
+                try
+                {
+                    Execute();
+                    System.out.println("Execute");
+                } catch(InterruptedException e)
+                {
+                    m_isStartThread = false;
+                }
+            }
+        }
+
+        private void Execute() throws InterruptedException
+        {
+            byte answer = GetAnswer();
+        }
+    }
 
     @Test
-    public void Run() {
-//
-//        String msg = "В работе были рассмотрены основные способы измерения антенн и выявлены их преимущества и недостатки. Самым предпочтительным является способ измерения в ближней зоне, так как он позволяет производить измерения характеристик антенн на малых расстояниях и не имеет зависимости от погодных условий. Однако в рамках классических узкополосных методов измерения ближней зоны есть ряд недостатков, которые можно компенсировать применением сверхширокополосных импульсных сигналов, которые позволяют производить измерения такими же способами, как и в узкополосных методах. Однако они позволяют повысить точность измерений за счет временной селекции переотражений между измерительным зондом, измеряемой антенной и элементами конструкции сканера.";
-//        String msgLat = "THIS SOFTWARE IS PROVIDED BY YOURKIT \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL YOURKIT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.";
-//        msg =  msg + msgLat;
+    public void SenderThreadTest()
+    {
+        SenderThread senderThread = new SenderThread();
+        senderThread.start();
 
-//       String msg = "Rauf Faik - Я люблю тебя";
-        String msg = "Океан Ельзи - Обійми" + (char)1112;
-        String m = "іi";
+        Thread adder = new Thread(()->{
+
+            while(!Thread.currentThread().isInterrupted()) try
+            {
+                senderThread.SetAnswer((byte) 0);
+                Thread.sleep(500);
+            } catch(InterruptedException e)
+            {
+                System.out.println("Interrupted()");
+            }
+        });
+
+        adder.start();
 
 
-//            String msg = "Я";
-//        for (int i = 0; i < 1000000; i++) {
-        String res = TransliteraterAUDI.Transliterate(msg);
+        try
+        {
+            Thread.sleep(20000);
+        } catch(InterruptedException e)
+        {
+            System.out.println("Interrupted Main Thread()");
+        }
 
-//        }
-//        String exp = "A JA";
-        String exp = "Rauf Faik - JA ljublju tebja";
-        assertEquals(exp, res);
+        adder.interrupt();
+        senderThread.isInterrupted();
+        try
+        {
+            adder.join();
+            senderThread.join();
+        } catch(InterruptedException e)
+        {
+            System.out.println("Interrupted Main()");
+
+        }
+
     }
+
 }

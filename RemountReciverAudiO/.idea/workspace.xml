@@ -195,26 +195,62 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1269117715">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="12" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="12" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="319" />
+          <entry key="xml" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="319" />
+          <entry key="XML" value="9" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="RemountReciverAudiO" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="187">
+              <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="36">
+              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -228,8 +264,13 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>CMD_CHANGE_DISC</find>
+    </findStrings>
+  </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Vadosss63\MyAPKStore.jks" />
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
@@ -243,14 +284,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/HandlerNotification.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/TransliteraterAUDI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderByteMainHeader.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/gmail/parusovvadim/remountreciveraudio/ExampleInstrumentedTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -370,6 +414,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -382,35 +437,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="RemountReciverAudiO" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/../APK" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Vadosss63\Desktop\T-Box\APK" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
@@ -418,7 +448,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="9b5cb4e" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <property name="last_opened_file_path" value="$USER_HOME$/MyAPKStore.jks" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -436,7 +466,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="ExampleUnitTest.SenderThreadTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gmail.parusovvadim.remountreciveraudio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gmail.parusovvadim.remountreciveraudio" />
+      <option name="MAIN_CLASS_NAME" value="com.gmail.parusovvadim.remountreciveraudio.ExampleUnitTest" />
+      <option name="METHOD_NAME" value="SenderThreadTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -496,6 +543,66 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SenderThreadTest()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="SenderThreadTest" />
+      <option name="CLASS_NAME" value="com.gmail.parusovvadim.remountreciveraudio.ExampleInstrumentedTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Android Instrumented Tests.SenderThreadTest()" />
+      <item itemvalue="Android JUnit.ExampleUnitTest.SenderThreadTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android Instrumented Tests.SenderThreadTest()" />
+        <item itemvalue="Android JUnit.ExampleUnitTest.SenderThreadTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -510,27 +617,58 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="SenderThreadTest() - 2019.04.08 at 21h 42m 42s.xml">
+      <configuration name="SenderThreadTest()" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 44m 04s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 46m 18s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 47m 21s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 47m 48s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 48m 09s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 21h 50m 23s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="SenderThreadTest() - 2019.04.08 at 21h 57m 32s.xml">
+      <configuration name="SenderThreadTest()" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_SenderThreadTest - 2019.04.08 at 22h 06m 07s.xml">
+      <configuration name="ExampleUnitTest.SenderThreadTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="SenderThreadTest() - 2019.04.08 at 22h 07m 56s.xml">
+      <configuration name="SenderThreadTest()" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5077844" side_tool="true" weight="0.18856838" />
       <window_info id="Designer" order="1" />
-      <window_info id="Build Variants" order="2" sideWeight="0.50986344" side_tool="true" visible="true" weight="0.18856838" />
+      <window_info active="true" id="Build Variants" order="2" sideWeight="0.5160494" side_tool="true" visible="true" weight="0.18126889" />
       <window_info id="Favorites" order="3" sideWeight="0.5077844" side_tool="true" weight="0.18856838" />
       <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49013656" visible="true" weight="0.18856838" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.48395061" visible="true" weight="0.18126889" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Structure" order="7" sideWeight="0.50898206" side_tool="true" weight="0.18856838" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.8520299" visible="true" weight="0.36328503" />
+      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.85120845" visible="true" weight="0.33931485" />
       <window_info anchor="bottom" id="Android Profiler" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.14797008" side_tool="true" visible="true" weight="0.36328503" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.14879154" side_tool="true" weight="0.36215335" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3294686" />
-      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49893162" weight="0.3294686" />
+      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49893162" weight="0.32789558" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49893162" weight="0.3294686" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.32952693" />
+      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49893162" weight="0.41272432" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.5106036" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.057096247" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.28516003" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" />
@@ -551,150 +689,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="AddARC" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Android/Sdk/sources/android-27/android/media/session/MediaController.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://C:/Android/Sdk/sources/android-27/android/content/Context.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/HandlerNotification.java" />
-    <entry file="file://C:/Android/Sdk/sources/android-27/android/app/Notification.java" />
-    <entry file="file://C:/Android/Sdk/sources/android-27/android/app/NotificationManager.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Thread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Thread.class" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTrack.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderMainHeader.java" />
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="2888" column="16" selection-start-line="2888" selection-start-column="16" selection-end-line="2888" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/annotation/SuppressLint.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/ElementType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/RetentionPolicy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Override.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/os/Handler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/view/View.class" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/annotation/SuppressLint.class" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/ElementType.class" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/annotation/RetentionPolicy.class" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/java/lang/Override.class" />
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/os/Handler.class" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/AndroidManifest.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderTimeTrack.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderFolders.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/encoder_uart/EncoderByteMainHeader.java" />
-    <entry file="jar://$PROJECT_DIR$/app/libs/encoder_uart.jar!/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/encoder_uart.jar!/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.class" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/TransliteraterAUDI.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4947">
-          <caret line="326" column="8" lean-forward="true" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="85" column="24" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/NotificationReceiverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gradle/vcs-1/gc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/BluetoothPort.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/NotificationReceiverService.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java" />
+    <entry file="file://$PROJECT_DIR$/arc/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java" />
+    <entry file="file://$PROJECT_DIR$/.gradle/vcs-1/gc.properties" />
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -712,9 +729,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties" />
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -722,26 +737,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gradle/4.10.1/gc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/arc/proguard-rules.pro" />
+    <entry file="file://$PROJECT_DIR$/.gradle/4.10.1/gc.properties" />
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RemountReciverAudiO.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RemountReciverAudiO.iml" />
     <entry file="file://$PROJECT_DIR$/gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -762,20 +763,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="90">
           <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/arc/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/NotificationReceiverService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="72">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/DataPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/Sdk/sources/android-27/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="744" selection-start-line="744" selection-end-line="744" />
+          <folding>
+            <element signature="e#15876#15877#0" expanded="true" />
+            <element signature="e#15942#15943#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="350" column="4" selection-start-line="350" selection-start-column="4" selection-end-line="350" selection-end-column="4" />
+          <folding>
+            <element signature="method#SendCurrentTrack#0;class#ReceiverService#0" />
+            <element signature="method#SendAUX#0;class#ReceiverService#0" />
+            <element signature="method#onCreate#0;class#ReceiverService#0" />
+            <element signature="method#onStartCommand#0;class#ReceiverService#0" />
+            <element signature="method#Parser#0;class#ReceiverService#0" />
+            <element signature="method#SendKey#0;class#ReceiverService#0" />
+            <element signature="method#SendKeyRewind#0;class#ReceiverService#0" />
+            <element signature="method#CreateTimer#0;class#ReceiverService#0" />
+            <element signature="e#6616#6766#0" />
+            <element signature="method#SendData#0;class#ReceiverService#0" />
+            <element signature="method#Sync#0;class#ReceiverService#0" />
+            <element signature="method#SendTime#0;class#ReceiverService#0" />
+            <element signature="method#OnAUX#0;class#ReceiverService#0" />
+            <element signature="method#GetTitle#0;class#ReceiverService#0" />
+            <element signature="method#SyncUART#0;class#ReceiverService#0" />
+            <element signature="class#O#0;class#ReceiverService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/gmail/parusovvadim/remountreciveraudio/ExampleInstrumentedTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/com/gmail/parusovvadim/remountreciveraudio/ExampleUnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="113" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/UARTService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#SetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#GetCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#Execute#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#addCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#getCMD#0;class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/AutoStartReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>

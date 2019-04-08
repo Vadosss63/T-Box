@@ -12,12 +12,12 @@ public class AutoStartReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
 
-            Intent autorun = new Intent(context, ReceiverService.class);
+            Intent autoRun = new Intent(context, ReceiverService.class);
             // everything here executes after system restart
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                context.startForegroundService(autorun);
+                context.startForegroundService(autoRun);
             else
-                context.startService(autorun);
+                context.startService(autoRun);
 
         }
     }

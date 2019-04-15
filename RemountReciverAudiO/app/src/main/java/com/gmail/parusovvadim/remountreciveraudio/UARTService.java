@@ -2,6 +2,7 @@ package com.gmail.parusovvadim.remountreciveraudio;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 import android.widget.Toast;
 
@@ -22,6 +23,9 @@ public class UARTService extends Service
     static final public int CMD_SEND_DATA = 0xAA;
     static final public int CMD_RESET = 0x00;
     static final public int CMD_AUX = 0x0A;
+
+    static String m_showMassage = "Поиск соединения";
+    int m_iteration = 0;
 
     // Поток отправки сообщений в port
     private SenderThread m_senderThread;
@@ -62,15 +66,33 @@ public class UARTService extends Service
             @Override
             public void run()
             {
-                if(m_UARTPort.CheckConnection())
-                {
-                    stopSelf();
-                } else
-                {
-                    if(m_isCheckConnectionStart) RunCheck();
-                }
+                FindConnection();
             }
         }, 5000);
+    }
+
+    private void FindConnection()
+    {
+        if(m_UARTPort.CheckConnection())
+        {
+            stopSelf();
+        } else
+        {
+            m_iteration = m_iteration % 3;
+            StringBuilder msg = new StringBuilder(m_showMassage);
+            for(int i = 0; i < m_iteration; i++)
+                msg.append(".");
+
+//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+//                ReceiverService.O.createNotification(this, msg.toString());
+
+            NotificationRunnableService notif = new NotificationRunnableService(this);
+            notif.showNotification(this, msg.toString());
+
+            m_iteration++;
+            if(m_isCheckConnectionStart) RunCheck();
+
+        }
     }
 
     @Override

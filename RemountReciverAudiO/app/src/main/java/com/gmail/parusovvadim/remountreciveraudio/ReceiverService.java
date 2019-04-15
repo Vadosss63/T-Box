@@ -168,7 +168,8 @@ public class ReceiverService extends Service
     public int onStartCommand(Intent intent, int flags, int startId)
     {
         Parser(intent);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) O.createNotification(this);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            O.createNotification(this, "Работает система управления АУДИ");
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -287,7 +288,6 @@ public class ReceiverService extends Service
     // Перевод в aux режим
     private void OnAUX(byte on)
     {
-
         Vector<Byte> data = new Vector<>();
         data.add(on);
 
@@ -314,15 +314,6 @@ public class ReceiverService extends Service
                 else title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
 
             }
-
-//            try {
-//                Bitmap b = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
-//                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.include);
-//                BitmapDrawable ob = new BitmapDrawable(getResources(), b);
-//                linearLayout.setBackground(ob);
-//        } catch(SecurityException e){
-//
-//        }
         }
         return title;
     }
@@ -372,21 +363,21 @@ public class ReceiverService extends Service
             return 1177;
         }
 
-        static void createNotification(Service context)
+        static void createNotification(Service context, String msg)
         {
             String channelId = createChannel(context);
-            Notification notification = buildNotification(context, channelId);
+            Notification notification = buildNotification(context, channelId, msg);
             context.startForeground(ONGOING_NOTIFICATION_ID, notification);
         }
 
         @TargetApi (Build.VERSION_CODES.O)
-        private static Notification buildNotification(Service context, String channelId)
+        private static Notification buildNotification(Service context, String channelId, String msg)
         {
             Intent intentNext = new Intent(context, MainActivity.class);
             PendingIntent piLaunchMainActivity = PendingIntent.getService(context, 1, intentNext, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Create a notification.
-            return new Notification.Builder(context, channelId).setContentTitle("ARC").setContentText("Работает система управления АУДИ").setSmallIcon(R.mipmap.ic_launcher).setContentIntent(piLaunchMainActivity).setStyle(new Notification.BigTextStyle()).build();
+            return new Notification.Builder(context, channelId).setContentTitle("ARC").setContentText(msg).setSmallIcon(R.mipmap.ic_launcher).setContentIntent(piLaunchMainActivity).setStyle(new Notification.BigTextStyle()).build();
         }
 
         @TargetApi (Build.VERSION_CODES.O)

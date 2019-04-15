@@ -14,7 +14,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
-
 public class UARTService extends Service
 {
     final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box";

@@ -318,6 +318,29 @@ public class ReceiverService extends Service
         return title;
     }
 
+    private void GetInfoTrack(MediaMetadata mediaMetadata)
+    {
+        if(mediaMetadata == null) return;
+
+        String title = null;
+        String artist = null;
+        String album = null;
+        Long year = null;
+
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE))
+            title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
+
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
+            artist = mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST);
+
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ALBUM))
+            album = mediaMetadata.getString(MediaMetadata.METADATA_KEY_ALBUM);
+
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_YEAR))
+            year = mediaMetadata.getLong(MediaMetadata.METADATA_KEY_YEAR);
+
+    }
+
     private void GetTime()
     {
 

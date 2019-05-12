@@ -7,67 +7,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38ab49fa-ed6f-4590-9d35-7bc4edbfa538" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_v13_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_v13_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AUDIPlayer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/caches/build_file_checksums.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/caches/gradle_models.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle____local_aars____home_vadosss63_MyPoject_AUDIPlayer_t_box_libs_d2xx_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_core_common_1_1_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_lifecycle_common_1_1_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_solver_1_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_annotations_27_1_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_v13_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/libraries/Gradle__org_jetbrains_annotations_15_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/��� �����.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Encoder_UART/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Encoder_UART/encoder_uart.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_design_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_design_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_v13_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_v13_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_transition_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/libraries/Gradle__com_android_support_transition_27_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/src/main/java/com/gmail/parusovvadim/remountreciveraudio/ReceiverService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/encoder_uart_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/encoder_uart_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -87,7 +84,55 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="e#352#353#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#468#469#0" expanded="true" />
+                <element signature="e#534#535#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="method#build#0;class#EncoderTrackInfo#0" />
+                <element signature="method#convertToByte#0;class#EncoderTrack#0" />
+                <element signature="method#convertToInt#0;class#EncoderTrack#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="31" />
+              <folding>
+                <element signature="e#1111#1511#1" />
+                <element signature="e#1559#1656#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <folding>
+                <element signature="method#EncoderTrack#1;class#EncoderTrack#0" />
+                <element signature="method#convertToByte#0;class#EncoderTrack#0" />
+                <element signature="method#convertToInt#0;class#EncoderTrack#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,6 +161,7 @@
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java" />
+        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" />
       </list>
     </option>
   </component>
@@ -126,23 +172,58 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="encoder_uart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gmail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gmail" type="462c0819:PsiDirectoryNode" />
+              <item name="parusovvadim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gmail" type="462c0819:PsiDirectoryNode" />
+              <item name="parusovvadim" type="462c0819:PsiDirectoryNode" />
               <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -152,10 +233,15 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553862099604" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Encoder_UART" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16781609" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vadosss63\Desktop\T-Box\Encoder_UART\src\com\gmail\parusovvadim\encoder_uart" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -216,16 +302,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13301282" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13903345" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5010548" side_tool="true" weight="0.3600386" />
       <window_info anchor="bottom" id="Message" order="2" />
@@ -250,13 +337,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
-    <entry file="file://$PROJECT_DIR$/encoder_uart.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/encoder_uart.iml" />
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -268,29 +349,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding>
-            <element signature="e#1111#1511#1" />
-            <element signature="e#1559#1656#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="method#EncoderTrack#1;class#EncoderTrack#0" />
-            <element signature="method#convertToByte#0;class#EncoderTrack#0" />
-            <element signature="method#convertToInt#0;class#EncoderTrack#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -341,6 +399,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="method#build#0;class#EncoderTrackInfo#0" />
+            <element signature="method#convertToByte#0;class#EncoderTrack#0" />
+            <element signature="method#convertToInt#0;class#EncoderTrack#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="31" />
+          <folding>
+            <element signature="e#1111#1511#1" />
+            <element signature="e#1559#1656#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding>
+            <element signature="method#EncoderTrack#1;class#EncoderTrack#0" />
+            <element signature="method#convertToByte#0;class#EncoderTrack#0" />
+            <element signature="method#convertToInt#0;class#EncoderTrack#0" />
+          </folding>
         </state>
       </provider>
     </entry>

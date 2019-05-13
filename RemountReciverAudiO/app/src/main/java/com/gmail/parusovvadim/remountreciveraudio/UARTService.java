@@ -2,7 +2,6 @@ package com.gmail.parusovvadim.remountreciveraudio;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Build;
 import android.os.IBinder;
 import android.widget.Toast;
 
@@ -83,11 +82,8 @@ public class UARTService extends Service
             for(int i = 0; i < m_iteration; i++)
                 msg.append(".");
 
-//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-//                ReceiverService.O.createNotification(this, msg.toString());
-
-            NotificationRunnableService notif = new NotificationRunnableService(this);
-            notif.showNotification(this, msg.toString());
+            NotificationRunnableService notification = new NotificationRunnableService(this);
+            notification.showNotification(this, msg.toString());
 
             m_iteration++;
             if(m_isCheckConnectionStart) RunCheck();

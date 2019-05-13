@@ -98,16 +98,4 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
-//    private void ShowText(String text) {
-//        TextView textView = findViewById(R.id.textView);
-//        if (!textView.getText().equals(text)) {
-//            textView.setText(text);
-//        }
-//    }
-//
-//    private void ShowTime(String text) {
-//        TextView textView = findViewById(R.id.textTime);
-//        textView.setText(text);
-//    }
-
 }

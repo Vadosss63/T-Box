@@ -12,8 +12,8 @@ import android.support.v4.content.ContextCompat;
 class NotificationRunnableService
 {
 
-    static private String CHANEL_ID = "AUDIo";
-    static private String CHANEL_NAME = "Connection";
+    static private String CHANEL_ID = "T-BOX";
+    static private String CHANEL_NAME = "CONTROL";
     static private int NOTIFICATION_ID = 1991;
 
     NotificationRunnableService(Service service)
@@ -40,7 +40,7 @@ class NotificationRunnableService
     private Notification getNotification(Service service, String msg)
     {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(service, CHANEL_ID);
-        builder.setContentTitle("ACR").setContentText(msg).
+        builder.setContentTitle("T-BOX CONTROL").setContentText(msg).
                 setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorPrimaryDark)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
         return builder.build();
     }

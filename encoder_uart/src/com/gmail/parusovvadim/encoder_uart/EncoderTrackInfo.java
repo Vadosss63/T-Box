@@ -2,55 +2,61 @@ package com.gmail.parusovvadim.encoder_uart;
 
 import java.util.Vector;
 
-public class EncoderTrackInfo {
+public class EncoderTrackInfo
+{
     private Vector<Byte> m_title = new Vector<>();
     private Vector<Byte> m_artist = new Vector<>();
     private Vector<Byte> m_album = new Vector<>();
     private Vector<Byte> m_year = new Vector<>();
 
-    public void setTitle(String title) {
-
-        if (title.length() > 29) title = title.substring(0, 28);
+    public void setTitle(String title)
+    {
+        if(title == null) title = "нет";
+        if(title.length() > 29) title = title.substring(0, 28);
 
         m_title = textToByte(title);
     }
 
-    public void setArtist(String artist) {
-        if (artist.length() > 29) artist = artist.substring(0, 28);
+    public void setArtist(String artist)
+    {
+        if(artist == null) artist = "нет";
+
+        if(artist.length() > 29) artist = artist.substring(0, 28);
 
         m_artist = textToByte(artist);
     }
 
-    public void setAlbum(String album) {
-        if (album.length() > 29) album = album.substring(0, 28);
+    public void setAlbum(String album)
+    {
+        if(album == null) album = "нет";
+
+        if(album.length() > 29) album = album.substring(0, 28);
 
         m_album = textToByte(album);
     }
 
-    public void setYear(int year) {
+    public void setYear(int year)
+    {
         m_year = textToByte(Integer.toString(year));
     }
 
-    public Vector<Byte> build() {
+    public Vector<Byte> build()
+    {
         Vector<Byte> result = new Vector<Byte>();
         result.add(getStart());
-        if (!m_title.isEmpty())
-            result.addAll(m_title);
+        if(!m_title.isEmpty()) result.addAll(m_title);
         result.add(getEnd());
 
         result.add(getStart());
-        if (!m_artist.isEmpty())
-            result.addAll(m_artist);
+        if(!m_artist.isEmpty()) result.addAll(m_artist);
         result.add(getEnd());
 
         result.add(getStart());
-        if (!m_album.isEmpty())
-            result.addAll(m_album);
+        if(!m_album.isEmpty()) result.addAll(m_album);
         result.add(getEnd());
 
         result.add(getStart());
-        if (!m_year.isEmpty())
-            result.addAll(m_year);
+        if(!m_year.isEmpty()) result.addAll(m_year);
         result.add(getEnd());
 
         result.add(getStart());
@@ -60,20 +66,24 @@ public class EncoderTrackInfo {
     }
 
 
-    private Byte getStart() {
+    private Byte getStart()
+    {
         return 0x02;
     }
 
-    private Byte getEnd() {
+    private Byte getEnd()
+    {
         return 0x00;
     }
 
-    private Vector<Byte> textToByte(String text) {
+    private Vector<Byte> textToByte(String text)
+    {
         return RussianCode.convert(text);
     }
 }
 
-class RussianCode {
+class RussianCode
+{
 
     // Особый случай
     private static final char[] m_eChar = {'Ё', 'ё', 0xC385, 0xC3A5};
@@ -85,35 +95,44 @@ class RussianCode {
     // Количество букв в кириллице без учета "ё"
     private static final char m_sizeCyr = 32;
 
-    static Vector<Byte> convert(String message) {
+    static Vector<Byte> convert(String message)
+    {
 
-        if (message == null) return new Vector<Byte>();
+        if(message == null) return new Vector<Byte>();
 
         Vector<Byte> builder = new Vector<Byte>();
         // Проходим по всему сообщению
-        for (int i = 0; i < message.length(); i++) {
+        for(int i = 0; i < message.length(); i++)
+        {
             char currentChar = message.charAt(i);
             // Проверяем диапазон алфавита с учетом больших и маленьких букв
-            if (currentChar >= m_shiftArrayChar && currentChar <= (m_shiftArrayChar + 2 * m_sizeCyr)) {
+            if(currentChar >= m_shiftArrayChar && currentChar <= (m_shiftArrayChar + 2 * m_sizeCyr))
+            {
                 // выполняем преобразование
 
                 char val = (char) (m_startRussianChar + (currentChar - m_shiftArrayChar));
                 builder.add((byte) ((val & 0xFF00) >> 8));
                 builder.add((byte) val);
 
-            } else {
-                if (currentChar < 127) {
+            } else
+            {
+                if(currentChar < 127)
+                {
                     // ascii
                     builder.add((byte) currentChar);
-                } else {
+                } else
+                {
                     // Проверяем особый случай
-                    if (currentChar == m_eChar[0]) {
+                    if(currentChar == m_eChar[0])
+                    {
                         builder.add((byte) ((m_eChar[2] & 0xFF00) >> 8));
                         builder.add((byte) m_eChar[2]);
-                    } else if (currentChar == m_eChar[1]) {
+                    } else if(currentChar == m_eChar[1])
+                    {
                         builder.add((byte) ((m_eChar[3] & 0xFF00) >> 8));
                         builder.add((byte) m_eChar[3]);
-                    } else if (currentChar == m_iChar[0]) {
+                    } else if(currentChar == m_iChar[0])
+                    {
                         builder.add((byte) m_iChar[1]);
                     }
                 }

@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.EncoderTimeTrack;
 import com.gmail.parusovvadim.encoder_uart.EncoderTrack;
+import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
 
 import java.util.ArrayDeque;
 import java.util.Timer;
@@ -16,12 +17,10 @@ import java.util.Vector;
 
 public class UARTService extends Service
 {
-    final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box";
-    static final int CMD_SEND_TIME = 0x01;
-    static final int CMD_SELECT_TRACK = 0x05;
+    final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
     static final public int CMD_SEND_DATA = 0xAA;
     static final public int CMD_RESET = 0x00;
-    static final public int CMD_AUX = 0x0A;
+
 
     static String m_showMassage = "Поиск соединения";
     int m_iteration = 0;
@@ -127,7 +126,7 @@ public class UARTService extends Service
         int cmd = intent.getIntExtra("CMD", 0);
         switch(cmd)
         {
-            case CMD_SEND_TIME:
+            case CMD_DATA.TIME:
                 SendTime(intent);
                 break;
 
@@ -135,7 +134,7 @@ public class UARTService extends Service
                 SendDataByte(intent);
                 break;
 
-            case CMD_SELECT_TRACK:
+            case CMD_DATA.SELECTED_TRACK:
                 SendSelectTrack(intent);
                 break;
 
@@ -157,14 +156,13 @@ public class UARTService extends Service
 
     private void SendTime(Intent intent)
     {
-
         if(intent == null) return;
         int time = intent.getIntExtra("time", 0);
         EncoderTimeTrack timeTrack = new EncoderTimeTrack();
         timeTrack.AddHeader();
         timeTrack.AddCurrentTimePosition(time);
         EncoderMainHeader mainHeader = new EncoderMainHeader(timeTrack.GetVectorByte());
-        mainHeader.AddMainHeader((byte) CMD_SEND_TIME);
+        mainHeader.AddMainHeader((byte) CMD_DATA.TIME);
         m_UARTPort.WriteData(mainHeader.GetDataByte());
     }
 
@@ -178,7 +176,7 @@ public class UARTService extends Service
         encoderTrack.SetTrackNumber(track);
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(encoderTrack.GetVectorByte());
-        mainHeader.AddMainHeader((byte) CMD_SELECT_TRACK);
+        mainHeader.AddMainHeader((byte) CMD_DATA.SELECTED_TRACK);
         m_UARTPort.WriteData(mainHeader.GetDataByte());
     }
 
@@ -226,7 +224,7 @@ public class UARTService extends Service
             return;
         }
 
-        if(data[2] == (byte) CMD_SELECT_TRACK)
+        if(data[2] == (byte) CMD_DATA.SELECTED_TRACK)
         {
             Vector<Byte> dataTrack = new Vector<>();
             for(int i = 5; i < data.length - 1; i++)
@@ -238,12 +236,12 @@ public class UARTService extends Service
 
             Intent intent = new Intent();
             intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
-            intent.putExtra("CMD", CMD_SELECT_TRACK);
+            intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
             intent.putExtra("folder", folder);
             intent.putExtra("track", track);
             startService(intent);
         }
-        if(data[2] == (byte) CMD_AUX)
+        if(data[2] == (byte) CMD_DATA.AUX)
         {
             StartSync();
         }
@@ -253,7 +251,7 @@ public class UARTService extends Service
     {
 
         Intent intent = new Intent(this, ReceiverService.class);
-        intent.putExtra("CMD", CMD_AUX);
+        intent.putExtra("CMD", CMD_DATA.AUX);
         startService(intent);
     }
 

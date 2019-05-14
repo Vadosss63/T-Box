@@ -7,15 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38ab49fa-ed6f-4590-9d35-7bc4edbfa538" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../APK/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/../APK/release/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AUDIPlayer/t_box/src/main/java/com/gmail/parusovvadim/t_box/MusicFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Encoder_UART/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Encoder_UART/encoder_uart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RemountReciverAudiO/app/libs/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../RemountReciverAudiO/app/libs/encoder_uart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="198">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding>
                 <element signature="method#GetDataByte#0;class#EncoderMainHeader#0" />
                 <element signature="e#999#1000#0" expanded="true" />
@@ -53,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTimeTrack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="288">
               <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="method#GetDataByte#0;class#EncoderTimeTrack#0" />
@@ -67,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+            <state relative-caret-position="180">
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
               <folding>
                 <element signature="class#RussianCode#0" />
               </folding>
@@ -131,37 +128,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="encoder_uart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encoder_uart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encoder_uart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encoder_uart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="encoder_uart" type="462c0819:PsiDirectoryNode" />
-              <item name="EncoderTrackInfo.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="Encoder_UART" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Encoder_UART" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,7 +150,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553862099604" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Encoder_UART" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.16781609" />
@@ -225,15 +204,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.14187764" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.14126395" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Resources Explorer" order="8" />
@@ -279,17 +257,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="988" column="18" selection-start-line="988" selection-start-column="18" selection-end-line="988" selection-end-column="18" />
-          <folding>
-            <element signature="e#38058#38059#0" expanded="true" />
-            <element signature="e#38116#38117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/String.java" />
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="826">
@@ -297,20 +265,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="127" column="6" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/StringBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/Character.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-12/lib/src.zip!/java.base/java/lang/StringBuilder.java" />
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/Encoder_UART.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -357,8 +313,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="198">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
             <element signature="method#GetDataByte#0;class#EncoderMainHeader#0" />
             <element signature="e#999#1000#0" expanded="true" />
@@ -370,7 +326,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTimeTrack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="288">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="method#GetDataByte#0;class#EncoderTimeTrack#0" />
@@ -382,8 +338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+        <state relative-caret-position="180">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="class#RussianCode#0" />
           </folding>

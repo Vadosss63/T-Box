@@ -37,7 +37,7 @@ public class ReceiverService extends Service {
 //    final static String VK_MUSIC = "com.vkontakte.music";
 //    final static String ZYCEV_NET = "com.p74.player";
 //    final static String MI_PLAYER = "media.music.mp3player.musicplayer";
-    final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box";
+    final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
 
     static final int CMD_MEDIA_KEY = 0x00;
     static final int CMD_SYNC = 0x01;
@@ -130,7 +130,7 @@ public class ReceiverService extends Service {
 
                 Intent intent = new Intent(this, UARTService.class);
 
-                intent.putExtra("CMD", UARTService.CMD_SELECT_TRACK);
+                intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
                 intent.putExtra("folder", folder);
                 intent.putExtra("track", track + 1);
                 startService(intent);
@@ -152,8 +152,8 @@ public class ReceiverService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Parser(intent);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            O.createNotification(this, "Работает система управления АУДИ");
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, "Сервис включен");
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -184,7 +184,7 @@ public class ReceiverService extends Service {
                 Sync();
                 break;
             }
-            case UARTService.CMD_AUX: {
+            case CMD_DATA.AUX: {
                 SyncUART();
                 break;
             }
@@ -248,7 +248,7 @@ public class ReceiverService extends Service {
 
     private void SendTime(int msec) {
         Intent intentUART = new Intent(this, UARTService.class);
-        intentUART.putExtra("CMD", UARTService.CMD_SEND_TIME);
+        intentUART.putExtra("CMD", CMD_DATA.TIME);
         intentUART.putExtra("time", msec);
         startService(intentUART);
     }
@@ -338,43 +338,6 @@ public class ReceiverService extends Service {
         }
     }
 
-    public static class O {
-        static final String CHANNEL_ID = String.valueOf(getRandomNumber());
-        static final int ONGOING_NOTIFICATION_ID = 1991;
-
-        private static int getRandomNumber() {
-            return 1177;
-        }
-
-        static void createNotification(Service context, String msg) {
-            String channelId = createChannel(context);
-            Notification notification = buildNotification(context, channelId, msg);
-            context.startForeground(ONGOING_NOTIFICATION_ID, notification);
-        }
-
-        @TargetApi(Build.VERSION_CODES.O)
-        private static Notification buildNotification(Service context, String channelId, String msg) {
-            Intent intentNext = new Intent(context, MainActivity.class);
-            PendingIntent piLaunchMainActivity = PendingIntent.getService(context, 1, intentNext, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            // Create a notification.
-            return new Notification.Builder(context, channelId).setContentTitle("ARC").setContentText(msg).setSmallIcon(R.mipmap.ic_launcher).setContentIntent(piLaunchMainActivity).setStyle(new Notification.BigTextStyle()).build();
-        }
-
-        @TargetApi(Build.VERSION_CODES.O)
-        @NonNull
-        private static String createChannel(Service ctx) {
-            // Create a channel.
-            NotificationManager notificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-            CharSequence channelName = "Управление";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, channelName, importance);
-
-            assert notificationManager != null;
-            notificationManager.createNotificationChannel(notificationChannel);
-            return CHANNEL_ID;
-        }
-    }
 }
 
 

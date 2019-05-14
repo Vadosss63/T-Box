@@ -154,7 +154,7 @@ public class MusicFiles {
             }
             // проверяем типы файлов
             String filename = file.getName();
-            if (filename.endsWith(".mp3") || filename.endsWith(".flac") || filename.endsWith(".wma") || filename.endsWith(".ogg")) {
+            if (filename.endsWith(".mp3") || filename.endsWith(".flac") || filename.endsWith(".m4a")|| filename.endsWith(".wma") || filename.endsWith(".ogg")) {
                 Track track = new Track(filename);
                 track.setNumber(numberTracks);
                 track.setParentNumber(parentFolder.getNumber());

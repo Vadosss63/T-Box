@@ -39,15 +39,18 @@ public class EncoderTrackInfo {
         result.add(getEnd());
 
         result.add(getStart());
-        result.addAll(m_artist);
+        if (!m_artist.isEmpty())
+            result.addAll(m_artist);
         result.add(getEnd());
 
         result.add(getStart());
-        result.addAll(m_album);
+        if (!m_album.isEmpty())
+            result.addAll(m_album);
         result.add(getEnd());
 
         result.add(getStart());
-        result.addAll(m_year);
+        if (!m_year.isEmpty())
+            result.addAll(m_year);
         result.add(getEnd());
 
         result.add(getStart());

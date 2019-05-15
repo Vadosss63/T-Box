@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/T_BOX_CONTROL.iml" filepath="$PROJECT_DIR$/T_BOX_CONTROL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T_BOX_CONTROL.iml" filepath="$PROJECT_DIR$/T_BOX_CONTROL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/t_box_control/t_box_control.iml" filepath="$PROJECT_DIR$/t_box_control/t_box_control.iml" />
       <module fileurl="file://$PROJECT_DIR$/t_box_control/t_box_control.iml" filepath="$PROJECT_DIR$/t_box_control/t_box_control.iml" />
     </modules>
   </component>

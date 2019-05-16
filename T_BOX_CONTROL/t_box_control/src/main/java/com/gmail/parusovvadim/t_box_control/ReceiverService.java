@@ -153,7 +153,7 @@ public class ReceiverService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Parser(intent);
         NotificationRunnableService notification = new NotificationRunnableService(this);
-        notification.showNotification(this, "Сервис включен");
+        notification.showNotification(this, "Сервис включен", "Статус");
         return super.onStartCommand(intent, flags, startId);
     }
 

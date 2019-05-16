@@ -21,7 +21,6 @@ public class UARTService extends Service
     static final public int CMD_SEND_DATA = 0xAA;
     static final public int CMD_RESET = 0x00;
 
-
     static String m_showMassage = "Поиск соединения";
     int m_iteration = 0;
 
@@ -45,9 +44,16 @@ public class UARTService extends Service
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
-        if(m_UARTPort.IsConfigured() && m_UARTPort.IsConnected()) m_senderThread.AddCMD(intent);
+        if(m_UARTPort.IsConfigured() && m_UARTPort.IsConnected())
+        {
+            NotificationRunnableService notification = new NotificationRunnableService(this);
+            notification.showNotification(this, "Передача данных", "Статус Bluetooth");
+            m_senderThread.AddCMD(intent);
+        }
         else
         {
+            NotificationRunnableService notification = new NotificationRunnableService(this);
+            notification.showNotification(this, "Соединение разорвано", "Статус Bluetooth");
             if(!m_isCheckConnectionStart)
             {
                 m_isCheckConnectionStart = true;
@@ -82,7 +88,7 @@ public class UARTService extends Service
                 msg.append(".");
 
             NotificationRunnableService notification = new NotificationRunnableService(this);
-            notification.showNotification(this, msg.toString());
+            notification.showNotification(this, msg.toString(), "Подключение");
 
             m_iteration++;
             if(m_isCheckConnectionStart) RunCheck();
@@ -182,7 +188,6 @@ public class UARTService extends Service
 
     private void CreateUARTPort()
     {
-        //TODO для отладки
         String msg;
         if(m_UARTPort.Initialisation(this))
         {
@@ -208,9 +213,9 @@ public class UARTService extends Service
         {
             msg = "Error";
         }
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, msg, "Статус Bluetooth");
 
-        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     // Обработка пришедших команд с порта

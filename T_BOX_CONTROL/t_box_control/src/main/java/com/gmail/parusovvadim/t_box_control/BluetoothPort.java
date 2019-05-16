@@ -79,11 +79,6 @@ public class BluetoothPort implements DataPort {
             m_isUARTConfigured = false;
             return false;
         }
-
-        //        // Регистрируем BroadcastReceiver
-        //        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        //        m_context.registerReceiver(m_receiver, filter);// Не забудьте снять регистрацию в onDestroy
-
         return true;
     }
 

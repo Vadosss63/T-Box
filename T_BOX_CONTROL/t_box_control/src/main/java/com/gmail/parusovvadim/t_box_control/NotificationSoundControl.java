@@ -27,21 +27,21 @@ class NotificationRunnableService
             notificationChannel.enableVibration(true);
             notificationChannel.setVibrationPattern(new long[]{0L});
             notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-            assert notificationManager != null;
-            notificationManager.createNotificationChannel(notificationChannel);
+
+            if(notificationManager != null)
+                notificationManager.createNotificationChannel(notificationChannel);
         }
     }
 
-    void showNotification(Service service, String msg)
+    void showNotification(Service service, String msg, String title)
     {
-        service.startForeground(NOTIFICATION_ID, getNotification(service, msg));
+        service.startForeground(NOTIFICATION_ID, getNotification(service, msg, title));
     }
 
-    private Notification getNotification(Service service, String msg)
+    private Notification getNotification(Service service, String msg, String title)
     {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(service, CHANEL_ID);
-        builder.setContentTitle("T-BOX CONTROL").setContentText(msg).
-                setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorPrimaryDark)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
+        builder.setContentTitle(title).setContentText(msg).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorPrimaryDark)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
         return builder.build();
     }
 

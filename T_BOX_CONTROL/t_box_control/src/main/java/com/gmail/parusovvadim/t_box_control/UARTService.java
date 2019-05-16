@@ -3,12 +3,11 @@ package com.gmail.parusovvadim.t_box_control;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.widget.Toast;
 
+import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
 import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.EncoderTimeTrack;
 import com.gmail.parusovvadim.encoder_uart.EncoderTrack;
-import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
 
 import java.util.ArrayDeque;
 import java.util.Timer;
@@ -49,8 +48,7 @@ public class UARTService extends Service
             NotificationRunnableService notification = new NotificationRunnableService(this);
             notification.showNotification(this, "Передача данных", "Статус Bluetooth");
             m_senderThread.AddCMD(intent);
-        }
-        else
+        } else
         {
             NotificationRunnableService notification = new NotificationRunnableService(this);
             notification.showNotification(this, "Соединение разорвано", "Статус Bluetooth");
@@ -127,6 +125,7 @@ public class UARTService extends Service
 
     private void Parser(Intent intent)
     {
+        if(intent == null) return;
         if(!m_UARTPort.IsConnected()) return;
 
         int cmd = intent.getIntExtra("CMD", 0);

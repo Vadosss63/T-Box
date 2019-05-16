@@ -86,6 +86,7 @@ public class ReceiverService extends Service {
         @Override
         public void onSessionDestroyed() {
             super.onSessionDestroyed();
+            StopMediaSession();
             m_isStop = true;
         }
 
@@ -155,6 +156,12 @@ public class ReceiverService extends Service {
         NotificationRunnableService notification = new NotificationRunnableService(this);
         notification.showNotification(this, "Сервис включен", "Статус");
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void StopMediaSession()
+    {
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, "Нет активного плеера", "Статус");
     }
 
     @Override

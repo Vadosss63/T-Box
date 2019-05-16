@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/T_BOX_MEDIA_PLAYER.iml" filepath="$PROJECT_DIR$/T_BOX_MEDIA_PLAYER.iml" />
-      <module fileurl="file://$PROJECT_DIR$/T_BOX_MEDIA_PLAYER.iml" filepath="$PROJECT_DIR$/T_BOX_MEDIA_PLAYER.iml" />
-      <module fileurl="file://$PROJECT_DIR$/t_box_media_player/t_box_media_player.iml" filepath="$PROJECT_DIR$/t_box_media_player/t_box_media_player.iml" />
       <module fileurl="file://$PROJECT_DIR$/t_box_media_player/t_box_media_player.iml" filepath="$PROJECT_DIR$/t_box_media_player/t_box_media_player.iml" />
     </modules>
   </component>

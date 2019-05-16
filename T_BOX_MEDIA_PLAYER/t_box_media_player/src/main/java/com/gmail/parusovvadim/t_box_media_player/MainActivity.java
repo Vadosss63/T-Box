@@ -23,6 +23,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.gmail.parusovvadim.media_directory.Folder;
+import com.gmail.parusovvadim.media_directory.MusicFiles;
+import com.gmail.parusovvadim.media_directory.NodeDirectory;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Vector;

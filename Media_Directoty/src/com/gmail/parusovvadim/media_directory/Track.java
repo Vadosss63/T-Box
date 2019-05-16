@@ -1,4 +1,4 @@
-package com.gmail.parusovvadim.t_box_media_player;
+package com.gmail.parusovvadim.media_directory;
 
 public class Track implements NodeDirectory
 {
@@ -7,22 +7,22 @@ public class Track implements NodeDirectory
     private int m_parentNumber = -1;
     private String m_path;
 
-    Track(String name)
+    public Track(String name)
     {
         m_name = name;
     }
 
-    void setPath(String path)
+    public void setPath(String path)
     {
         m_path = path;
     }
 
-    void setNumber(int number)
+    public void setNumber(int number)
     {
         m_number = number;
     }
 
-    void setParentNumber(int parentNumber)
+    public void setParentNumber(int parentNumber)
     {
         m_parentNumber = parentNumber;
     }

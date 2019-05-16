@@ -1,4 +1,4 @@
-package com.gmail.parusovvadim.t_box_media_player;
+package com.gmail.parusovvadim.media_directory;
 
 import java.io.File;
 import java.util.Arrays;
@@ -18,15 +18,15 @@ public class MusicFiles {
     // Мар с для доступа к по пути
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
 
-    Vector<NodeDirectory> getFolders() {
+    public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;
     }
 
-    MusicFiles(String rootPathFolder) {
+    public MusicFiles(String rootPathFolder) {
         getAllFiles(rootPathFolder, 0);
     }
 
-    NodeDirectory getParentFolder(NodeDirectory childFolder) {
+    public NodeDirectory getParentFolder(NodeDirectory childFolder) {
         if (childFolder == null) return null;
 
         if (childFolder.getParentNumber() == 0) return null;
@@ -34,11 +34,11 @@ public class MusicFiles {
         return m_mapFolders.get(childFolder.getParentNumber() - 1);
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return m_mapFolders.isEmpty();
     }
 
-    String getPathTrack(int parentNumber, int number) {
+    public String getPathTrack(int parentNumber, int number) {
         if (m_mapTracks.containsKey(parentNumber)) {
             Vector<NodeDirectory> listTracks = m_mapTracks.get(parentNumber);
             if (number < listTracks.size()) {
@@ -49,7 +49,7 @@ public class MusicFiles {
         return "";
     }
 
-    NodeDirectory getTrack(int parentNumber, int number) {
+    public NodeDirectory getTrack(int parentNumber, int number) {
         if (m_mapTracks.containsKey(parentNumber)) {
             Vector<NodeDirectory> listTracks = m_mapTracks.get(parentNumber);
             if (number < listTracks.size() && number >= 0) {
@@ -59,14 +59,14 @@ public class MusicFiles {
         return null;
     }
 
-    Vector<NodeDirectory> getFolders(int parentFolder) {
+    public Vector<NodeDirectory> getFolders(int parentFolder) {
         if (m_mapChaldeanFolders.containsKey(parentFolder))
             return m_mapChaldeanFolders.get(parentFolder);
 
         return new Vector<>();
     }
 
-    Vector<NodeDirectory> getAllFiles(int parentFolder) {
+    public Vector<NodeDirectory> getAllFiles(int parentFolder) {
         Vector<NodeDirectory> dataFales = new Vector<NodeDirectory>();
         if (m_mapChaldeanFolders.containsKey(parentFolder))
             dataFales.addAll(m_mapChaldeanFolders.get(parentFolder));
@@ -76,13 +76,13 @@ public class MusicFiles {
         return dataFales;
     }
 
-    Vector<NodeDirectory> getTracks(int parentFolder) {
+    public Vector<NodeDirectory> getTracks(int parentFolder) {
         if (m_mapTracks.containsKey(parentFolder)) return m_mapTracks.get(parentFolder);
 
         return new Vector<NodeDirectory>();
     }
 
-    int getParentNumber(String dirPath) {
+    public int getParentNumber(String dirPath) {
         NodeDirectory node = m_mapPaths.get(dirPath);
         return (node != null) ? node.getParentNumber() : -1;
     }

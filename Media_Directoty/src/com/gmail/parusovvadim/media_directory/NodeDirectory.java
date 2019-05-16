@@ -1,4 +1,4 @@
-package com.gmail.parusovvadim.t_box_media_player;
+package com.gmail.parusovvadim.media_directory;
 
 public interface NodeDirectory {
 

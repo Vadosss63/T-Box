@@ -1,4 +1,4 @@
-package com.gmail.parusovvadim.t_box_media_player;
+package com.gmail.parusovvadim.media_directory;
 
 public class Folder implements NodeDirectory
 {
@@ -9,28 +9,28 @@ public class Folder implements NodeDirectory
     private boolean m_isFolderUp = false;
     private String m_path;
 
-    Folder(String name)
+    public Folder(String name)
     {
         m_name = name;
     }
 
-    void setPath(String path) {
+    public void setPath(String path) {
         m_path = path;
     }
 
-    void setNumber(int number) {
+    public void setNumber(int number) {
         m_number = number;
     }
 
-    void setParentNumber(int parentNumber) {
+    public void setParentNumber(int parentNumber) {
         m_parentNumber = parentNumber;
     }
 
-    void setNumberTracks(int numberTracks) {
+    public void setNumberTracks(int numberTracks) {
         m_numberTracks = numberTracks;
     }
 
-    void setIsFolderUp(boolean isFolderUp) {
+    public void setIsFolderUp(boolean isFolderUp) {
         m_isFolderUp = isFolderUp;
     }
 

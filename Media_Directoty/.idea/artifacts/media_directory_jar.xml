@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="media_directory:jar">
+    <output-path>$PROJECT_DIR$/../LIBS</output-path>
+    <root id="archive" name="media_directory.jar">
+      <element id="module-output" name="media_directory" />
+    </root>
+  </artifact>
+</component>

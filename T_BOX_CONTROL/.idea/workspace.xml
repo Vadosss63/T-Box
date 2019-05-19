@@ -143,7 +143,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
+            <state relative-caret-position="1332">
               <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -164,13 +164,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="108">
               <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
@@ -185,6 +185,16 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="5" column="22" selection-start-line="5" selection-end-line="6" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
@@ -254,24 +264,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
               <item name="t_box_control" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
+              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
@@ -288,6 +291,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
@@ -388,6 +392,17 @@
               <item name="androidTest" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -630,7 +645,7 @@
       <window_info id="Structure" order="7" sideWeight="0.41609588" side_tool="true" weight="0.16012084" />
       <window_info id="Resources Explorer" order="8" weight="0.32930514" />
       <window_info anchor="bottom" id="Build" order="0" sideWeight="0.3514957" visible="true" weight="0.16286644" />
-      <window_info anchor="bottom" id="Android Profiler" order="1" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5016026" side_tool="true" weight="0.3262548" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3294686" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49839744" weight="0.39739415" />
@@ -816,13 +831,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="22" selection-start-line="5" selection-end-line="6" />
+        <state relative-caret-position="1332">
+          <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/DataPort.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -831,19 +848,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="108">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
@@ -862,6 +869,14 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="5" column="22" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
   </component>
   <component name="masterDetails">

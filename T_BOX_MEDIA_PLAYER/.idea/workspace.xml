@@ -52,93 +52,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c180374e-9808-40af-8b2c-dbafb8956190" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_T_BOX_MEDIA_PLAYER_t_box_media_player_libs_media_directory_jar_unspecified_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../APK/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/../APK/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Encoder_UART/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Encoder_UART/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Encoder_UART/encoder_uart.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_2_0_0_beta1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_2_0_0_beta1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/NotificationSoundControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/NotificationSoundControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_box_media_player/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -157,13 +77,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java">
+        <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="495" column="20" selection-start-line="495" selection-start-column="20" selection-end-line="495" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="623">
+              <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -177,7 +94,7 @@
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Vadosss63\MyAPKStore.jks" />
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
@@ -207,9 +124,9 @@
         <option value="$PROJECT_DIR$/t_box/build.gradle" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/t_box_media_player/build.gradle" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" />
+        <option value="$PROJECT_DIR$/t_box_media_player/build.gradle" />
       </list>
     </option>
   </component>
@@ -225,9 +142,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T_BOX_MEDIA_PLAYER" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,7 +195,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/../APK" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Vadosss63\Desktop\T-Box\APK" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
@@ -276,7 +203,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="device.picker.selection" value="9b5cb4e" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Encoder_UART" />
+    <property name="last_opened_file_path" value="$USER_HOME$/MyAPKStore.jks" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -383,16 +310,16 @@
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info id="Build Variants" order="2" sideWeight="0.398374" side_tool="true" weight="0.1650641" />
+      <window_info id="Build Variants" order="2" sideWeight="0.4012605" side_tool="true" visible="true" weight="0.12990937" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6004646" visible="true" weight="0.12990937" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.5987395" visible="true" weight="0.12990937" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Structure" order="7" sideWeight="0.39953542" side_tool="true" weight="0.20459402" />
       <window_info id="Resources Explorer" order="8" sideWeight="0.49941927" weight="0.32959402" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.3082265" visible="true" weight="0.05374593" />
+      <window_info active="true" anchor="bottom" id="Build" order="0" sideWeight="0.3074018" visible="true" weight="0.2247557" />
       <window_info anchor="bottom" id="Android Profiler" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.6923077" side_tool="true" weight="0.2868217" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.69259816" side_tool="true" weight="0.05374593" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3297769" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49946582" weight="0.627907" />
       <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49786323" weight="0.3294686" />
@@ -454,9 +381,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/MusicFiles.java" />
-    <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/ChangeFolderFragment.java" />
-    <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" />
     <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/Folder.java" />
     <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" />
     <entry file="file://$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box_media_player/Track.java" />
@@ -479,13 +403,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/build/generated/source/buildConfig/androidTest/debug/com/gmail/parusovvadim/t_box_media_player/test/BuildConfig.java" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/build/generated/source/buildConfig/debug/com/gmail/parusovvadim/t_box_media_player/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -496,21 +413,8 @@
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34f01eba86b48079fe6970603bcc29d7/jars/classes.jar!/android/support/v4/media/session/MediaSessionCompat.class" />
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/media/AudioManager.java" />
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/media/AudioFocusRequest.java" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/NodeDirectory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/NodeDirectory.java" />
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/media/AudioManager.java" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -530,23 +434,8 @@
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/Track.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MusicFiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/Track.java" />
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MusicFiles.java" />
     <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/encoder_uart.jar!/com/gmail/parusovvadim/encoder_uart/EncoderFolders.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -653,13 +542,81 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
+    <entry file="file://C:/Android/Sdk/sources/android-28/android/media/MediaMetadataRetriever.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/824661f99826a40337ddc8040eb83173/jars/classes.jar!/android/support/v4/media/session/MediaButtonReceiver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar!/com/gmail/parusovvadim/media_directory/NodeDirectory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="495" column="20" selection-start-line="495" selection-start-column="20" selection-end-line="495" selection-end-column="20" />
+        <state relative-caret-position="-4252">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3597#3944#0" />
+            <element signature="e#3950#5158#0" />
+            <element signature="e#5735#6666#0" />
+            <element signature="e#7256#7467#0" />
+            <element signature="e#7473#7688#0" />
+            <element signature="e#7694#7961#0" />
+            <element signature="e#7967#8083#0" />
+            <element signature="e#8300#8451#0" />
+            <element signature="e#8457#8616#0" />
+            <element signature="e#8622#8832#0" />
+            <element signature="e#8838#9314#0" />
+            <element signature="e#9320#10594#0" />
+            <element signature="e#12504#13039#0" />
+            <element signature="method#onSkipToQueueItem#0;class#13000:18344" />
+            <element signature="method#onStop#0;class#13000:18344" />
+            <element signature="method#onSeekTo#0;class#13000:18344" />
+            <element signature="method#onSkipToNext#0;class#13000:18344" />
+            <element signature="method#onSkipToPrevious#0;class#13000:18344" />
+            <element signature="method#onPlayFromMediaId#0;class#13000:18344" />
+            <element signature="method#onFastForward#0;class#13000:18344" />
+            <element signature="method#onRewind#0;class#13000:18344" />
+            <element signature="method#startMediaSession#0;class#13000:18344" />
+            <element signature="method#setMetaData#0;class#13215:18650" />
+            <element signature="e#19085#19086#0" expanded="true" />
+            <element signature="e#18507#18690#0" />
+            <element signature="e#18696#18827#0" />
+            <element signature="e#18833#19952#0" />
+            <element signature="e#19958#20953#0" />
+            <element signature="e#20959#21230#0" />
+            <element signature="e#21804#21855#1" />
+            <element signature="e#22018#22019#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
         </state>
       </provider>
     </entry>

@@ -17,6 +17,8 @@ public class MusicFiles {
     private HashMap<Integer, Vector<NodeDirectory>> m_mapChaldeanFolders = new HashMap<>();
     // Мар с для доступа к по пути
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
+    // Поддерживаемые форматы
+    private static final String[] m_musicFormat = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
 
     public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;
@@ -154,15 +156,21 @@ public class MusicFiles {
             }
             // проверяем типы файлов
             String filename = file.getName();
-            if (filename.endsWith(".mp3") || filename.endsWith(".flac") || filename.endsWith(".m4a")|| filename.endsWith(".wma") || filename.endsWith(".ogg")) {
-                Track track = new Track(filename);
-                track.setNumber(numberTracks);
-                track.setParentNumber(parentFolder.getNumber());
-                track.setPath(file.getPath());
-                mapTracks.add(track);
-                m_mapPaths.put(file.getPath(), track);
-                numberTracks++;
+
+            for (String musicFormat : m_musicFormat) {
+                if (filename.endsWith(musicFormat)) {
+                    filename = filename.replace(musicFormat, "");
+                    Track track = new Track(filename);
+                    track.setNumber(numberTracks);
+                    track.setParentNumber(parentFolder.getNumber());
+                    track.setPath(file.getPath());
+                    mapTracks.add(track);
+                    m_mapPaths.put(file.getPath(), track);
+                    numberTracks++;
+                    break;
+                }
             }
+
         }
         // Устаналиваем количество треков в папке
         parentFolder.setNumberTracks(numberTracks);

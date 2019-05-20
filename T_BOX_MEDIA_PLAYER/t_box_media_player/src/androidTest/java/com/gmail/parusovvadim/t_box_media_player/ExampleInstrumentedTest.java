@@ -24,6 +24,6 @@ public class ExampleInstrumentedTest
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.vadosss63.playeraudi", appContext.getPackageName());
+        assertEquals("com.gmail.parusovvadim.t_box_media_player", appContext.getPackageName());
     }
 }

@@ -1,8 +1,5 @@
 package com.gmail.parusovvadim.t_box_media_player;
 
-
-import com.ibm.icu.text.Transliterator;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -20,14 +17,4 @@ public class ExampleUnitTest
         assertEquals(4, 2 + 2);
     }
 
-    @Test
-    public void RunMy()
-    {
-        final String CYRILLIC_TO_LATIN = "Russian-Latin/BGN";
-        String msg = "Привет Vin";
-        Transliterator toLatinTrans = Transliterator.getInstance(CYRILLIC_TO_LATIN);
-        String result = toLatinTrans.transliterate(msg);
-        result = result + "__";
-        assertEquals(4, 2 + 2);
-    }
 }

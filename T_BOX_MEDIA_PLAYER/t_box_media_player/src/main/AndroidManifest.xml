@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gmail.parusovvadim.t_box_media_player">
 
@@ -21,7 +20,6 @@
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -37,13 +35,15 @@
         <service
             android:name=".MPlayer"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="android.permission.WAKE_LOCK">
 
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
 
         </service>
+
     </application>
 
 </manifest>

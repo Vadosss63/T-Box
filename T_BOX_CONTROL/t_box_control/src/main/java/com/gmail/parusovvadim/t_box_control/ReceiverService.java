@@ -43,7 +43,6 @@ public class ReceiverService extends Service {
     static final int CMD_SYNC = 0x01;
     static final int CMD_SYNCHRONIZATION = 0x20;
 
-
     private MediaSessionManager.OnActiveSessionsChangedListener m_onActiveSessionsChangedListener = this::ChangedActiveSessions;
 
     // Действие при смене активной сессии

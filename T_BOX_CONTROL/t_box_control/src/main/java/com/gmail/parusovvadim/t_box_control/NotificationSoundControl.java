@@ -9,17 +9,14 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
-class NotificationRunnableService
-{
+class NotificationRunnableService {
 
     static private String CHANEL_ID = "T-BOX";
     static private String CHANEL_NAME = "CONTROL";
     static private int NOTIFICATION_ID = 1991;
 
-    NotificationRunnableService(Service service)
-    {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
+    NotificationRunnableService(Service service) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = (NotificationManager) service.getSystemService(Context.NOTIFICATION_SERVICE);
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel notificationChannel = new NotificationChannel(CHANEL_ID, CHANEL_NAME, importance);
@@ -28,18 +25,16 @@ class NotificationRunnableService
             notificationChannel.setVibrationPattern(new long[]{0L});
             notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
 
-            if(notificationManager != null)
+            if (notificationManager != null)
                 notificationManager.createNotificationChannel(notificationChannel);
         }
     }
 
-    void showNotification(Service service, String msg, String title)
-    {
+    void showNotification(Service service, String msg, String title) {
         service.startForeground(NOTIFICATION_ID, getNotification(service, msg, title));
     }
 
-    private Notification getNotification(Service service, String msg, String title)
-    {
+    private Notification getNotification(Service service, String msg, String title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(service, CHANEL_ID);
         builder.setContentTitle(title).setContentText(msg).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorPrimaryDark)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
         return builder.build();

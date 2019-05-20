@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83933b72-152e-4db2-ad40-6dba2a0dd012" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../LIBS/media_directory.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LIBS/media_directory.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" afterDir="false" />
@@ -126,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="162" column="20" lean-forward="true" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="65" />
+            <state relative-caret-position="25">
+              <caret line="157" column="45" lean-forward="true" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6167#6545#0" />
@@ -139,8 +140,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="44" lean-forward="true" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+            <state relative-caret-position="133">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -183,7 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="1920" />
     <option name="height" value="1173" />
@@ -205,12 +206,6 @@
               <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
               <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
@@ -308,7 +303,7 @@
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499031" visible="true" weight="0.1159188" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499031" visible="true" weight="0.1159188" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -318,7 +313,7 @@
       <window_info id="Favorites" order="7" sideWeight="0.500969" side_tool="true" weight="0.11378205" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32945737" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,8 +408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="162" column="20" lean-forward="true" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="65" />
+        <state relative-caret-position="25">
+          <caret line="157" column="45" lean-forward="true" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6167#6545#0" />
@@ -424,8 +419,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="44" lean-forward="true" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -436,8 +431,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>media_directory:jar</last-edited>

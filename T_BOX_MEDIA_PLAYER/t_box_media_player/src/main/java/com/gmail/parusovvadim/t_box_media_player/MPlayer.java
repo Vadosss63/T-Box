@@ -165,7 +165,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     }
 
     private void pause() {
-        m_isPause = true;
         stopPlayback();
         m_mediaPlayer.pause();
     }
@@ -306,9 +305,11 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         public void onAudioFocusChange(int i) {
             switch (i) {
                 case AudioManager.AUDIOFOCUS_LOSS:
+                    m_isPause = true;
                     m_mediaSessionCallback.onPause();
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+                    m_isPause = true;
                     m_mediaSessionCallback.onPause();
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:

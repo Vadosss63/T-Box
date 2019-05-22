@@ -115,7 +115,9 @@ public class UARTService extends Service {
     }
 
     private void parser(Intent intent) {
+
         if (intent == null) return;
+
         if (!m_UARTPort.IsConnected()) return;
 
         int cmd = intent.getIntExtra("CMD", 0);
@@ -159,6 +161,7 @@ public class UARTService extends Service {
     }
 
     private void sendSelectTrack(Intent intent) {
+
         if (intent == null) return;
         int folder = intent.getIntExtra("folder", 0);
         int track = intent.getIntExtra("track", 0);

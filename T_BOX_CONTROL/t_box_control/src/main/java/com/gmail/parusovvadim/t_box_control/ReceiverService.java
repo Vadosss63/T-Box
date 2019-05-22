@@ -1,10 +1,5 @@
 package com.gmail.parusovvadim.t_box_control;
 
-import android.annotation.TargetApi;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
@@ -17,14 +12,15 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
+
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 
-import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
-import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
-import com.gmail.parusovvadim.encoder_uart.EncoderTrackInfo;
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
+import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
+import com.gmail.parusovvadim.encoder_uart.EncoderTrackInfo;
+import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 
 import java.util.List;
 import java.util.Vector;
@@ -45,33 +41,6 @@ public class ReceiverService extends Service {
 
     private MediaSessionManager.OnActiveSessionsChangedListener m_onActiveSessionsChangedListener = this::ChangedActiveSessions;
 
-    // Действие при смене активной сессии
-    private void ChangedActiveSessions(@Nullable List<MediaController> list) {
-        if (list == null) return;
-
-        if (list.isEmpty()) return;
-
-        m_activePlayer = list.get(list.size() - 1);
-
-        // Устанавливаем колбеки
-        m_activePlayer.registerCallback(m_callback);
-
-        // Выполняем синхронизацию в случае подключенного плеера
-        String playerName = m_activePlayer.getPackageName();
-        m_isAudioPlayer = playerName.equals(AUDIO_PLAYER);
-
-        SendState();
-    }
-
-    private void SendState() {
-        PlaybackState state = m_activePlayer.getPlaybackState();
-        if (state != null) {
-            m_callback.onPlaybackStateChanged(state);
-            if (m_activePlayer.getMetadata() != null)
-                m_callback.onMetadataChanged(m_activePlayer.getMetadata());
-        }
-    }
-
     private String m_title = "";
 
     private MediaController m_activePlayer = null;
@@ -90,7 +59,7 @@ public class ReceiverService extends Service {
         }
 
         @Override
-        public void onPlaybackStateChanged(@Nullable PlaybackState state) {
+        public void onPlaybackStateChanged(PlaybackState state) {
             if (state == null) return;
             boolean playing = state.getState() == PlaybackState.STATE_PLAYING;
             if (playing) {
@@ -106,20 +75,58 @@ public class ReceiverService extends Service {
         @Override // колбек при изменении данных
         public void onMetadataChanged(@Nullable MediaMetadata metadata) {
             String title = GetTitle(metadata);
-            if (!title.equals(m_title)) {
+            SendCurrentTrack(metadata);
+            if (!m_title.equals(title)) {
                 m_title = title;
                 SendAUX();
                 SendInfoTrack(metadata);
             }
-            SendCurrentTrack(metadata);
         }
     };
 
-    private void SendCurrentTrack(@Nullable MediaMetadata metadata) {
+    // Действие при смене активной сессии
+    private void ChangedActiveSessions(List<MediaController> list) {
+        if (list == null) return;
 
-        if (metadata == null) return;
+        if (list.isEmpty()) return;
+
+        // TODO выполнить проверку на закрытия основного плеера
+        for (MediaController player : list) {
+            // Выполняем синхронизацию в случае подключенного плеера
+            String playerName = player.getPackageName();
+            m_isAudioPlayer = AUDIO_PLAYER.equals(playerName);
+            if (m_isAudioPlayer) {
+                m_activePlayer = player;
+                NotificationRunnableService notification = new NotificationRunnableService(this);
+                notification.showNotification(this, "T-BoX", "Плеер");
+                break;
+            }
+        }
+
+        if (!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
+            m_activePlayer = list.get(list.size() - 1);
+
+        // Устанавливаем колбеки
+        m_activePlayer.registerCallback(m_callback);
+
+        SendState();
+    }
+
+    private void SendState() {
+        PlaybackState state = m_activePlayer.getPlaybackState();
+        if (state == null) return;
+
+        m_callback.onPlaybackStateChanged(state);
+        if (m_activePlayer.getMetadata() != null)
+            m_callback.onMetadataChanged(m_activePlayer.getMetadata());
+
+    }
+
+    private void SendCurrentTrack(MediaMetadata metadata) {
 
         if (!m_isAudioPlayer) return;
+
+        if (metadata == null) return;
 
         if (metadata.containsKey(MediaMetadata.METADATA_KEY_MEDIA_ID)) {
             String id = metadata.getString(MediaMetadata.METADATA_KEY_MEDIA_ID);
@@ -157,8 +164,7 @@ public class ReceiverService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    public void StopMediaSession()
-    {
+    public void StopMediaSession() {
         NotificationRunnableService notification = new NotificationRunnableService(this);
         notification.showNotification(this, "Нет активного плеера", "Статус");
     }
@@ -174,6 +180,8 @@ public class ReceiverService extends Service {
     }
 
     private void Parser(Intent intent) {
+
+        if (intent == null) return;
 
         int cmd = intent.getIntExtra("CMD", -1);
         switch (cmd) {
@@ -338,6 +346,9 @@ public class ReceiverService extends Service {
             intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
             intent.putExtra("CMD", CMD_SYNCHRONIZATION);
             startService(intent);
+
+            MediaMetadata metadata = m_activePlayer.getMetadata();
+            SendCurrentTrack(metadata);
         } else {
             m_title = "";
             SendState();

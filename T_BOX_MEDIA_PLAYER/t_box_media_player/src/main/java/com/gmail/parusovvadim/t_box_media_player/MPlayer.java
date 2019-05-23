@@ -178,7 +178,21 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     private void playNext() {
         if (m_currentTrack != null) {
             int indexTrack = m_currentTrack.getNumber() + 1;
-            selectTrack(m_currentTrack.getParentNumber(), indexTrack);
+            int countTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
+            if (indexTrack < countTrack) {
+                selectTrack(m_currentTrack.getParentNumber(), indexTrack);
+            } else {
+                int parentNumber = m_currentTrack.getParentNumber() + 1;
+                while (parentNumber <= (m_musicFiles.getFolders().size())) {
+                    NodeDirectory trackNode = m_musicFiles.getTrack(parentNumber, 0);
+                    if (trackNode != null) {
+                        // запускаем трек
+                        m_currentTrack = trackNode;
+                        startPlayer();
+                        break;
+                    }
+                }
+            }
         }
     }
 
@@ -351,6 +365,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         try {
             unregisterReceiver(m_noisyAudioStreamReceiver);
         } catch (IllegalArgumentException e) {
+            e.fillInStackTrace();
         }
     }
 

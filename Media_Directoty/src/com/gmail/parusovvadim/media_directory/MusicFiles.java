@@ -64,7 +64,6 @@ public class MusicFiles {
     public Vector<NodeDirectory> getFolders(int parentFolder) {
         if (m_mapChaldeanFolders.containsKey(parentFolder))
             return m_mapChaldeanFolders.get(parentFolder);
-
         return new Vector<>();
     }
 
@@ -187,6 +186,6 @@ public class MusicFiles {
 
         String pathLowerCaseFile1 = file1.getName().toLowerCase();
         String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return String.valueOf(pathLowerCaseFile1).compareTo(pathLowerCaseFile2);
+        return pathLowerCaseFile1.compareTo(pathLowerCaseFile2);
     };
 }

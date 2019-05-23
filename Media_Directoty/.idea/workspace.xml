@@ -7,14 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83933b72-152e-4db2-ad40-6dba2a0dd012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle____local_aars____home_vadosss63_MyPoject_T_Box_T_BOX_CONTROL_t_box_control_libs_media_directory_jar_unspecified_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +31,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1277">
-              <caret line="169" column="26" lean-forward="true" selection-start-line="169" selection-start-column="26" selection-end-line="169" selection-end-column="26" />
+            <state>
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6167#6545#0" />
+                <element signature="method#getParentFolder#0;class#MusicFiles#0" />
+                <element signature="method#getPathTrack#0;class#MusicFiles#0" />
+                <element signature="method#getTrack#0;class#MusicFiles#0" />
+                <element signature="method#getAllFiles#0;class#MusicFiles#0" />
+                <element signature="method#getTracks#0;class#MusicFiles#0" />
+                <element signature="method#getParentNumber#0;class#MusicFiles#0" />
+                <element signature="method#getNumber#0;class#MusicFiles#0" />
+                <element signature="method#getNumberTracks#0;class#MusicFiles#0" />
               </folding>
             </state>
           </provider>
@@ -55,8 +58,8 @@
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/Main.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Folder.java" />
-        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" />
       </list>
     </option>
   </component>
@@ -70,9 +73,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
+    <option name="y" value="27" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1173" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -80,9 +83,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -138,9 +141,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499031" visible="true" weight="0.099358976" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499031" visible="true" weight="0.10042735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -252,11 +255,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1277">
-          <caret line="169" column="26" lean-forward="true" selection-start-line="169" selection-start-column="26" selection-end-line="169" selection-end-column="26" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6167#6545#0" />
+            <element signature="method#getParentFolder#0;class#MusicFiles#0" />
+            <element signature="method#getPathTrack#0;class#MusicFiles#0" />
+            <element signature="method#getTrack#0;class#MusicFiles#0" />
+            <element signature="method#getAllFiles#0;class#MusicFiles#0" />
+            <element signature="method#getTracks#0;class#MusicFiles#0" />
+            <element signature="method#getParentNumber#0;class#MusicFiles#0" />
+            <element signature="method#getNumber#0;class#MusicFiles#0" />
+            <element signature="method#getNumberTracks#0;class#MusicFiles#0" />
           </folding>
         </state>
       </provider>

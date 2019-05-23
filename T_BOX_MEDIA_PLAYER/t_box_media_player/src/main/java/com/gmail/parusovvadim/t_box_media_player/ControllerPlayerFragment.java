@@ -134,7 +134,7 @@ public class ControllerPlayerFragment extends Fragment {
                         public void onMetadataChanged(MediaMetadataCompat metadata) {
 
                             String id = metadata.getString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID);
-                            String ids[] = id.split(";");
+                            String[] ids = id.split(";");
                             if (ids.length == 2) {
                                 int folder = Integer.parseInt(ids[0]);
                                 int track = Integer.parseInt(ids[1]);

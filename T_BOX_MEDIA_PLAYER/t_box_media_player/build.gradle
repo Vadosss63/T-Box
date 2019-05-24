@@ -14,7 +14,7 @@ android {
         applicationId 'com.gmail.parusovvadim.t_box_media_player'
         minSdkVersion 21
         targetSdkVersion 28
-        versionName '3.1.8'
+        versionName '3.1.9'
         versionCode 3
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config

@@ -34,6 +34,8 @@ import com.gmail.parusovvadim.media_directory.NodeDirectory;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 
 // TODO пренести в контрол
@@ -50,6 +52,8 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     static final public int CMD_CHANGE_ROOT = 0x0A;
     static final public int CMD_PLAY_PAUSE = 0x0B;
     static final public int CMD_SYNCHRONIZATION = 0x20;
+
+    static final private int MAX_SIZE_DATA = 2816;
 
     // метаданных трека
     final private MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder();
@@ -531,14 +535,22 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
 
             encoderListTracks.AddEnd();
 
-            // Добавляем заголовок
-            EncoderMainHeader headerData = new EncoderMainHeader(encoderListTracks.GetVectorByte());
-            headerData.AddMainHeader((byte) CMD_DATA.LIST_TRACK);
+            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte());
 
-            Intent intent = getIntentServiceUART();
-            intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
-            intent.putExtra("Data", headerData.GetDataByte());
-            startService(intent);
+            for (int i = 0; i < dataList.size(); i++) {
+
+                dataList.get(i).insertElementAt((byte) i, 0);
+                dataList.get(i).insertElementAt((byte) dataList.size(), 0);
+
+                // Добавляем заголовок
+                EncoderMainHeader headerData = new EncoderMainHeader(dataList.get(i));
+                headerData.AddMainHeader((byte) CMD_DATA.LIST_TRACK);
+
+                Intent intent = getIntentServiceUART();
+                intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
+                intent.putExtra("Data", headerData.GetDataByte());
+                startService(intent);
+            }
         }
     }
 
@@ -555,14 +567,43 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         encoderFolders.AddEnd();
-        // Добавляем заголовок
-        EncoderMainHeader headerData = new EncoderMainHeader(encoderFolders.GetVectorByte());
-        headerData.AddMainHeader((byte) CMD_DATA.LIST_FOLDER);
 
-        Intent intent = getIntentServiceUART();
-        intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
-        intent.putExtra(getString(R.string.CMD_data), headerData.GetDataByte());
-        startService(intent);
+        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte());
+
+
+        for (int i = 0; i < dataList.size(); i++) {
+
+            dataList.get(i).insertElementAt((byte) i, 0);
+            dataList.get(i).insertElementAt((byte) dataList.size(), 0);
+            // Добавляем заголовок
+            EncoderMainHeader headerData = new EncoderMainHeader(dataList.get(i));
+            headerData.AddMainHeader((byte) CMD_DATA.LIST_FOLDER);
+
+            Intent intent = getIntentServiceUART();
+            intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
+            intent.putExtra(getString(R.string.CMD_data), headerData.GetDataByte());
+            startService(intent);
+        }
+
+
+    }
+
+    private static Vector<Vector<Byte>> GetListData(Vector<Byte> data) {
+        Vector<Vector<Byte>> list = new Vector<>();
+        int startIndex = 0;
+        int stopIndex;
+
+        do {
+            stopIndex = startIndex + MAX_SIZE_DATA;
+            if (stopIndex > data.size())
+                stopIndex = data.size();
+
+            list.add(new Vector<>(data.subList(startIndex, stopIndex)));
+            startIndex += MAX_SIZE_DATA;
+
+        } while (stopIndex < data.size());
+
+        return list;
     }
 
     // Получение Intent для отправки в UART

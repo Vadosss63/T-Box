@@ -8,17 +8,26 @@
 
     <ImageView
         android:id="@+id/folderImageBack"
-        android:layout_width="40dp"
+        android:layout_width="33dp"
         android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/folder_back"/>
+        android:src="@drawable/folder_back" />
 
     <TextView
         android:id="@+id/textUpFolder"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="28dp"
-        android:text="вверх"
-        android:textColor="@color/track_item_state"
-        android:textSize="23sp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:text="@string/folder_back"
+        android:textColor="@color/White"
+        android:textSize="20sp" />
 
 </LinearLayout>

@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="White">#FFFFFF</color>
+    <color name="WhiteDARK">#656565</color>
     <color name="Black">#000000</color>
     <color name="BlackDark">#4e4e4e</color>
-    <color name="OrangePressed">#f86800</color>
+    <color name="OrangePressed">#fe880c</color>
     <color name="Orange">#b08460</color>
 </resources>

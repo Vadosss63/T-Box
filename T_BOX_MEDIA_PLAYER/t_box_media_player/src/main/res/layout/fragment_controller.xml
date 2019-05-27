@@ -9,19 +9,6 @@
     android:background="@color/Black"
     android:orientation="horizontal"
     tools:ignore="MissingDefaultResource">
-
-    <!--<EditText-->
-        <!--android:id="@+id/PlayTime"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"-->
-        <!--android:gravity="center"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="time"-->
-        <!--android:text="@string/timerTrack"-->
-        <!--android:textColor="@color/OrangePressed"-->
-        <!--android:textSize="27sp"/>-->
-
     <TextView
         android:id="@+id/PlayTime"
         android:layout_width="wrap_content"
@@ -34,10 +21,10 @@
 
     <Button
         android:id="@+id/previousButton"
-        android:layout_width="50dp"
+        android:layout_width="16dp"
         android:layout_height="50dp"
-        android:background="@android:drawable/ic_media_rew"
-        android:backgroundTint="@color/button_item_state"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/prev"
         android:gravity="center" />
 
 
@@ -46,16 +33,16 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/play_pause"
-        android:backgroundTint="@color/button_item_state"
         android:gravity="center" />
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="50dp"
+        android:layout_width="16dp"
         android:layout_height="50dp"
-        android:layout_weight="0"
-        android:background="@android:drawable/ic_media_ff"
-        android:backgroundTint="@color/button_item_state"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
+        android:background="@drawable/next"
         android:gravity="center" />
 
 

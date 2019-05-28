@@ -1,134 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp"
     android:background="@color/Black"
-    android:orientation="horizontal"
-    tools:ignore="MissingDefaultResource">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageTitle"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:srcCompat="@color/WhiteDARK" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_t_box" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#CC111111"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/folderImageBack"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/play_dot" />
-
-                    <TextView
-                        android:id="@+id/titleTrack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="Новая композиция"
-                        android:textColor="@color/White"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/PlayTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:gravity="center"
-                        android:text="@string/timerTrack"
-                        android:textColor="@color/OrangePressed"
-                        android:textSize="12sp" />
-
-                    <SeekBar
-                        android:id="@+id/seekBar"
-                        style="@style/Widget.AppCompat.SeekBar"
+                    <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:progress="0"
-                        android:progressBackgroundTint="@color/White"
-                        android:progressTint="@color/OrangePressed" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/totalTime"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/folderImageBack"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/play_dot" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/titleTrack"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:singleLine="true"
+                                    android:text="Новая композиция"
+                                    android:textColor="@color/White"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/artistTrack"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:singleLine="true"
+                                    android:text="Новая композиция"
+                                    android:textColor="@color/WhiteDARK"
+                                    android:textSize="16sp" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/timerTrack"
-                        android:textColor="@color/OrangePressed"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/previousButton"
+                            android:layout_width="16dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/prev"
+                            android:gravity="center" />
+
+                        <Button
+                            android:id="@+id/play_pause_Button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/play_pause"
+                            android:gravity="center" />
+
+                        <Button
+                            android:id="@+id/nextButton"
+                            android:layout_width="16dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="20dp"
+
+                            android:background="@drawable/next"
+                            android:gravity="center" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/previousButton"
-                android:layout_width="16dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/prev"
-                android:gravity="center" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/play_pause_Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/play_pause"
-                android:gravity="center" />
+                <TextView
+                    android:id="@+id/PlayTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/timerTrack"
+                    android:textColor="@color/OrangePressed"
+                    android:textSize="12sp" />
 
-            <Button
-                android:id="@+id/nextButton"
-                android:layout_width="16dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:progress="0"
+                    android:progressBackgroundTint="@color/White"
+                    android:progressTint="@color/OrangePressed" />
 
-                android:background="@drawable/next"
-                android:gravity="center" />
+                <TextView
+                    android:id="@+id/totalTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:text="@string/timerTrack"
+                    android:textColor="@color/OrangePressed"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
 
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
+

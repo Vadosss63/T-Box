@@ -486,7 +486,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 if (art != null)
                     metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeByteArray(art, 0, art.length));
                 else
-                    metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                    metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.drawable.image_t_box));
 
                 metadataBuilder.putString(MediaMetadataCompat.METADATA_KEY_TITLE, title).putString(MediaMetadataCompat.METADATA_KEY_ALBUM, album).putString(MediaMetadataCompat.METADATA_KEY_ARTIST, artist).putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, String.valueOf(m_currentTrack.getParentNumber()) + ";" + String.valueOf(m_currentTrack.getNumber())).putLong(MediaMetadataCompat.METADATA_KEY_DURATION, durationMs);
 

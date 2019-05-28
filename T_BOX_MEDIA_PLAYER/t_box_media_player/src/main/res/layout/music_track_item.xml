@@ -33,7 +33,7 @@
 
     <TextView
         android:id="@+id/sizeTime"
-        android:text="0:00"
+        android:text="@string/timerTrack"
         android:textAlignment="center"
         android:layout_width="33dp"
         android:layout_height="28dp"

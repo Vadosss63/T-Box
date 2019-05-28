@@ -165,6 +165,6 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
 
         String pathLowerCaseFile1 = file1.getName().toLowerCase();
         String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return String.valueOf(pathLowerCaseFile1).compareTo(pathLowerCaseFile2);
+        return pathLowerCaseFile1.compareTo(pathLowerCaseFile2);
     };
 }

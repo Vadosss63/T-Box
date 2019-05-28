@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.media.MediaMetadata;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -17,6 +19,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +33,11 @@ public class ControllerPlayerFragment extends Fragment {
     private View m_view = null;
     // время воспроизведения
     private TextView m_playTime = null;
+    private TextView m_currentTitle = null;
+    private TextView m_deractionTrack = null;
+    private SeekBar m_seekPosTrack = null;
+    private ImageView m_imageTitle = null;
+
     // Колбек для перемотки
     Runnable m_runSeek;
     // остановка перемотки
@@ -49,48 +58,47 @@ public class ControllerPlayerFragment extends Fragment {
     }
 
     private void SetTime(int msec) {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
-        String timeString = sdf.format(new Date(msec));
+        String timeString = getStringTime(msec);
         m_playTime.setText(timeString);
+        m_seekPosTrack.setProgress(msec);
+    }
+
+    private String getStringTime(int msec) {
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("m:ss");
+        return sdf.format(new Date(msec));
     }
 
     @SuppressLint("ClickableViewAccessibility")
     private void CreateButtons() {
         m_playTime = m_view.findViewById(R.id.PlayTime);
+        m_seekPosTrack = m_view.findViewById(R.id.seekBar);
+        m_currentTitle = m_view.findViewById(R.id.titleTrack);
+        m_deractionTrack = m_view.findViewById(R.id.totalTime);
+        m_imageTitle = m_view.findViewById(R.id.imageTitle);
 
-//        m_playTime.setOnEditorActionListener((textView, i, keyEvent) ->
-//        {
-//            if (m_mediaController != null) {
-//
-//                PlaybackStateCompat state = m_mediaController.getPlaybackState();
-//                if (state != null) {
-//                    if (m_mediaController.getPlaybackState().getState() == PlaybackStateCompat.STATE_PLAYING) {
-//                        return true;
-//                    }
-//                }
-//
-//                String time = textView.getText().toString();
-//                String[] ds = time.split(":");
-//
-//                int pos = 0;
-//                if (ds.length == 2) {
-//                    pos = Integer.parseInt(ds[0]) * 60;
-//                    pos = pos + Integer.parseInt(ds[1]);
-//                    pos = pos * 1000;
-//                }
-//                if (pos != 0)
-//                    m_mediaController.getTransportControls().seekTo(pos);
-//
-//                return true;
-//            }
-//
-//            return false;
-//        });
-//        EditText et = new EditText(getActivity());
-//        getActivity(),startActivity(et);
+        m_seekPosTrack.setOnSeekBarChangeListener(
+                new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-//        m_playTime.setOn
+                    }
 
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                        if (seekBar.getProgress() != 0 && m_mediaController != null) {
+                            m_mediaController.getTransportControls().pause();
+                            m_mediaController.getTransportControls().seekTo(seekBar.getProgress());
+                            m_mediaController.getTransportControls().play();
+                        }
+                    }
+                }
+        );
 
         final Button play_pause = m_view.findViewById(R.id.play_pause_Button);
         final Button previousButton = m_view.findViewById(R.id.previousButton);
@@ -141,6 +149,14 @@ public class ControllerPlayerFragment extends Fragment {
                                 MainActivity ma = (MainActivity) getActivity();
                                 if (ma == null) return;
                                 ma.selectCurrentTrack(folder, track);
+                                m_currentTitle.setText(GetTitle(metadata));
+                                int maxTime = (int) metadata.getLong(MediaMetadataCompat.METADATA_KEY_DURATION);
+                                m_deractionTrack.setText(getStringTime(maxTime));
+                                m_seekPosTrack.setMax(maxTime);
+                                Bitmap image = metadata.getDescription().getIconBitmap();
+
+                                if (image != null)
+                                    m_imageTitle.setImageBitmap(image);
 
                             }
 
@@ -228,6 +244,21 @@ public class ControllerPlayerFragment extends Fragment {
             return false;
         });
 
+    }
+
+    private String GetTitle(MediaMetadataCompat mediaMetadata) {
+        String title = "Новая композиция";
+        if (mediaMetadata != null) {
+
+            if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE)) {
+                if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
+                    title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST) + " - " + mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
+                else
+                    title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
+
+            }
+        }
+        return title;
     }
 
     // Перемотка вперед

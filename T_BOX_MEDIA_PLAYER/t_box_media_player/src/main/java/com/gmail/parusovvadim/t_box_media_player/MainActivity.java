@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
 
             if (m_currentTrack == null) {
-                m_pathTextView = findViewById(R.id.pathShow);
+//                m_pathTextView = findViewById(R.id.pathShow);
                 m_mainView = findViewById(R.id.playList);
                 m_settingApp = new SettingApp(this);
 
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void showCurrentDir() {
-        m_pathTextView.setText(m_settingApp.getMusicPath());
+//        m_pathTextView.setText(m_settingApp.getMusicPath());
     }
 
     // Изменение дериктории воспроизведения

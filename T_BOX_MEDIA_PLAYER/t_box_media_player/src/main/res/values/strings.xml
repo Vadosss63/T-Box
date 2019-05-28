@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">T-BOX MEDIA PLAYER</string>
-    <string name="timerTrack">00:00</string>
-    <string name="ok_button">Ok</string>
+    <string name="timerTrack">0:00</string>
+    <string name="ok_button">OK</string>
     <string name="cancel_button">Отмена</string>
     <string name="CMD">CMD</string>
     <string name="CMD_data">Data</string>

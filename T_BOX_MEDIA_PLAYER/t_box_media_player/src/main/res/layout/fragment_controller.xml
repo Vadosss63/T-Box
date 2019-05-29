@@ -11,13 +11,24 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageTitle"
+            android:id="@+id/imageTitle1"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_t_box" />
+            app:srcCompat="@drawable/image_t_box"
+            />
+
+        <ImageView
+            android:id="@+id/imageTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_t_box"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

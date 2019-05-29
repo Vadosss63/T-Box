@@ -7,7 +7,9 @@
     android:background="@color/Black"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:ignore="MissingDefaultResource">
+    tools:ignore="MissingDefaultResource"
+    android:stateListAnimator="@animator/state_animator"
+    >
 
     <FrameLayout
         android:id="@+id/mainFragment"

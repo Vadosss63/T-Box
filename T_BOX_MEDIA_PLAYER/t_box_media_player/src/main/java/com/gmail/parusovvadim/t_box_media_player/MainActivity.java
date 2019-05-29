@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import com.gmail.parusovvadim.media_directory.Folder;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
 import com.gmail.parusovvadim.media_directory.NodeDirectory;
+import com.gmail.parusovvadim.media_directory.Track;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -54,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private Folder m_backFolder = new Folder("вверх");
 
-    private TextView m_pathTextView;
-
     private SettingApp m_settingApp;
 
     // адаптер
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button scrollButton = findViewById(R.id.scrollButton);
+        scrollButton.setOnClickListener(v->scrollDown());
         m_controllerPlayerFragment = new ControllerPlayerFragment();
         changeStateController();
     }
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
     }
 
-    @Override /// TODO переделать чтобы нормально работало
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -177,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         m_currentDirectory = m_musicFiles.getFolders().get(0);
 
+
         m_adapterPlayList = new ArrayAdapter<NodeDirectory>(this, R.layout.music_track_item, m_musicFiles.getAllFiles(1)) {
 
             @SuppressLint("InflateParams")
@@ -199,19 +202,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     convertView = getLayoutInflater().inflate(R.layout.music_track_item, null);
 
                     TextView trackLabel = convertView.findViewById(R.id.titleTrack);
-
+                    TextView sizeTimeLabel = convertView.findViewById(R.id.sizeTime);
                     ImageView imageView = convertView.findViewById(R.id.TrackSelected);
 
                     String title = node.getName();
                     trackLabel.setText(title);
 
-                    if (m_currentTrack == node) {
-                        imageView.setSelected(true);
-                        trackLabel.setSelected(true);
-                    } else {
-                        imageView.setSelected(false);
-                        trackLabel.setSelected(false);
-                    }
+                    boolean isSelected = m_currentTrack == node;
+
+                    imageView.setSelected(isSelected);
+                    trackLabel.setSelected(isSelected);
+                    sizeTimeLabel.setSelected(isSelected);
+
                 }
                 return convertView;
             }
@@ -241,6 +243,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void scrollToSelectTrack() {
         int scrollPos = m_adapterPlayList.getPosition(m_currentTrack);
         m_mainView.smoothScrollToPosition(scrollPos);
+        m_adapterPlayList.notifyDataSetChanged();
+    }
+
+    private void scrollDown() {
+        if(m_mainView == null || m_adapterPlayList == null)
+            return;
+
+        m_mainView.smoothScrollByOffset(5);
         m_adapterPlayList.notifyDataSetChanged();
     }
 

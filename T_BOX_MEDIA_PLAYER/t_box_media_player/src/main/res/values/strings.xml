@@ -7,4 +7,14 @@
     <string name="CMD_data">Data</string>
     <string name="folder_back">Back</string>
 
+    <string name="app_name_Title">
+    <b>
+        <font color="#FE880C">T-BOX</font>
+    </b>
+         <font color="#FFFFFF">
+                MEDIA PLAYER
+         </font>
+    </string>
+    <string name="Settings">Настройки</string>
+
 </resources>

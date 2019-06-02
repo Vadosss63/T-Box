@@ -32,27 +32,19 @@ import static android.content.Context.BIND_AUTO_CREATE;
 
 public class ControllerPlayerFragment extends Fragment
 {
-
     private View m_view = null;
     // время воспроизведения
     private TextView m_playTime = null;
     private TextView m_currentTitle = null;
     private TextView m_currentArtist = null;
 
-    private TextView m_diractionTrack = null;
+    private TextView m_durationTrack = null;
     private SeekBar m_seekPosTrack = null;
-    private ImageView m_imageTitle1 = null;
-    private ImageView m_imageTitle2 = null;
+    private ImageView m_imageTitle = null;
+    private Bitmap m_imageForTitle = null;
 
-
-    private ImageView imClose;
-    private ImageView imShow;
-
-    // Колбек для перемотки
-    Runnable m_runSeek;
-    // остановка перемотки
-    boolean m_isStopSeek = false;
-    boolean m_isSeek = false;
+    private Animation m_animationClose = null;
+    private Animation m_animationShow = null;
 
     float m_startPosX = 0;
 
@@ -66,60 +58,35 @@ public class ControllerPlayerFragment extends Fragment
         if(m_view == null)
         {
             m_view = inflater.inflate(R.layout.fragment_controller, null);
-            CreateButtons();
+            createButtons();
+            createAnimation();
         }
         return m_view;
     }
 
-    private void SetTime(int msec)
+    private void setTime(int mSec)
     {
-        String timeString = getStringTime(msec);
+        String timeString = getStringTime(mSec);
         m_playTime.setText(timeString);
-        m_seekPosTrack.setProgress(msec);
+        m_seekPosTrack.setProgress(mSec);
     }
 
-    private String getStringTime(int msec)
+    private String getStringTime(int mSec)
     {
         @SuppressLint ("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("m:ss");
-        return sdf.format(new Date(msec));
+        return sdf.format(new Date(mSec));
     }
 
     @SuppressLint ("ClickableViewAccessibility")
-    private void CreateButtons()
+    private void createButtons()
     {
         m_playTime = m_view.findViewById(R.id.PlayTime);
         m_seekPosTrack = m_view.findViewById(R.id.seekBar);
         m_currentTitle = m_view.findViewById(R.id.titleTrack);
-        m_diractionTrack = m_view.findViewById(R.id.totalTime);
-        m_imageTitle1 = m_view.findViewById(R.id.imageTitle1);
-        m_imageTitle2 = m_view.findViewById(R.id.imageTitle2);
-        Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_close);
-        m_imageTitle2.startAnimation(anim);
-
+        m_durationTrack = m_view.findViewById(R.id.totalTime);
+        m_imageTitle = m_view.findViewById(R.id.imageTitle);
         m_currentArtist = m_view.findViewById(R.id.artistTrack);
-
-
-        m_imageTitle1.setOnTouchListener((view, motionEvent)->{
-            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)
-            {
-                m_startPosX = motionEvent.getX();
-                return true;
-            }
-            if(motionEvent.getAction() == MotionEvent.ACTION_UP)
-            {
-                float stop = motionEvent.getX();
-
-                if(Math.abs(stop - m_startPosX) < 10.f) return true;
-
-                if(stop - m_startPosX < 0) m_mediaController.getTransportControls().skipToNext();
-                else m_mediaController.getTransportControls().skipToPrevious();
-
-                return true;
-            }
-            return false;
-        });
-
-        m_imageTitle2.setOnTouchListener((view, motionEvent)->{
+        m_imageTitle.setOnTouchListener((view, motionEvent)->{
             if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)
             {
                 m_startPosX = motionEvent.getX();
@@ -224,68 +191,15 @@ public class ControllerPlayerFragment extends Fragment
                                 MainActivity ma = (MainActivity) getActivity();
                                 if(ma == null) return;
                                 ma.selectCurrentTrack(folder, track);
-                                GetTitle(metadata);
+                                getTitle(metadata);
                                 int maxTime = (int) metadata.getLong(MediaMetadataCompat.METADATA_KEY_DURATION);
-                                m_diractionTrack.setText(getStringTime(maxTime));
+                                m_durationTrack.setText(getStringTime(maxTime));
                                 m_seekPosTrack.setMax(maxTime);
                                 Bitmap image = metadata.getDescription().getIconBitmap();
                                 if(image != null)
                                 {
-                                    if(m_imageTitle1.isEnabled())
-                                    {
-                                        imClose = m_imageTitle1;
-                                        imShow = m_imageTitle2;
-                                    }
-                                    else
-                                    {
-                                        imClose = m_imageTitle2;
-                                        imShow = m_imageTitle1;
-                                    }
-
-                                    Animation animationClose = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_close);
-                                    animationClose.setAnimationListener(new Animation.AnimationListener()
-                                    {
-                                        @Override
-                                        public void onAnimationStart(Animation animation)
-                                        {
-                                        }
-
-                                        @Override
-                                        public void onAnimationEnd(Animation animation)
-                                        {
-                                            imClose.setEnabled(false);
-                                        }
-
-                                        @Override
-                                        public void onAnimationRepeat(Animation animation)
-                                        {
-                                        }
-                                    });
-
-
-
-                                    Animation animationShow = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_show);
-                                    animationShow.setAnimationListener(new Animation.AnimationListener()
-                                    {
-                                        @Override
-                                        public void onAnimationStart(Animation animation)
-                                        {
-                                            imShow.setImageBitmap(image);
-                                            imShow.setEnabled(true);
-                                        }
-
-                                        @Override
-                                        public void onAnimationEnd(Animation animation)
-                                        {
-                                        }
-
-                                        @Override
-                                        public void onAnimationRepeat(Animation animation)
-                                        {
-                                        }
-                                    });
-                                    imClose.startAnimation(animationClose);
-                                    imShow.startAnimation(animationShow);
+                                    m_imageForTitle = image;
+                                    m_imageTitle.startAnimation(m_animationClose);
                                 }
                             }
 
@@ -312,7 +226,7 @@ public class ControllerPlayerFragment extends Fragment
                     if(m_isStop) return;
 
                     PlaybackStateCompat state = m_mediaController.getPlaybackState();
-                    if(state != null) SetTime((int) state.getPosition());
+                    if(state != null) setTime((int) state.getPosition());
 
                     m_handler.postDelayed(m_runnable, 1000);
                 };
@@ -335,58 +249,23 @@ public class ControllerPlayerFragment extends Fragment
                         return;
                     }
                 }
-
                 m_mediaController.getTransportControls().play();
-
             }
         });
 
-        previousButton.setOnTouchListener((view, motionEvent)->{
-            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)
-            {
-                m_isStopSeek = false;
-                m_isSeek = false;
-                Rewind();
-                return true;
-            }
-            if(motionEvent.getAction() == MotionEvent.ACTION_UP)
-            {
-                m_isStopSeek = true;
-                if(!m_isSeek)
-                {
-                    if(m_mediaController != null)
-                        m_mediaController.getTransportControls().skipToPrevious();
-                }
-                return true;
-            }
-            return false;
+        previousButton.setOnClickListener(v->{
+            if(m_mediaController != null) m_mediaController.getTransportControls().skipToPrevious();
+
         });
 
-        nextButton.setOnTouchListener((view, motionEvent)->{
-            if(motionEvent.getAction() == MotionEvent.ACTION_DOWN)
-            {
-                m_isStopSeek = false;
-                m_isSeek = false;
-                FastForward();
-                return true;
-            }
-            if(motionEvent.getAction() == MotionEvent.ACTION_UP)
-            {
-                m_isStopSeek = true;
-                if(!m_isSeek)
-                {
-                    if(m_mediaController != null)
-                        m_mediaController.getTransportControls().skipToNext();
-                }
-                return true;
-            }
+        nextButton.setOnClickListener(v->{
+            if(m_mediaController != null) m_mediaController.getTransportControls().skipToNext();
 
-            return false;
         });
 
     }
 
-    private void GetTitle(MediaMetadataCompat mediaMetadata)
+    private void getTitle(MediaMetadataCompat mediaMetadata)
     {
         if(mediaMetadata != null)
         {
@@ -406,48 +285,31 @@ public class ControllerPlayerFragment extends Fragment
         }
     }
 
-    // Перемотка вперед
-    void FastForward()
+    void createAnimation()
     {
+        m_animationClose = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_close);
+        m_animationShow = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_show);
 
-        Handler handler = new Handler();
-        m_runSeek = ()->{
-
-            if(m_isStopSeek) // останавливаем таймер
-                return;
-
-            m_isSeek = true; // Переводим кноку в режим перемотки
-
-            if(m_mediaController != null)
+        m_animationClose.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override
+            public void onAnimationStart(Animation animation)
             {
-                m_mediaController.getTransportControls().fastForward();
-                handler.postDelayed(m_runSeek, 500); // Каждые 0.5 сек перематываем на 5 сек.
             }
-        };
 
-        handler.postDelayed(m_runSeek, 1500); // ждём 1.5 сек до перевода кнопки в режим перемотки иначе просто переключам песню
-    }
-
-    // Перемотка назад
-    void Rewind()
-    {
-
-        Handler handler = new Handler();
-        m_runSeek = ()->{
-
-            if(m_isStopSeek) // останавливаем таймер
-                return;
-
-            m_isSeek = true; // Переводим кноку в режим перемотки
-
-            if(m_mediaController != null)
+            @Override
+            public void onAnimationEnd(Animation animation)
             {
-                m_mediaController.getTransportControls().rewind();
-                handler.postDelayed(m_runSeek, 500); // Каждые 0.5 сек перематываем на 5 сек.
+                m_imageTitle.setImageBitmap(m_imageForTitle);
+                m_imageTitle.startAnimation(m_animationShow);
             }
-        };
 
-        handler.postDelayed(m_runSeek, 1500); // ждём 1.5 сек до перевода кнопки в режим перемотки иначе просто переключам песню
+            @Override
+            public void onAnimationRepeat(Animation animation)
+            {
+
+            }
+        });
     }
 
 }

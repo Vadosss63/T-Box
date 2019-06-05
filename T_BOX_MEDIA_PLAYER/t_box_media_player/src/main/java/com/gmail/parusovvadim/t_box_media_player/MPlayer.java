@@ -30,6 +30,7 @@ import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
 import com.gmail.parusovvadim.media_directory.NodeDirectory;
+import com.gmail.parusovvadim.media_directory.TrackInfo;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -305,7 +306,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         m_settingApp.loadSetting();
         if (m_rootPath.equals(m_settingApp.getAbsolutePath()) && !m_musicFiles.isEmpty()) return;
         m_rootPath = m_settingApp.getAbsolutePath();
-        m_musicFiles = new MusicFiles(m_rootPath);
+        m_musicFiles = new MusicFiles(m_rootPath, new ReaderTrackInfo());
         selectTrack(1, 0);
     }
 
@@ -466,19 +467,16 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         // Установка данных о треке
         private void setMetaData() {
             if (m_currentTrack == null) return;
-            String path = m_currentTrack.getPathDir();
 
             try {
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                mediaMetadataRetriever.setDataSource(path);
-                String artist = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
-                String title = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                String album = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
-                if (album == null) album = artist;
+                TrackInfo trackInfo = (TrackInfo) m_currentTrack;
+                String artist = trackInfo.getArtist();
+                String title = trackInfo.getTitle();
+                String album = trackInfo.getAlbum();
 
-                long durationMs = Long.parseLong(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
+                long durationMs = trackInfo.getDuration();
 
-                byte[] art = mediaMetadataRetriever.getEmbeddedPicture();
+                byte[] art = trackInfo.getImage();
 
                 // Заполняем данные о треке
                 if (art != null)

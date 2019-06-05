@@ -38,7 +38,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         m_changeFolderFragment = new ChangeFolderFragment();
         m_pathView = findViewById(R.id.pathList);
         m_pathView.setOnItemClickListener(this);
-        m_pathTextView = (TextView) findViewById(R.id.PathMusicFiles);
+        m_pathTextView = (TextView) findViewById(R.id.pathMusicFiles);
 
         loadSetting();
         getDir(m_settingApp.getAbsolutePath()); // выводим список файлов и папок в корневой папке системы
@@ -48,7 +48,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     }
 
     private void createAdapterSpinner() {
-        final Spinner spinner = findViewById(R.id.PathStorage);
+        final Spinner spinner = findViewById(R.id.pathStorage);
         m_adapter = new ArrayAdapter<>(this, R.layout.list_item, m_settingApp.getPaths());
 
         spinner.setAdapter(m_adapter);

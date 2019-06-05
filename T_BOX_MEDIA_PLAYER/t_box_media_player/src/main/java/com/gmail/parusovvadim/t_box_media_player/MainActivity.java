@@ -30,19 +30,18 @@ import android.widget.TextView;
 import com.gmail.parusovvadim.media_directory.Folder;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
 import com.gmail.parusovvadim.media_directory.NodeDirectory;
+import com.gmail.parusovvadim.media_directory.TrackInfo;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
-{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    static final String BROADCAST_ACTION = "com.gmail.parusovvadim.audioplayer";
+    static final String BROADCAST_ACTION = "com.gmail.parusovvadim.t_box_media_player";
     static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
-
-    static final int MENU_SETTING = 2;
-    static final int MENU_EXIT = 4;
     static final public int CMD_EXIT = -1;
 
     private ControllerPlayerFragment m_controllerPlayerFragment = null;
@@ -67,34 +66,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView m_mainView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        http://java-online.ru/android-menu.xhtml
+        //        http://java-online.ru/android-menu.xhtml
 
         Button scrollButton = findViewById(R.id.scrollButton);
-        scrollButton.setOnClickListener(v->scrollDown());
+        scrollButton.setOnClickListener(v -> scrollDown());
         m_controllerPlayerFragment = new ControllerPlayerFragment();
         changeStateController();
         final Button exitButton = findViewById(R.id.exitButton);
-        exitButton.setOnClickListener(v->exitApp());
+        exitButton.setOnClickListener(v -> exitApp());
         final Button menuButton = findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivityForResult(intent, 1);
+        });
 
-        menuButton.setOnClickListener(v->openOptionsMenu());
     }
 
     // Выделение воспроизводимого элемента и выключение приложения со шторки
-    private void createBroadcast()
-    {
+    private void createBroadcast() {
         // создаем BroadcastReceiver
-        m_broadcastReceiver = new BroadcastReceiver()
-        {
+        m_broadcastReceiver = new BroadcastReceiver() {
             // действия при получении сообщений
-            public void onReceive(Context context, Intent intent)
-            {
+            public void onReceive(Context context, Intent intent) {
                 int task = intent.getIntExtra(getString(R.string.CMD), 0);
-                if(task == CMD_EXIT) exitApp();
+                if (task == CMD_EXIT) exitApp();
             }
         };
         // создаем фильтр для BroadcastReceiver
@@ -103,15 +102,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         registerReceiver(m_broadcastReceiver, intentFilter);
     }
 
-    public void selectCurrentTrack(int folder, int track)
-    {
+    public void selectCurrentTrack(int folder, int track) {
 
         NodeDirectory trackNode = m_musicFiles.getTrack(folder, track);
 
-        if(trackNode != null)
-        {
-            if(m_currentTrack != trackNode)
-            {
+        if (trackNode != null) {
+            if (m_currentTrack != trackNode) {
                 m_currentTrack = trackNode;
                 m_adapterPlayList.notifyDataSetChanged();
                 scrollToSelectTrack();
@@ -120,40 +116,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         // дерегистрируем (выключаем) BroadcastReceiver
-        if(m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
+        if (m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
         int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
-        if(permissionStatus != PackageManager.PERMISSION_GRANTED)
-        {
+        if (permissionStatus != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
-        }
 
-        if(permissionStatus == PackageManager.PERMISSION_GRANTED)
-        {
 
-            if(m_currentTrack == null)
-            {
-//                m_pathTextView = findViewById(R.id.pathShow);
+        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+
+            if (m_currentTrack == null) {
                 m_mainView = findViewById(R.id.playList);
                 m_settingApp = new SettingApp(this);
-
                 loudSettings();
                 createBroadcast();
-                showCurrentDir();
 
-            } else
-            {
+            } else {
                 scrollToSelectTrack();
             }
         }
@@ -162,8 +149,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
@@ -171,62 +157,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch(item.getItemId())
-        {
-            case R.id.settingMenu:
-            {
-                Intent intent = new Intent(this, SettingActivity.class);
-                startActivityForResult(intent, 1);
-                break;
-            }
-            default:
-                break;
-        }
+    public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
 
-    private void exitApp()
-    {
+    private void exitApp() {
         stopService(new Intent(this, MPlayer.class));
         finish();
         System.exit(0);
     }
 
-    private void createAdapter()
-    {
-        if(m_musicFiles.getFolders().isEmpty())
-        {
-            if(m_adapterPlayList != null) m_adapterPlayList.clear();
+    private void createAdapter() {
+        if (m_musicFiles.getFolders().isEmpty()) {
+            if (m_adapterPlayList != null) m_adapterPlayList.clear();
             return;
         }
         m_currentDirectory = m_musicFiles.getFolders().get(0);
 
-        m_adapterPlayList = new ArrayAdapter<NodeDirectory>(this, R.layout.music_track_item, m_musicFiles.getAllFiles(1))
-        {
+        m_adapterPlayList = new ArrayAdapter<NodeDirectory>(this, R.layout.music_track_item, m_musicFiles.getAllFiles(1)) {
 
-            @SuppressLint ("InflateParams")
+            @SuppressLint("InflateParams")
             @NotNull
             @Override
-            public View getView(int position, View convertView, @NonNull ViewGroup parent)
-            {
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                 NodeDirectory node = getItem(position);
-                if(node == null) return convertView;
+                if (node == null) return convertView;
 
-                if(node.isFolder())
-                {
-                    if(node.isFolderUp())
-                    {
+                if (node.isFolder()) {
+                    if (node.isFolderUp()) {
                         convertView = getLayoutInflater().inflate(R.layout.folder_up_item, null);
-                    } else
-                    {
+                    } else {
                         convertView = getLayoutInflater().inflate(R.layout.folder_item, null);
                         TextView titleFolder = convertView.findViewById(R.id.titleFolder);
                         titleFolder.setText(node.getName());
                     }
-                } else
-                {
+                } else {
 
                     convertView = getLayoutInflater().inflate(R.layout.music_track_item, null);
 
@@ -236,6 +201,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     String title = node.getName();
                     trackLabel.setText(title);
+
+                    TrackInfo trackInfo = (TrackInfo) node;
+
+                    sizeTimeLabel.setText(getStringTime(trackInfo.getDuration()));
 
                     boolean isSelected = m_currentTrack == node;
 
@@ -253,13 +222,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         scrollToSelectTrack();
     }
 
-    private void openDirectory()
-    {
+    private void openDirectory() {
         m_adapterPlayList.clear();
         Vector<NodeDirectory> files = new Vector<>();
         NodeDirectory back = m_musicFiles.getParentFolder(m_currentDirectory);
-        if(back != null)
-        {
+        if (back != null) {
             m_backFolder.setPath(back.getPathDir());
             m_backFolder.setNumber(back.getNumber());
             m_backFolder.setParentNumber(back.getParentNumber());
@@ -271,51 +238,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         m_adapterPlayList.addAll(files);
     }
 
-    private void scrollToSelectTrack()
-    {
+    private void scrollToSelectTrack() {
         int scrollPos = m_adapterPlayList.getPosition(m_currentTrack);
         m_mainView.smoothScrollToPosition(scrollPos);
         m_adapterPlayList.notifyDataSetChanged();
     }
 
-    private void scrollDown()
-    {
-        if(m_mainView == null || m_adapterPlayList == null) return;
+    private void scrollDown() {
+        if (m_mainView == null || m_adapterPlayList == null) return;
 
         m_mainView.smoothScrollByOffset(5);
         m_adapterPlayList.notifyDataSetChanged();
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-    {   // обработка нажатий на элементах списка
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {   // обработка нажатий на элементах списка
         NodeDirectory nodeDirectory = (NodeDirectory) (parent.getItemAtPosition(position));
         // пока у нас есть треки мы их воспроизводим
-        if(nodeDirectory.isFolder())
-        {
-            if(nodeDirectory.isFolderUp())
+        if (nodeDirectory.isFolder()) {
+            if (nodeDirectory.isFolderUp())
                 m_currentDirectory = m_musicFiles.getFolders().get(nodeDirectory.getNumber() - 1);
             else m_currentDirectory = nodeDirectory;
-
-
-            showCurrentDir();
             openDirectory();
-        } else
-        {
+        } else {
             m_currentTrack = nodeDirectory;
             selectedTrack();
             m_adapterPlayList.notifyDataSetChanged();
         }
     }
 
-    private void showCurrentDir()
-    {
-//        m_pathTextView.setText(m_settingApp.getMusicPath());
-    }
 
     // Изменение дериктории воспроизведения
-    private void changeRoot()
-    {
+    private void changeRoot() {
         m_musicFiles = new MusicFiles(m_settingApp.getAbsolutePath());
         Intent intent = new Intent(this, MPlayer.class);
         intent.putExtra(getString(R.string.CMD), MPlayer.CMD_CHANGE_ROOT);
@@ -323,23 +277,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if(data == null) return;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) return;
 
-        if(resultCode == RESULT_OK) loudSettings();
+        if (resultCode == RESULT_OK) loudSettings();
     }
 
-    private void loudSettings()
-    {
+    private void loudSettings() {
         m_settingApp.loadSetting();
         changeRoot();
         createAdapter();
     }
 
     // Отправка выбранного трека
-    private void selectedTrack()
-    {
+    private void selectedTrack() {
         Intent intent = new Intent(this, MPlayer.class);
         intent.putExtra(getString(R.string.CMD), MPlayer.CMD_SELECT_TRACK);
         intent.putExtra("folder", m_currentTrack.getParentNumber());
@@ -347,10 +298,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startService(intent);
     }
 
-    private void changeStateController()
-    {
+    private void changeStateController() {
         FragmentTransaction m_fragmentTransaction = getFragmentManager().beginTransaction();
         m_fragmentTransaction.replace(R.id.mainFragment, m_controllerPlayerFragment);
         m_fragmentTransaction.commit();
+    }
+
+    private String getStringTime(int mSec) {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("m:ss");
+        return sdf.format(new Date(mSec));
     }
 }

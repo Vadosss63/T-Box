@@ -8,13 +8,29 @@
     tools:context=".SettingActivity"
     tools:ignore="MissingDefaultResource">
 
-    <Spinner
-        android:id="@+id/PathStorage"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pathStorageText"
+            android:textColor="@color/White"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/pathStorage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/PathMusicFiles"
+        android:id="@+id/pathMusicFiles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -28,7 +44,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:choiceMode="singleChoice" />
-
 
     <FrameLayout
         android:id="@+id/settingFragment"

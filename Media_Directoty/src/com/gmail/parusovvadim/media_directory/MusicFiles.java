@@ -19,12 +19,21 @@ public class MusicFiles {
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
     // Поддерживаемые форматы
     private static final String[] m_musicFormat = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
+    // ридер для чтения метаданных
+    private TrackInfo m_readerTrackInfo = null;
+    // Компоратор для сортировки дерикторий музыкальных треков
+    private static Comparator<File> m_fileComparator = new MusicFileComparator();
 
     public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;
     }
 
     public MusicFiles(String rootPathFolder) {
+        getAllFiles(rootPathFolder, 0);
+    }
+
+    public MusicFiles(String rootPathFolder, TrackInfo readerTrackInfo) {
+        m_readerTrackInfo = readerTrackInfo;
         getAllFiles(rootPathFolder, 0);
     }
 
@@ -102,6 +111,18 @@ public class MusicFiles {
         return getNumberTracks(getNumber(dirPath));
     }
 
+    private void readInfoTrack(Track track) {
+
+        if (m_readerTrackInfo == null)
+            return;
+        m_readerTrackInfo.setPath(track.getPath());
+        track.setAlbum(m_readerTrackInfo.getAlbum());
+        track.setArtist(m_readerTrackInfo.getArtist());
+        track.setTitle(m_readerTrackInfo.getTitle());
+        track.setDuration(m_readerTrackInfo.getDuration());
+        track.setImage(m_readerTrackInfo.getImage());
+    }
+
     // выполняет чтение папок с музыкой
     private void getAllFiles(String dirPath, int parentIndex) {
         // Читаем дерикторию Получаем список файлов
@@ -163,6 +184,7 @@ public class MusicFiles {
                     track.setNumber(numberTracks);
                     track.setParentNumber(parentFolder.getNumber());
                     track.setPath(file.getPath());
+                    readInfoTrack(track);
                     mapTracks.add(track);
                     m_mapPaths.put(file.getPath(), track);
                     numberTracks++;
@@ -177,15 +199,4 @@ public class MusicFiles {
         m_mapPaths.put(parentFolder.getPathDir(), parentFolder);
     }
 
-    // Компоратор для сортировки дерикторий музыкальных треков
-    private Comparator<? super File> m_fileComparator = (Comparator<File>) (file1, file2) -> {
-
-        if (file1.isDirectory() && !file2.isDirectory()) return -1;
-
-        if (file2.isDirectory() && !file1.isDirectory()) return 1;
-
-        String pathLowerCaseFile1 = file1.getName().toLowerCase();
-        String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return pathLowerCaseFile1.compareTo(pathLowerCaseFile2);
-    };
 }

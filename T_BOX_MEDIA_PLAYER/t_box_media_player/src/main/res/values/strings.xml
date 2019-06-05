@@ -16,5 +16,6 @@
          </font>
     </string>
     <string name="Settings">Настройки</string>
+    <string name="pathStorageText">Истоиник: </string>
 
 </resources>

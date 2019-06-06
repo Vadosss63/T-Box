@@ -14,22 +14,6 @@ public class MusicFiles {
 
     private static MusicFiles m_ourInstance = new MusicFiles();
 
-    private MusicFiles() {
-    }
-
-    public static MusicFiles getInstance() {
-        return m_ourInstance;
-    }
-
-    public void setPathRoot(String rootPathFolder) {
-        IReaderTrackInfo.setReaderTrackInfo(null);
-        m_ourInstance.getAllFiles(rootPathFolder, 0);
-    }
-
-    public void setPathRoot(String rootPathFolder, TrackInfo readerTrackInfo) {
-        IReaderTrackInfo.setReaderTrackInfo(readerTrackInfo);
-        m_ourInstance.getAllFiles(rootPathFolder, 0);
-    }
 
     // Номер для новой папки
     private int m_newFolderNumber = 0;
@@ -41,6 +25,42 @@ public class MusicFiles {
     private HashMap<Integer, Vector<NodeDirectory>> m_mapChaldeanFolders = new HashMap<>();
     // Мар с для доступа к по пути
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
+
+    private String m_rootPathFolder = "";
+
+    private void CleanFiles() {
+        // Номер для новой папки
+        m_newFolderNumber = 0;
+        m_mapFolders = new Vector<>();
+        m_mapTracks = new HashMap<>();
+        m_mapChaldeanFolders = new HashMap<>();
+        m_mapPaths = new HashMap<>();
+    }
+
+    private MusicFiles() {
+    }
+
+    public static MusicFiles getInstance() {
+        return m_ourInstance;
+    }
+
+    public void setPathRoot(String rootPathFolder) {
+        if (!m_rootPathFolder.isEmpty() && m_rootPathFolder.equals(rootPathFolder)) return;
+        m_rootPathFolder = rootPathFolder;
+        CleanFiles();
+        IReaderTrackInfo.setReaderTrackInfo(null);
+        getAllFiles(rootPathFolder, 0);
+    }
+
+    public void setPathRoot(String rootPathFolder, TrackInfo readerTrackInfo) {
+
+        if (!m_rootPathFolder.isEmpty() && m_rootPathFolder.equals(rootPathFolder)) return;
+        m_rootPathFolder = rootPathFolder;
+        CleanFiles();
+        IReaderTrackInfo.setReaderTrackInfo(readerTrackInfo);
+        getAllFiles(rootPathFolder, 0);
+    }
+
 
     public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;

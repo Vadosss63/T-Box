@@ -60,22 +60,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c180374e-9808-40af-8b2c-dbafb8956190" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/IReaderTrackInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item_setting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LIBS/media_directory.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LIBS/media_directory.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Media_Directoty/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Media_Directoty/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/Track.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Media_Directoty/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/libs/media_directory.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/libs/media_directory.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_box_media_player/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ReaderTrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ReaderTrackInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/list_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,20 +96,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="480">
+              <caret line="255" column="28" selection-start-line="255" selection-start-column="28" selection-end-line="255" selection-end-column="28" />
               <folding>
-                <element signature="method#onCreate#0;class#MainActivity#0" />
-                <element signature="method#createBroadcast#0;class#MainActivity#0" />
-                <element signature="method#onDestroy#0;class#MainActivity#0" />
-                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
-                <element signature="method#createAdapter#0;class#MainActivity#0" />
-                <element signature="class#5941:7745" />
+                <element signature="e#2865#3005#0" />
+                <element signature="e#3385#3408#0" expanded="true" />
+                <element signature="method#onResume#0;class#MainActivity#0" />
+                <element signature="method#exitApp#0;class#MainActivity#0" />
                 <element signature="method#openDirectory#0;class#MainActivity#0" />
-                <element signature="method#scrollToSelectTrack#0;class#MainActivity#0" />
                 <element signature="method#scrollDown#0;class#MainActivity#0" />
                 <element signature="method#onItemClick#0;class#MainActivity#0" />
-                <element signature="e#9881#9904#0" expanded="true" />
+                <element signature="e#9872#9895#0" expanded="true" />
                 <element signature="method#selectedTrack#0;class#MainActivity#0" />
                 <element signature="method#changeStateController#0;class#MainActivity#0" />
                 <element signature="method#getStringTime#0;class#MainActivity#0" />
@@ -121,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ReaderTrackInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setPath#0;class#ReaderTrackInfo#0" />
@@ -133,20 +130,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar!/com/gmail/parusovvadim/media_directory/MusicFiles.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="43" column="27" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="378">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#SettingApp#0;class#SettingApp#0" />
-                <element signature="method#changeCurrentPath#0;class#SettingApp#0" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#1186#1187#0" expanded="true" />
+                <element signature="e#1216#1217#0" expanded="true" />
                 <element signature="method#setMusicPath#0;class#SettingApp#0" />
-                <element signature="method#getAbsolutePath#0;class#SettingApp#0" />
-                <element signature="e#1803#1860#1" />
+                <element signature="e#1949#1950#0" expanded="true" />
+                <element signature="e#1988#1989#0" expanded="true" />
                 <element signature="method#saveSetting#0;class#SettingApp#0" />
-                <element signature="method#loadSetting#0;class#SettingApp#0" />
-                <element signature="e#2615#2816#1" />
                 <element signature="method#getStorageManager#0;class#SettingApp#0" />
                 <element signature="method#getAllPaths#0;class#SettingApp#0" />
               </folding>
@@ -154,47 +160,64 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="125" column="57" lean-forward="true" selection-start-line="125" selection-start-column="57" selection-end-line="125" selection-end-column="57" />
+            <state relative-caret-position="238">
+              <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#loadSetting#0;class#SettingActivity#0" />
+                <element signature="method#createAdapterSpinner#0;class#SettingActivity#0" />
+                <element signature="method#onItemClick#0;class#SettingActivity#0" />
+                <element signature="class#SettingArrayAdapter#0;class#SettingActivity#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar!/com/gmail/parusovvadim/media_directory/MusicFiles.class">
+        <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ChangeFolderFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="159" column="27" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="27" />
+            <state relative-caret-position="443">
+              <caret line="304" column="36" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#onAnimationStart#0;class#10802:11313" />
-                <element signature="method#onAnimationRepeat#0;class#10802:11313" />
+                <element signature="e#3590#3888#0" />
+                <element signature="e#3894#5100#0" />
+                <element signature="e#5106#5329#0" />
+                <element signature="e#5335#5581#0" />
+                <element signature="e#5702#6618#0" />
+                <element signature="e#6624#6906#0" />
+                <element signature="e#6912#7022#0" />
+                <element signature="e#7028#7111#0" />
+                <element signature="e#7117#7225#0" />
+                <element signature="e#7231#8103#0" />
+                <element signature="e#8109#8324#0" />
+                <element signature="e#8330#8597#0" />
+                <element signature="e#8603#8719#0" />
+                <element signature="e#8936#9087#0" />
+                <element signature="e#9093#9252#0" />
+                <element signature="e#9258#9468#0" />
+                <element signature="e#9474#9949#0" />
+                <element signature="e#11461#12350#0" />
+                <element signature="e#12356#12697#0" />
+                <element signature="e#12703#13314#0" />
+                <element signature="e#13320#13595#0" />
+                <element signature="class#13698:18816" />
+                <element signature="method#setMetaData#0;class#13698:18816" />
+                <element signature="e#18979#19162#0" />
+                <element signature="e#19168#19336#0" />
+                <element signature="e#19342#20774#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -227,9 +250,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/ChangeFolderFragment.java" />
-        <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/ControllerPlayerFragment.java" />
-        <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/MainActivity.java" />
         <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/NotificationSoundControl.java" />
         <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/SettingActivity.java" />
         <option value="$PROJECT_DIR$/t_box/src/main/java/com/gmail/parusovvadim/t_box/SettingApp.java" />
@@ -251,7 +271,6 @@
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/drawable/play_pause.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/color/track_item_state.xml" />
-        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/folder_up_item.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/animator/state_animator.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/anim/translate.xml" />
@@ -268,19 +287,24 @@
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/menu.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/menu/menu.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/t_box_media_player/build.gradle" />
-        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ReaderTrackInfo.java" />
-        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml" />
-        <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" />
-        <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item_setting.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item_setting.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/list_item.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java" />
         <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" />
+        <option value="$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" />
+        <option value="$PROJECT_DIR$/t_box_media_player/build.gradle" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="1717" />
     <option name="height" value="790" />
@@ -339,24 +363,11 @@
             <path>
               <item name="T_BOX_MEDIA_PLAYER" type="1abcf292:AndroidViewProjectNode" />
               <item name="t_box_media_player" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_MEDIA_PLAYER" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_media_player" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="t_box_media_player" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="T_BOX_MEDIA_PLAYER" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_media_player" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="T_BOX_MEDIA_PLAYER" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_media_player" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -391,13 +402,15 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Vadosss63\Desktop\T-Box\T_BOX_MEDIA_PLAYER\t_box_media_player\src\main\res\menu" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/t_box_media_player/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21" />
       <recent name="C:\Users\Vadosss63\Desktop\T-Box\T_BOX_MEDIA_PLAYER\t_box_media_player\src\main\res\layout" />
       <recent name="C:\Users\Vadosss63\Desktop\T-Box\T_BOX_MEDIA_PLAYER\t_box_media_player\src\main\res\drawable" />
       <recent name="C:\Users\Vadosss63\Desktop\T-Box\T_BOX_MEDIA_PLAYER\t_box_media_player\src\main\res\anim" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vadosss63\Desktop\T-Box\T_BOX_MEDIA_PLAYER\t_box_media_player\src\main\res\menu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -492,32 +505,33 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info id="Build Variants" order="2" sideWeight="0.42302158" side_tool="true" visible="true" weight="0.1741453" />
+      <window_info id="Build Variants" order="2" sideWeight="0.42243767" side_tool="true" visible="true" weight="0.13568376" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Capture Tool" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.57697845" visible="true" weight="0.1741453" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.57756233" visible="true" weight="0.13568376" />
       <window_info id="Image Layers" order="6" />
-      <window_info id="Structure" order="7" sideWeight="0.41894978" side_tool="true" weight="0.14155982" />
+      <window_info id="Structure" order="7" sideWeight="0.4214876" side_tool="true" weight="0.13568376" />
       <window_info id="Resources Explorer" order="8" sideWeight="0.4939173" weight="0.20694864" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.30513597" weight="0.3003876" />
+      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.30513597" visible="true" weight="0.3003876" />
       <window_info anchor="bottom" id="Android Profiler" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5022659" side_tool="true" weight="0.57166123" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3297769" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="4" sideWeight="0.49773413" visible="true" weight="0.3265504" />
+      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49773413" weight="0.14825581" />
       <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49786323" weight="0.32945737" />
       <window_info anchor="bottom" id="Terminal" order="6" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.32848838" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.17926356" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.29069766" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" weight="0.18202417" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.34241453" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.2633547" />
       <window_info anchor="right" id="StringPreview" order="6" />
     </layout>
   </component>
@@ -566,13 +580,19 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java</url>
+          <line>153</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Android/Sdk/sources/android-28/android/view/View.java" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/animator/state_animator.xml" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/anim/scale.xml" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/anim/scaleShow.xml" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/anim/scaleClose.xml" />
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/anim/scale_сlose.xml" />
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/anim/translate.xml" />
     <entry file="file://$PROJECT_DIR$/t_box_media_player/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor" />
@@ -642,13 +662,6 @@
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -661,20 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#737#762#0" expanded="true" />
-            <element signature="e#546#844#0" />
-            <element signature="e#850#1053#0" />
-            <element signature="e#1060#1380#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -771,68 +770,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml">
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/folder_up_item.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state>
           <folding>
-            <element signature="e#1187#1667#0" />
-            <element signature="e#1253#1273#0" expanded="true" />
+            <element signature="e#0#1170#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/widget/ArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="176" column="33" lean-forward="true" selection-start-line="176" selection-start-column="33" selection-end-line="176" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item_setting.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout-v21/folder_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item_setting.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/list_item.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="384" lean-forward="true" selection-start-line="384" selection-end-line="384" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8750#8751#0" expanded="true" />
-            <element signature="e#8798#8799#0" expanded="true" />
-          </folding>
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/NotificationSoundControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        <state relative-caret-position="135">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="class#MediaStyleHelper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/music_track_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#321#699#0" />
+            <element signature="e#705#1181#0" />
+            <element signature="e#1187#1667#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/res/layout/activity_setting.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/content/BroadcastReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1310">
+          <caret line="159" column="27" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ChangeFolderFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="458">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#1186#1187#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+            <element signature="method#setMusicPath#0;class#SettingApp#0" />
+            <element signature="e#1949#1950#0" expanded="true" />
+            <element signature="e#1988#1989#0" expanded="true" />
+            <element signature="method#saveSetting#0;class#SettingApp#0" />
+            <element signature="method#getStorageManager#0;class#SettingApp#0" />
+            <element signature="method#getAllPaths#0;class#SettingApp#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+        <state relative-caret-position="480">
+          <caret line="255" column="28" selection-start-line="255" selection-start-column="28" selection-end-line="255" selection-end-column="28" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" />
-            <element signature="method#createBroadcast#0;class#MainActivity#0" />
-            <element signature="method#onDestroy#0;class#MainActivity#0" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
-            <element signature="method#createAdapter#0;class#MainActivity#0" />
-            <element signature="class#5941:7745" />
+            <element signature="e#2865#3005#0" />
+            <element signature="e#3385#3408#0" expanded="true" />
+            <element signature="method#onResume#0;class#MainActivity#0" />
+            <element signature="method#exitApp#0;class#MainActivity#0" />
             <element signature="method#openDirectory#0;class#MainActivity#0" />
-            <element signature="method#scrollToSelectTrack#0;class#MainActivity#0" />
             <element signature="method#scrollDown#0;class#MainActivity#0" />
             <element signature="method#onItemClick#0;class#MainActivity#0" />
-            <element signature="e#9881#9904#0" expanded="true" />
+            <element signature="e#9872#9895#0" expanded="true" />
             <element signature="method#selectedTrack#0;class#MainActivity#0" />
             <element signature="method#changeStateController#0;class#MainActivity#0" />
             <element signature="method#getStringTime#0;class#MainActivity#0" />
@@ -840,22 +914,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ControllerPlayerFragment.java">
+    <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar!/com/gmail/parusovvadim/media_directory/MusicFiles.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="159" column="27" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onAnimationStart#0;class#10802:11313" />
-            <element signature="method#onAnimationRepeat#0;class#10802:11313" />
-          </folding>
+        <state relative-caret-position="595">
+          <caret line="43" column="27" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/ReaderTrackInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setPath#0;class#ReaderTrackInfo#0" />
@@ -864,41 +933,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#SettingApp#0;class#SettingApp#0" />
-            <element signature="method#changeCurrentPath#0;class#SettingApp#0" />
-            <element signature="method#setMusicPath#0;class#SettingApp#0" />
-            <element signature="method#getAbsolutePath#0;class#SettingApp#0" />
-            <element signature="e#1803#1860#1" />
-            <element signature="method#saveSetting#0;class#SettingApp#0" />
-            <element signature="method#loadSetting#0;class#SettingApp#0" />
-            <element signature="e#2615#2816#1" />
-            <element signature="method#getStorageManager#0;class#SettingApp#0" />
-            <element signature="method#getAllPaths#0;class#SettingApp#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/t_box_media_player/libs/media_directory.jar!/com/gmail/parusovvadim/media_directory/MusicFiles.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="125" column="57" lean-forward="true" selection-start-line="125" selection-start-column="57" selection-end-line="125" selection-end-column="57" />
+        <state relative-caret-position="238">
+          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#loadSetting#0;class#SettingActivity#0" />
+            <element signature="method#createAdapterSpinner#0;class#SettingActivity#0" />
+            <element signature="method#onItemClick#0;class#SettingActivity#0" />
+            <element signature="class#SettingArrayAdapter#0;class#SettingActivity#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="304" column="36" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3590#3888#0" />
+            <element signature="e#3894#5100#0" />
+            <element signature="e#5106#5329#0" />
+            <element signature="e#5335#5581#0" />
+            <element signature="e#5702#6618#0" />
+            <element signature="e#6624#6906#0" />
+            <element signature="e#6912#7022#0" />
+            <element signature="e#7028#7111#0" />
+            <element signature="e#7117#7225#0" />
+            <element signature="e#7231#8103#0" />
+            <element signature="e#8109#8324#0" />
+            <element signature="e#8330#8597#0" />
+            <element signature="e#8603#8719#0" />
+            <element signature="e#8936#9087#0" />
+            <element signature="e#9093#9252#0" />
+            <element signature="e#9258#9468#0" />
+            <element signature="e#9474#9949#0" />
+            <element signature="e#11461#12350#0" />
+            <element signature="e#12356#12697#0" />
+            <element signature="e#12703#13314#0" />
+            <element signature="e#13320#13595#0" />
+            <element signature="class#13698:18816" />
+            <element signature="method#setMetaData#0;class#13698:18816" />
+            <element signature="e#18979#19162#0" />
+            <element signature="e#19168#19336#0" />
+            <element signature="e#19342#20774#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_media_player/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
     </entry>

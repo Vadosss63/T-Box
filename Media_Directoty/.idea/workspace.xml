@@ -7,12 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83933b72-152e-4db2-ad40-6dba2a0dd012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/IReaderTrackInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout-v21/folder_item_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/music_track_item_setting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LIBS/media_directory.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LIBS/media_directory.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/music_track_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/res/layout/music_track_item.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +38,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="176" column="14" lean-forward="true" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="51" />
+            <state relative-caret-position="203">
+              <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MusicFiles#0;class#MusicFiles#0" />
-                <element signature="method#setPathRoot#0;class#MusicFiles#0" />
-                <element signature="method#MusicFiles#2;class#MusicFiles#0" />
                 <element signature="method#getParentFolder#0;class#MusicFiles#0" />
                 <element signature="method#getPathTrack#0;class#MusicFiles#0" />
                 <element signature="method#getTrack#0;class#MusicFiles#0" />
@@ -48,6 +52,7 @@
                 <element signature="method#getParentNumber#0;class#MusicFiles#0" />
                 <element signature="method#getNumber#0;class#MusicFiles#0" />
                 <element signature="method#getNumberTracks#0;class#MusicFiles#0" />
+                <element signature="method#getAllFiles#1;class#MusicFiles#0" />
               </folding>
             </state>
           </provider>
@@ -84,9 +89,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2116" />
-    <option name="width" value="1440" />
-    <option name="height" value="810" />
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -102,6 +107,17 @@
             <path>
               <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
               <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="media_directory" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -168,7 +184,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.14529915" />
       <window_info id="Structure" order="1" sideWeight="0.50159746" side_tool="true" weight="0.14529915" />
@@ -198,20 +213,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java</url>
-          <line>123</line>
-          <properties class="com.gmail.parusovvadim.media_directory.MusicFiles" method="getAllFiles">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/artifacts/media_directory_jar.xml">
@@ -325,13 +326,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="176" column="14" lean-forward="true" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="51" />
+        <state relative-caret-position="203">
+          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MusicFiles#0;class#MusicFiles#0" />
-            <element signature="method#setPathRoot#0;class#MusicFiles#0" />
-            <element signature="method#MusicFiles#2;class#MusicFiles#0" />
             <element signature="method#getParentFolder#0;class#MusicFiles#0" />
             <element signature="method#getPathTrack#0;class#MusicFiles#0" />
             <element signature="method#getTrack#0;class#MusicFiles#0" />
@@ -341,6 +340,7 @@
             <element signature="method#getParentNumber#0;class#MusicFiles#0" />
             <element signature="method#getNumber#0;class#MusicFiles#0" />
             <element signature="method#getNumberTracks#0;class#MusicFiles#0" />
+            <element signature="method#getAllFiles#1;class#MusicFiles#0" />
           </folding>
         </state>
       </provider>

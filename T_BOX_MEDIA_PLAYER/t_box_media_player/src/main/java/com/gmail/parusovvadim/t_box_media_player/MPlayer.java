@@ -296,6 +296,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     }
 
     private void changeRoot() {
+        m_mediaSessionCallback.onStop();
         m_musicFiles = MusicFiles.getInstance();
         selectTrack(1, 0);
     }
@@ -554,7 +555,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         encoderFolders.AddEnd();
 
         Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte());
-
 
         for (int i = 0; i < dataList.size(); i++) {
 

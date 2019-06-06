@@ -17,9 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -56,9 +54,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Текущий выбранный трек
     private NodeDirectory m_currentTrack = null;
 
-    private Folder m_backFolder = new Folder("вверх");
+    private Folder m_backFolder = new Folder("Вверх");
 
-    private SettingApp m_settingApp;
+    private SettingApp m_settingApp = SettingApp.getInstance();
 
     // адаптер
     private ArrayAdapter<NodeDirectory> m_adapterPlayList = null;
@@ -68,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        m_settingApp.initSetting(this);
+
         setContentView(R.layout.activity_main);
         //        http://java-online.ru/android-menu.xhtml
 
@@ -131,12 +131,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (permissionStatus != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
 
-
         if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
 
             if (m_currentTrack == null) {
                 m_mainView = findViewById(R.id.playList);
-                m_settingApp = new SettingApp(this);
                 loudSettings();
                 createBroadcast();
 
@@ -144,21 +142,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 scrollToSelectTrack();
             }
         }
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
     }
 
     private void exitApp() {
@@ -197,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     TextView trackLabel = convertView.findViewById(R.id.titleTrack);
                     TextView sizeTimeLabel = convertView.findViewById(R.id.sizeTime);
-                    ImageView imageView = convertView.findViewById(R.id.TrackSelected);
+                    ImageView imageView = convertView.findViewById(R.id.trackSelected);
 
                     String title = node.getName();
                     trackLabel.setText(title);
@@ -279,12 +262,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null) return;
-
         if (resultCode == RESULT_OK) loudSettings();
     }
 
     private void loudSettings() {
-        m_settingApp.loadSetting();
         changeRoot();
         createAdapter();
     }

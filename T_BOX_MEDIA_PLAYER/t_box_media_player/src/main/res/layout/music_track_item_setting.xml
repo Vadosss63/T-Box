@@ -7,7 +7,6 @@
     tools:ignore="MissingDefaultResource">
 
     <ImageView
-        android:id="@+id/trackSelected"
         android:layout_width="33dp"
         android:layout_height="28dp"
         android:layout_marginStart="20dp"
@@ -18,7 +17,7 @@
         android:src="@drawable/menu_pressed_anim" />
 
     <TextView
-        android:id="@+id/titleTrack"
+        android:id="@+id/titleTrackSetting"
         android:layout_width="0dp"
         android:layout_height="28dp"
         android:layout_marginStart="5dp"
@@ -28,20 +27,6 @@
         android:layout_weight="1"
         android:singleLine="true"
         android:gravity="center_vertical"
-        android:textColor="@color/track_item_state"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/sizeTime"
-        android:text="@string/timerTrack"
-        android:textAlignment="center"
-        android:layout_width="40dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
         android:textColor="@color/track_item_state"
         android:textSize="15sp" />
 

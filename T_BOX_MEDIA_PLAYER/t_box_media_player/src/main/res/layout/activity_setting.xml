@@ -36,7 +36,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/White"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <ListView
         android:id="@+id/pathList"

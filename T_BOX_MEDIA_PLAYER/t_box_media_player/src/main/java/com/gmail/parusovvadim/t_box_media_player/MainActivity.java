@@ -267,10 +267,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-
-    // Изменение дериктории воспроизведения
+    // Изменение дериктории воспроизведени
     private void changeRoot() {
-        m_musicFiles = new MusicFiles(m_settingApp.getAbsolutePath());
+        m_musicFiles = MusicFiles.getInstance();
+        m_musicFiles.setPathRoot(m_settingApp.getAbsolutePath(), new ReaderTrackInfo());
         Intent intent = new Intent(this, MPlayer.class);
         intent.putExtra(getString(R.string.CMD), MPlayer.CMD_CHANGE_ROOT);
         startService(intent);

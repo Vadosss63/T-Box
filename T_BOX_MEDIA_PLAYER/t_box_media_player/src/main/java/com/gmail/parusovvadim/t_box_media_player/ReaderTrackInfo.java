@@ -15,6 +15,11 @@ public class ReaderTrackInfo implements TrackInfo {
     byte[] m_image = null;
 
     @Override
+    public boolean isInit() {
+        return false;
+    }
+
+    @Override
     public void setPath(String path) {
         m_path = path;
         cleanInfo();

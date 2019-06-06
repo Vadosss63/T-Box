@@ -1,10 +1,12 @@
 package com.gmail.parusovvadim.media_directory;
 
-public class Track implements NodeDirectory, TrackInfo {
+/// TODO сделать патерн состояния для исключения проверки на инициализацию
+public class Track extends IReaderTrackInfo  implements NodeDirectory, TrackInfo {
+
     private String m_name;
     private int m_number = -1;
     private int m_parentNumber = -1;
-    private String m_path;
+    private String m_path = null;
 
     private String m_artist = "Empty";
     private String m_title = "Empty";
@@ -12,9 +14,17 @@ public class Track implements NodeDirectory, TrackInfo {
     private int m_duration = 0;
     private byte[] m_image = null;
 
+    private boolean m_isInit = false;
+
     public Track(String name) {
         m_name = name;
     }
+
+    @Override
+    public boolean isInit() {
+        return m_isInit;
+    }
+
 
     @Override
     public void setPath(String path) {
@@ -24,14 +34,6 @@ public class Track implements NodeDirectory, TrackInfo {
     @Override
     public String getPath() {
         return m_path;
-    }
-
-    public void setNumber(int number) {
-        m_number = number;
-    }
-
-    public void setParentNumber(int parentNumber) {
-        m_parentNumber = parentNumber;
     }
 
     @Override
@@ -59,51 +61,62 @@ public class Track implements NodeDirectory, TrackInfo {
         return m_parentNumber;
     }
 
-
     @Override
     public String getArtist() {
+        initInfo();
         return m_artist;
     }
 
     @Override
     public String getTitle() {
+        initInfo();
         return m_title;
     }
 
     @Override
     public String getAlbum() {
+        initInfo();
         return m_album;
     }
 
     @Override
     public int getDuration() {
+        initInfo();
         return m_duration;
     }
 
     @Override
     public byte[] getImage() {
+        initInfo();
         return m_image;
     }
 
-
-    void setArtist(String artist) {
-        m_artist = artist;
+    void setNumber(int number) {
+        m_number = number;
     }
 
-    void setTitle(String title) {
-        m_title = title;
+    void setParentNumber(int parentNumber) {
+        m_parentNumber = parentNumber;
     }
 
-    void setAlbum(String album) {
-        m_album = album;
+    private void initInfo() {
+        if (!m_isInit)
+            loudInfo();
     }
+    // Обращение к метаданным
+    synchronized private void loudInfo() {
 
-    void setDuration(int duration) {
-        m_duration = duration;
+        if (m_readerTrackInfo == null)
+            return;
+
+        m_readerTrackInfo.setPath(getPath());
+        m_album = m_readerTrackInfo.getAlbum();
+        m_artist = m_readerTrackInfo.getArtist();
+        m_title = m_readerTrackInfo.getTitle();
+        m_duration = m_readerTrackInfo.getDuration();
+        m_image = m_readerTrackInfo.getImage();
+        m_isInit = true;
     }
-
-    void setImage(byte[] image) {
-        m_image = image;
-    }
-
 }
+
+

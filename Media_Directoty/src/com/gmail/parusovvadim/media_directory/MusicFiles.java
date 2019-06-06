@@ -7,6 +7,30 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class MusicFiles {
+    // Поддерживаемые форматы
+    public static final String[] MUSIC_FORMAT = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
+    // Компоратор для сортировки дерикторий музыкальных треков
+    private static Comparator<File> m_fileComparator = new MusicFileComparator();
+
+    private static MusicFiles m_ourInstance = new MusicFiles();
+
+    private MusicFiles() {
+    }
+
+    public static MusicFiles getInstance() {
+        return m_ourInstance;
+    }
+
+    public void setPathRoot(String rootPathFolder) {
+        IReaderTrackInfo.setReaderTrackInfo(null);
+        m_ourInstance.getAllFiles(rootPathFolder, 0);
+    }
+
+    public void setPathRoot(String rootPathFolder, TrackInfo readerTrackInfo) {
+        IReaderTrackInfo.setReaderTrackInfo(readerTrackInfo);
+        m_ourInstance.getAllFiles(rootPathFolder, 0);
+    }
+
     // Номер для новой папки
     private int m_newFolderNumber = 0;
     // Мап для хранения папок
@@ -17,24 +41,9 @@ public class MusicFiles {
     private HashMap<Integer, Vector<NodeDirectory>> m_mapChaldeanFolders = new HashMap<>();
     // Мар с для доступа к по пути
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
-    // Поддерживаемые форматы
-    private static final String[] m_musicFormat = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
-    // ридер для чтения метаданных
-    private TrackInfo m_readerTrackInfo = null;
-    // Компоратор для сортировки дерикторий музыкальных треков
-    private static Comparator<File> m_fileComparator = new MusicFileComparator();
 
     public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;
-    }
-
-    public MusicFiles(String rootPathFolder) {
-        getAllFiles(rootPathFolder, 0);
-    }
-
-    public MusicFiles(String rootPathFolder, TrackInfo readerTrackInfo) {
-        m_readerTrackInfo = readerTrackInfo;
-        getAllFiles(rootPathFolder, 0);
     }
 
     public NodeDirectory getParentFolder(NodeDirectory childFolder) {
@@ -111,18 +120,6 @@ public class MusicFiles {
         return getNumberTracks(getNumber(dirPath));
     }
 
-    private void readInfoTrack(Track track) {
-
-        if (m_readerTrackInfo == null)
-            return;
-        m_readerTrackInfo.setPath(track.getPath());
-        track.setAlbum(m_readerTrackInfo.getAlbum());
-        track.setArtist(m_readerTrackInfo.getArtist());
-        track.setTitle(m_readerTrackInfo.getTitle());
-        track.setDuration(m_readerTrackInfo.getDuration());
-        track.setImage(m_readerTrackInfo.getImage());
-    }
-
     // выполняет чтение папок с музыкой
     private void getAllFiles(String dirPath, int parentIndex) {
         // Читаем дерикторию Получаем список файлов
@@ -177,14 +174,13 @@ public class MusicFiles {
             // проверяем типы файлов
             String filename = file.getName();
 
-            for (String musicFormat : m_musicFormat) {
+            for (String musicFormat : MUSIC_FORMAT) {
                 if (filename.endsWith(musicFormat)) {
                     filename = filename.replace(musicFormat, "");
                     Track track = new Track(filename);
                     track.setNumber(numberTracks);
                     track.setParentNumber(parentFolder.getNumber());
                     track.setPath(file.getPath());
-                    readInfoTrack(track);
                     mapTracks.add(track);
                     m_mapPaths.put(file.getPath(), track);
                     numberTracks++;

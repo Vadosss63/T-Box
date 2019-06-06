@@ -12,11 +12,15 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.gmail.parusovvadim.media_directory.MusicFileComparator;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+
+import static com.gmail.parusovvadim.media_directory.MusicFiles.MUSIC_FORMAT;
 
 public class SettingActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -27,6 +31,8 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     private String m_currentDir;
     private TextView m_pathTextView;
     private ArrayAdapter<String> m_adapter;
+    // Компоратор для сортировки дерикторий музыкальных треков
+    private Comparator<File> m_fileComparator = new MusicFileComparator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,15 +119,20 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
                 if (!file.isHidden() && file.canRead()) if (file.isDirectory()) {
                     m_pathList.add(file.getPath());
                     itemList.add(file.getName() + "/");
-                } else if (filename.endsWith(".mp3") || filename.endsWith(".wma") || filename.endsWith(".ogg")) {
-                    m_pathList.add(file.getPath());
-                    itemList.add(file.getName());
+                } else {
+                    for (String musicFormat : MUSIC_FORMAT)
+                        if (filename.endsWith(musicFormat)) {
+                            m_pathList.add(file.getPath());
+                            itemList.add(file.getName());
+                            break;
+                        }
                 }
             }
         } else {
             getDir(m_settingApp.getStorageDirectory());
             return;
         }
+
         // Можно выводить на экран список
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item, itemList);
         m_pathView.setAdapter(adapter);
@@ -156,15 +167,4 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         m_currentDir = m_settingApp.getMusicPath();
     }
 
-    // Компоратор для сортировки дерикторий музыкальных треков
-    private Comparator<? super File> m_fileComparator = (Comparator<File>) (file1, file2) -> {
-
-        if (file1.isDirectory() && !file2.isDirectory()) return -1;
-
-        if (file2.isDirectory() && !file1.isDirectory()) return 1;
-
-        String pathLowerCaseFile1 = file1.getName().toLowerCase();
-        String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return pathLowerCaseFile1.compareTo(pathLowerCaseFile2);
-    };
 }

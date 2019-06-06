@@ -2,6 +2,8 @@ package com.gmail.parusovvadim.media_directory;
 
 public interface TrackInfo {
 
+    boolean isInit();
+
     void setPath(String path);
 
     String getPath();

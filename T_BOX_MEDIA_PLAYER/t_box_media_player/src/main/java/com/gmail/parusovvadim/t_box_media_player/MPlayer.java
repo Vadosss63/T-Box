@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
-import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Binder;
@@ -78,18 +77,12 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     private NodeDirectory m_currentTrack = null; // Установить на первую песню
     // дериктория для воспроизведения
     private MusicFiles m_musicFiles;
-    // корневая папка для воспроизведения музыки
-    private String m_rootPath = "/Music";
-    // Настройки папки воспроизведения
-    private SettingApp m_settingApp;
-    //
     private boolean m_isPause = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
         createMediaSession();
-        m_settingApp = new SettingApp(this);
         createAudioManager();
         createPlayer();
         changeRoot();
@@ -303,10 +296,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     }
 
     private void changeRoot() {
-        m_settingApp.loadSetting();
-        if (m_rootPath.equals(m_settingApp.getAbsolutePath()) && !m_musicFiles.isEmpty()) return;
-        m_rootPath = m_settingApp.getAbsolutePath();
-        m_musicFiles = new MusicFiles(m_rootPath, new ReaderTrackInfo());
+        m_musicFiles = MusicFiles.getInstance();
         selectTrack(1, 0);
     }
 
@@ -385,6 +375,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         @Override
         public void onPause() {
             if (m_currentTrack == null) return;
+            if (!isPlay()) return;
             // Останавливаем воспроизведение
             pause();
             // Сообщаем новое состояние
@@ -473,9 +464,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 String artist = trackInfo.getArtist();
                 String title = trackInfo.getTitle();
                 String album = trackInfo.getAlbum();
-
                 long durationMs = trackInfo.getDuration();
-
                 byte[] art = trackInfo.getImage();
 
                 // Заполняем данные о треке

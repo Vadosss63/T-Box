@@ -51,7 +51,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     static final public int CMD_PLAY_PAUSE = 0x0B;
     static final public int CMD_SYNCHRONIZATION = 0x20;
 
-    static final private int MAX_SIZE_DATA = 2816;
+    static final private int MAX_SIZE_DATA = 2816 - 10;
 
     // метаданных трека
     final private MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder();
@@ -512,16 +512,26 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         EncoderByteMainHeader.EncoderListTracks encoderListTracks = new EncoderByteMainHeader.EncoderListTracks();
 
         for (NodeDirectory folder : folders) {
+            int lastNumberBlock = 0;
+            int startNewBlock = 0;
+            Vector<Integer> endBlocks = new Vector<>();
             encoderListTracks.AddHeader(folder.getNumber());
             Vector<NodeDirectory> tracks = m_musicFiles.getTracks(folder.getNumber());
             for (NodeDirectory track : tracks) {
                 encoderListTracks.AddTrackNumber(track.getNumber() + 1);
                 encoderListTracks.AddName(getTranslate(track.getName()));
+                if ((encoderListTracks.size() - startNewBlock) > MAX_SIZE_DATA) {
+                    endBlocks.add(lastNumberBlock);
+                    startNewBlock = lastNumberBlock;
+                }
+                lastNumberBlock = encoderListTracks.size();
             }
 
             encoderListTracks.AddEnd();
+            endBlocks.add(encoderListTracks.size());
 
-            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte());
+
+            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte(), endBlocks);
 
             for (int i = 0; i < dataList.size(); i++) {
 
@@ -542,6 +552,10 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
 
     private void sendInfoFoldersToComPort() {
         Vector<NodeDirectory> folders = m_musicFiles.getFolders();
+        int lastNumberBlock = 0;
+        int startNewBlock = 0;
+        Vector<Integer> endBlocks = new Vector<>();
+
         EncoderFolders encoderFolders = new EncoderFolders();
         encoderFolders.AddHeader();
 
@@ -550,11 +564,20 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             encoderFolders.AddNumber(folder.getNumber());
             encoderFolders.AddNumberTracks(folder.getNumberTracks());
             encoderFolders.AddParentNumber(folder.getParentNumber());
+
+            if ((encoderFolders.size() - startNewBlock) > MAX_SIZE_DATA) {
+                endBlocks.add(lastNumberBlock);
+                startNewBlock = lastNumberBlock;
+            }
+            lastNumberBlock = encoderFolders.size();
         }
 
         encoderFolders.AddEnd();
 
-        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte());
+        endBlocks.add(encoderFolders.size());
+
+
+        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte(), endBlocks);
 
         for (int i = 0; i < dataList.size(); i++) {
 
@@ -570,24 +593,16 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             startService(intent);
         }
 
-
     }
 
-    private static Vector<Vector<Byte>> GetListData(Vector<Byte> data) {
+    private static Vector<Vector<Byte>> GetListData(Vector<Byte> data, Vector<Integer> endBlocks) {
         Vector<Vector<Byte>> list = new Vector<>();
         int startIndex = 0;
-        int stopIndex;
 
-        do {
-            stopIndex = startIndex + MAX_SIZE_DATA;
-            if (stopIndex > data.size())
-                stopIndex = data.size();
-
+        for (Integer stopIndex : endBlocks) {
             list.add(new Vector<>(data.subList(startIndex, stopIndex)));
-            startIndex += MAX_SIZE_DATA;
-
-        } while (stopIndex < data.size());
-
+            startIndex = stopIndex + 1;
+        }
         return list;
     }
 

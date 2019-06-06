@@ -15,6 +15,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 class SettingApp {
     static private SettingApp m_ourInstance = new SettingApp();
+    private Context m_context;
 
     private SettingApp() {
     }
@@ -37,7 +38,6 @@ class SettingApp {
 
     // корневая папка
     private SharedPreferences m_setting;
-    private Context m_context;
     private String m_pathMusicFiles;
     private String m_defaultPath = "/Music";
     private String m_storageDirectory;

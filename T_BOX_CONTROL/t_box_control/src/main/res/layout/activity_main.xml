@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic"
+    android:background="@color/colorMainActivity"
     tools:context=".MainActivity">
 
     <android.support.design.widget.FloatingActionButton
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <android.support.design.widget.FloatingActionButton
@@ -23,7 +23,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="90dp"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/ic_media_ff" />
 
     <android.support.design.widget.FloatingActionButton
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/ic_media_next" />
 
     <android.support.design.widget.FloatingActionButton
@@ -42,7 +42,7 @@
         android:layout_gravity="bottom|start"
         android:layout_marginStart="90dp"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/ic_media_rew" />
 
     <android.support.design.widget.FloatingActionButton
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/ic_media_previous" />
 
     <android.support.design.widget.FloatingActionButton
@@ -61,7 +61,24 @@
         android:layout_gravity="top|end"
         android:layout_margin="5dp"
 
-        app:backgroundTint="@android:color/background_dark"
+        app:backgroundTint="@color/colorNotif"
         app:srcCompat="@android:drawable/stat_notify_sync" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="5dp"
+        app:backgroundTint="@color/colorNotif"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:background="@color/whiteMainActivity"
+        app:srcCompat="@drawable/main_image" />
 
 </android.support.design.widget.CoordinatorLayout>

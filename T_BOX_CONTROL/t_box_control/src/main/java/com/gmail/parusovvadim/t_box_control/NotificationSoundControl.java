@@ -11,9 +11,9 @@ import android.support.v4.content.ContextCompat;
 
 class NotificationRunnableService {
 
-    static private String CHANEL_ID = "T-BOX";
-    static private String CHANEL_NAME = "CONTROL";
-    static private int NOTIFICATION_ID = 1991;
+    static final private String CHANEL_ID = "T-BOX";
+    static final private String CHANEL_NAME = "CONTROL";
+    static final private int NOTIFICATION_ID = 1991;
 
     NotificationRunnableService(Service service) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -36,7 +36,7 @@ class NotificationRunnableService {
 
     private Notification getNotification(Service service, String msg, String title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(service, CHANEL_ID);
-        builder.setContentTitle(title).setContentText(msg).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorPrimaryDark)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
+        builder.setContentTitle(title).setContentText(msg).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorNotif)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
         return builder.build();
     }
 

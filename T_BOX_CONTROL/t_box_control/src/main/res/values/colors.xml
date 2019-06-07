@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorMainActivityDark">#ffa40f</color>
+    <color name="colorMainActivity">#FD8E1B</color>
+    <color name="whiteMainActivity">#DDDDDD</color>
+    <color name="colorNotif">#DD641d95</color>
+
 </resources>

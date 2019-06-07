@@ -81,6 +81,20 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton sync = findViewById(R.id.sync);
         sync.setOnClickListener(view -> Sync());
+
+
+        FloatingActionButton exit = findViewById(R.id.exit);
+        exit.setOnClickListener(view -> exitApp());
+
+    }
+
+    private void exitApp() {
+        Intent intent = new Intent(this, ReceiverService.class);
+        stopService(intent);
+
+        Intent intentUART = new Intent(this, UARTService.class);
+        stopService(intentUART);
+        finish();
     }
 
     private void Sync() {

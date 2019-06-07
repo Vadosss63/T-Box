@@ -1,7 +1,11 @@
 package com.gmail.parusovvadim.t_box_control;
 
 import android.app.Service;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.IBinder;
 
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
@@ -19,6 +23,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import android.bluetooth.BluetoothAdapter;
+import android.util.Log;
+
+
 public class UARTService extends Service {
 
     final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
@@ -28,6 +36,8 @@ public class UARTService extends Service {
     // дериктория для синхронизации
     private MusicFiles m_musicFiles = null;
     static String m_showMassage = "Поиск соединения";
+    static final String m_deviceName = "T-BOX audio";
+
     int m_iteration = 0;
     // Поток отправки сообщений в port
     private SenderThread m_senderThread;
@@ -36,23 +46,52 @@ public class UARTService extends Service {
     private DataPort m_UARTPort = null;
     private boolean m_isStartThread = true;
 
+    private final BroadcastReceiver m_bluetoothReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            String tag = "MyBluetooth";
+            Log.d(tag, "MyBluetooth " + intent.getAction());
+
+            if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(intent.getAction())) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (device != null) {
+                    if (device.getName().equals(m_deviceName)) {
+                        showNotification("Соединено с T-BOX audio", "Статус Bluetooth");
+                        runCheck();
+                    }
+                }
+            }
+
+            if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(intent.getAction())) {
+                stopSelf();
+            }
+
+        }
+    };
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+        intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+        registerReceiver(m_bluetoothReceiver, intentFilter);
         createUART();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (m_UARTPort.IsConfigured() && m_UARTPort.IsConnected()) {
-            showNotification("Передача данных", "Статус Bluetooth");
             m_senderThread.AddCMD(intent);
+            showNotification("Соединено с T-BOX data", "Статус Bluetooth");
         } else {
             showNotification("Соединение разорвано", "Статус Bluetooth");
             if (!m_isCheckConnectionStart) {
                 m_isCheckConnectionStart = true;
-                runCheck();
+//                runCheck();
             }
         }
         return super.onStartCommand(intent, flags, startId);
@@ -96,6 +135,7 @@ public class UARTService extends Service {
         m_isCheckConnectionStart = false;
         m_UARTPort.Disconnect();
         m_senderThread.interrupt(); // завершам поток
+        unregisterReceiver(m_bluetoothReceiver);
     }
 
     @Override
@@ -175,7 +215,8 @@ public class UARTService extends Service {
 
     // Синхронизация с АУДИ
     private void startSyncTBox(String rootPath) {
-        m_musicFiles = new MusicFiles(rootPath);
+        m_musicFiles = MusicFiles.getInstance();
+        m_musicFiles.setPathRoot(rootPath);
         sendInfoFoldersToComPort();
         sendInfoTracksToComPort();
     }

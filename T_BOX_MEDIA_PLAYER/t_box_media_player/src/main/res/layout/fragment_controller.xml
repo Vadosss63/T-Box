@@ -17,17 +17,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_t_box"
-            />
+            app:srcCompat="@drawable/image_t_box" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:background="@drawable/gradient_panel"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +34,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -72,7 +72,7 @@
 
                                     android:gravity="center"
                                     android:singleLine="true"
-                                    android:text="Новая композиция"
+                                    android:text="@string/titleDefault"
                                     android:textColor="@color/White"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
@@ -84,7 +84,7 @@
 
                                     android:gravity="center"
                                     android:singleLine="true"
-                                    android:text="Новая композиция"
+                                    android:text="@string/titleDefault"
                                     android:textColor="@color/WhiteDARK"
                                     android:textSize="16sp" />
 

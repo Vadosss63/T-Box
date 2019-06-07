@@ -7,11 +7,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83933b72-152e-4db2-ad40-6dba2a0dd012" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_2_0_0_beta1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_2_0_0_beta1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_media_compat_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_v13_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_v4_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/SettingApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Протоколы/Протокол передачи данных UART v1_1.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Протоколы/Протокол передачи данных UART v1_2.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../encoder_uart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../encoder_uart/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +70,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+            <state relative-caret-position="558">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#CleanFiles#0;class#MusicFiles#0" />
                 <element signature="method#MusicFiles#0;class#MusicFiles#0" />
+                <element signature="method#loudInfo#0;class#MusicFiles#0" />
                 <element signature="method#getParentFolder#0;class#MusicFiles#0" />
                 <element signature="method#getPathTrack#0;class#MusicFiles#0" />
                 <element signature="method#getTrack#0;class#MusicFiles#0" />
@@ -47,6 +88,24 @@
                 <element signature="method#getNumberTracks#0;class#MusicFiles#0" />
                 <element signature="method#getAllFiles#1;class#MusicFiles#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="102" column="24" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -73,10 +132,10 @@
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/FileComparator.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFileComparator.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/IRederTrackInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/IReaderTrackInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Folder.java" />
+        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java" />
+        <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java" />
         <option value="$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java" />
       </list>
     </option>
@@ -93,6 +152,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -100,22 +160,10 @@
               <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
               <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Media_Directoty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Media_Directoty" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="media_directory" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -124,7 +172,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LIBS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -177,9 +225,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.14690171" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.10149573" />
       <window_info id="Structure" order="1" sideWeight="0.50159746" side_tool="true" weight="0.14529915" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -287,20 +334,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/My.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/IReaderTrackInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -312,13 +345,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/Track.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/TrackInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gmail/parusovvadim/media_directory/MusicFiles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        <state relative-caret-position="558">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#CleanFiles#0;class#MusicFiles#0" />
             <element signature="method#MusicFiles#0;class#MusicFiles#0" />
+            <element signature="method#loudInfo#0;class#MusicFiles#0" />
             <element signature="method#getParentFolder#0;class#MusicFiles#0" />
             <element signature="method#getPathTrack#0;class#MusicFiles#0" />
             <element signature="method#getTrack#0;class#MusicFiles#0" />

@@ -59,6 +59,26 @@ public class MusicFiles {
         CleanFiles();
         IReaderTrackInfo.setReaderTrackInfo(readerTrackInfo);
         getAllFiles(rootPathFolder, 0);
+        //Запуск прогрузки информации
+        LouderThread louderThread = new LouderThread();
+        louderThread.start();
+    }
+
+    private class LouderThread extends Thread {
+        @Override
+        public void run() {
+            loudInfo();
+        }
+    }
+
+    // выполнение загрузки данных
+    private void loudInfo() {
+        Vector<NodeDirectory> folders = getFolders();
+        for (NodeDirectory folder : folders) {
+            Vector<NodeDirectory> tracks = getTracks(folder.getNumber());
+            for (NodeDirectory track : tracks)
+                ((TrackInfo) track).initInfo();
+        }
     }
 
 

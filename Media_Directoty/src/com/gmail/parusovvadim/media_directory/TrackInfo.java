@@ -4,6 +4,8 @@ public interface TrackInfo {
 
     boolean isInit();
 
+    void initInfo();
+
     void setPath(String path);
 
     String getPath();

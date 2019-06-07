@@ -4,7 +4,7 @@ import android.media.MediaMetadataRetriever;
 
 import com.gmail.parusovvadim.media_directory.TrackInfo;
 
-public class ReaderTrackInfo implements TrackInfo {
+class ReaderTrackInfo implements TrackInfo {
 
     private final MediaMetadataRetriever m_mediaMetadataRetriever = new MediaMetadataRetriever();
     private String m_path = null;
@@ -12,11 +12,15 @@ public class ReaderTrackInfo implements TrackInfo {
     private String m_title = "Empty";
     private String m_album = "Empty";
     private int m_durationMs = 0;
-    byte[] m_image = null;
+    private byte[] m_image = null;
 
     @Override
     public boolean isInit() {
         return false;
+    }
+
+    @Override
+    public void initInfo() {
     }
 
     @Override

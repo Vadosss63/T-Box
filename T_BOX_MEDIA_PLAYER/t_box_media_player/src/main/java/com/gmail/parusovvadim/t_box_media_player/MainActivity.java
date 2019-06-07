@@ -13,9 +13,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -38,9 +35,10 @@ import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+    private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
+    public static final int CMD_EXIT = -1;
+
     static final String BROADCAST_ACTION = "com.gmail.parusovvadim.t_box_media_player";
-    static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
-    static final public int CMD_EXIT = -1;
 
     private ControllerPlayerFragment m_controllerPlayerFragment = null;
 
@@ -54,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Текущий выбранный трек
     private NodeDirectory m_currentTrack = null;
 
-    private Folder m_backFolder = new Folder("Вверх");
+    private final Folder m_backFolder = new Folder("Вверх");
 
-    private SettingApp m_settingApp = SettingApp.getInstance();
+    private final SettingApp m_settingApp = SettingApp.getInstance();
 
     // адаптер
     private ArrayAdapter<NodeDirectory> m_adapterPlayList = null;

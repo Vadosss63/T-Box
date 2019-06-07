@@ -15,7 +15,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="5dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/folder" />
+        android:src="@drawable/folder"
+        />
 
     <TextView
         android:id="@+id/titleFolder"

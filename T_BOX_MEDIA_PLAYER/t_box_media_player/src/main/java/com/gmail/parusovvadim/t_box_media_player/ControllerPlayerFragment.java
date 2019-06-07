@@ -48,10 +48,10 @@ public class ControllerPlayerFragment extends Fragment {
     private int m_currentFolder = -1;
     private int m_currentTrack = -1;
 
-    float m_startPosX = 0;
+    private float m_startPosX = 0;
 
-    MPlayer.MPlayerBinder m_playerServiceBinder;
-    MediaControllerCompat m_mediaController;
+    private MPlayer.MPlayerBinder m_playerServiceBinder;
+    private MediaControllerCompat m_mediaController;
 
     @SuppressLint("InflateParams")
     @Override
@@ -263,7 +263,7 @@ public class ControllerPlayerFragment extends Fragment {
         }
     }
 
-    void createAnimation() {
+    private void createAnimation() {
         m_animationClose = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_close);
         m_animationShow = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_show);
 

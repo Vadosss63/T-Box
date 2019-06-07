@@ -36,9 +36,8 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     private SettingApp m_settingApp;
     private String m_currentDir;
     private TextView m_pathTextView;
-    private ArrayAdapter<String> m_adapter;
     // Компоратор для сортировки дерикторий музыкальных треков
-    private Comparator<File> m_fileComparator = new MusicFileComparator();
+    private final Comparator<File> m_fileComparator = new MusicFileComparator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         m_changeFolderFragment = new ChangeFolderFragment();
         m_pathView = findViewById(R.id.pathList);
         m_pathView.setOnItemClickListener(this);
-        m_pathTextView = (TextView) findViewById(R.id.pathMusicFiles);
+        m_pathTextView = findViewById(R.id.pathMusicFiles);
 
         loadSetting();
         getDir(m_settingApp.getAbsolutePath()); // выводим список файлов и папок в корневой папке системы
@@ -59,7 +58,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
 
     private void createAdapterSpinner() {
         final Spinner spinner = findViewById(R.id.pathStorage);
-        m_adapter = new ArrayAdapter<>(this, R.layout.list_item, m_settingApp.getPaths());
+        ArrayAdapter<String> m_adapter = new ArrayAdapter<>(this, R.layout.list_item, m_settingApp.getPaths());
 
         spinner.setAdapter(m_adapter);
         spinner.setSelection(m_settingApp.getCurrentPathStorage());
@@ -84,7 +83,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         changeStateSelectRoot();
     }
 
-    public void changeStateSelectRoot() {
+    private void changeStateSelectRoot() {
         FragmentTransaction m_fragmentTransaction = getFragmentManager().beginTransaction();
         m_fragmentTransaction.replace(R.id.settingFragment, m_changeFolderFragment);
         m_fragmentTransaction.commit();
@@ -166,10 +165,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
             {
                 getDir(m_pathList.get(position));
             } else { // если папка закрыта, то сообщаем об этом
-                new AlertDialog.Builder(this).setIcon(R.mipmap.ic_launcher).setTitle("[" + file.getName() + "] папка не доступна!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
+                new AlertDialog.Builder(this).setIcon(R.mipmap.ic_launcher).setTitle("[" + file.getName() + "] папка не доступна!").setPositiveButton("OK", (dialog, which) -> {
                 }).show();
             }
         }
@@ -181,7 +177,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         m_settingApp.loadSetting();
     }
 
-    void loadSetting() {
+    private void loadSetting() {
         m_settingApp.loadSetting();
         m_currentDir = m_settingApp.getMusicPath();
     }

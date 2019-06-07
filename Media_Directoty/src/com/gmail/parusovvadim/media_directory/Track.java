@@ -99,7 +99,8 @@ public class Track extends IReaderTrackInfo  implements NodeDirectory, TrackInfo
         m_parentNumber = parentNumber;
     }
 
-    private void initInfo() {
+    @Override
+    public void initInfo() {
         if (!m_isInit)
             loudInfo();
     }

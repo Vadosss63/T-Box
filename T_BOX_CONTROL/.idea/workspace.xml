@@ -20,6 +20,7 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Unnamed-0" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="AvailableLibraryUpdateStorage">
     <library-updates>
@@ -146,11 +147,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+            <state relative-caret-position="1458">
+              <caret line="91" column="14" selection-start-line="91" selection-end-line="95" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding>
+                <element signature="e#5015#5124#0" />
+                <element signature="e#5241#5873#0" />
+                <element signature="e#5879#6094#0" />
+                <element signature="e#6100#6574#0" />
+                <element signature="e#6580#7098#0" />
+                <element signature="e#9267#10060#0" />
+                <element signature="e#10066#11104#0" />
+                <element signature="e#11110#11287#0" />
+                <element signature="e#12473#12656#0" />
+                <element signature="e#12666#12982#0" />
+                <element signature="e#12992#13186#0" />
+                <element signature="e#13196#14062#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -173,7 +207,7 @@
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../MyAPKStore.jks" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Vadosss63\MyAPKStore.jks" />
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
@@ -204,16 +238,16 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" />
-        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java" />
-        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java" />
-        <option value="$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/t_box_control/build.gradle" />
-        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/MainActivity.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/NotificationSoundControl.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java" />
+        <option value="$PROJECT_DIR$/t_box_control/build.gradle" />
+        <option value="$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java" />
+        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" />
       </list>
     </option>
   </component>
@@ -228,6 +262,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
@@ -333,18 +379,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -365,42 +399,6 @@
             </path>
             <path>
               <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="t_box_control" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="NotificationSoundControl.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -410,7 +408,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/../APK" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Vadosss63\Desktop\T-Box\APK" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
@@ -419,7 +417,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="9b5cb4e" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../APK" />
+    <property name="last_opened_file_path" value="$USER_HOME$/MyAPKStore.jks" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -637,22 +635,23 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1173" extended-state="6" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.41216215" side_tool="true" weight="0.113247864" />
       <window_info id="Designer" order="1" />
       <window_info id="Build Variants" order="2" sideWeight="0.42636746" side_tool="true" weight="0.097222224" />
       <window_info id="Favorites" order="3" sideWeight="0.5077844" side_tool="true" weight="0.18856838" />
       <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.57363254" visible="true" weight="0.13621795" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.57363254" visible="true" weight="0.14577039" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Structure" order="7" sideWeight="0.41609588" side_tool="true" weight="0.16012084" />
       <window_info id="Resources Explorer" order="8" weight="0.32905984" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" visible="true" weight="0.23069498" />
-      <window_info anchor="bottom" id="Android Profiler" order="1" />
+      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" visible="true" weight="0.22964169" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5892094" side_tool="true" weight="0.13416989" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3294686" />
-      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49839744" weight="0.39671814" />
+      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49839744" weight="0.46905538" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49893162" weight="0.41272432" />
       <window_info anchor="bottom" id="Run" order="7" sideWeight="0.46741453" weight="0.5096525" />
@@ -794,61 +793,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="274" column="18" selection-start-line="274" selection-start-column="18" selection-end-line="274" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onPlaybackStateChanged#0;class#1893:2949" />
-            <element signature="method#SendAUX#0;class#ReceiverService#0" />
-            <element signature="e#5892#5893#0" expanded="true" />
-            <element signature="e#5925#5926#0" expanded="true" />
-            <element signature="e#5983#5984#0" expanded="true" />
-            <element signature="e#6010#6011#0" expanded="true" />
-            <element signature="method#SendTime#0;class#ReceiverService#0" />
-            <element signature="e#11501#11502#0" expanded="true" />
-            <element signature="e#11551#11552#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/bluetooth/BluetoothAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2738">
-          <caret line="462" column="12" selection-start-line="462" selection-start-column="12" selection-end-line="462" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/AutoStartReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/bluetooth/BluetoothDevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="140" column="31" selection-start-line="140" selection-start-column="31" selection-end-line="140" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/bluetooth/BluetoothAdapter.java" />
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/bluetooth/BluetoothDevice.java" />
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/drawable/ic.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/drawable/main_image.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/NotificationSoundControl.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -895,8 +846,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
+        <state relative-caret-position="180">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="91" column="14" selection-start-line="91" selection-end-line="95" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/AutoStartReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -905,53 +880,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="820">
+          <caret line="50" column="52" lean-forward="true" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2621">
+          <caret line="270" column="32" selection-start-line="270" selection-start-column="32" selection-end-line="270" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#onPlaybackStateChanged#0;class#1893:2949" />
+            <element signature="method#SendAUX#0;class#ReceiverService#0" />
+            <element signature="e#5892#5893#0" expanded="true" />
+            <element signature="e#5925#5926#0" expanded="true" />
+            <element signature="e#5983#5984#0" expanded="true" />
+            <element signature="e#6010#6011#0" expanded="true" />
+            <element signature="method#Sync#0;class#ReceiverService#0" />
+            <element signature="method#SendTime#0;class#ReceiverService#0" />
+            <element signature="method#OnAUX#0;class#ReceiverService#0" />
+            <element signature="method#GetTitle#0;class#ReceiverService#0" />
+            <element signature="method#SendInfoTrack#0;class#ReceiverService#0" />
+            <element signature="method#GetTime#0;class#ReceiverService#0" />
+            <element signature="e#11501#11502#0" expanded="true" />
+            <element signature="e#11551#11552#0" expanded="true" />
+            <element signature="method#SyncUART#0;class#ReceiverService#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="272" column="31" selection-start-line="272" selection-start-column="31" selection-end-line="272" selection-end-column="31" />
+        <state relative-caret-position="108">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#showNotification#0;class#UARTService#0" />
-            <element signature="e#4116#4245#0" expanded="true" />
-            <element signature="e#4244#4245#0" expanded="true" />
-            <element signature="method#createUART#0;class#UARTService#0" />
-            <element signature="method#parser#0;class#UARTService#0" />
-            <element signature="method#sendDataByte#0;class#UARTService#0" />
-            <element signature="method#sendTime#0;class#UARTService#0" />
-            <element signature="method#sendSelectTrack#0;class#UARTService#0" />
-            <element signature="method#sendInfoTracksToComPort#0;class#UARTService#0" />
-            <element signature="method#sendInfoFoldersToComPort#0;class#UARTService#0" />
-            <element signature="method#readCommand#0;class#UARTService#0" />
-            <element signature="method#startSync#0;class#UARTService#0" />
-            <element signature="class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#GetCMD#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#Execute#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="e#5015#5124#0" />
+            <element signature="e#5241#5873#0" />
+            <element signature="e#5879#6094#0" />
+            <element signature="e#6100#6574#0" />
+            <element signature="e#6580#7098#0" />
+            <element signature="e#9267#10060#0" />
+            <element signature="e#10066#11104#0" />
+            <element signature="e#11110#11287#0" />
+            <element signature="e#12473#12656#0" />
+            <element signature="e#12666#12982#0" />
+            <element signature="e#12992#13186#0" />
+            <element signature="e#13196#14062#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="56" column="47" lean-forward="true" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-        </state>
-      </provider>
       <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        <state relative-caret-position="106">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>

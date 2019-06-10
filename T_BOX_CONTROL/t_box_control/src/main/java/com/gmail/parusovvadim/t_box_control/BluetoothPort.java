@@ -38,8 +38,6 @@ public class BluetoothPort implements DataPort {
 
     private boolean m_isUARTConfigured = false;
 
-
-
     BluetoothPort() {
     }
 

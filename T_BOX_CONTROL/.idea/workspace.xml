@@ -148,33 +148,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-              <folding>
-                <element signature="e#893#1340#0" />
-                <element signature="e#1350#1698#0" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/drawable/background_splash.xml">
+        <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="486">
+              <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -233,17 +219,17 @@
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothPort.java" />
-        <option value="$PROJECT_DIR$/t_box_control/build.gradle" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/SplashActivity.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/drawable/background_splash.xml" />
+        <option value="$PROJECT_DIR$/t_box_control/build.gradle" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="386" />
     <option name="y" value="180" />
     <option name="width" value="1364" />
@@ -255,43 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="t_box_control" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,6 +253,21 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
+              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
@@ -640,19 +604,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="7" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.41216215" side_tool="true" weight="0.113247864" />
       <window_info id="Designer" order="1" />
       <window_info id="Build Variants" order="2" sideWeight="0.42636746" side_tool="true" weight="0.097222224" />
       <window_info id="Favorites" order="3" sideWeight="0.5077844" side_tool="true" weight="0.18856838" />
       <window_info id="Capture Tool" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.57363254" visible="true" weight="0.16691843" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.57363254" visible="true" weight="0.14123867" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Structure" order="7" sideWeight="0.41609588" side_tool="true" weight="0.16012084" />
       <window_info id="Resources Explorer" order="8" weight="0.32905984" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" visible="true" weight="0.37785017" />
-      <window_info anchor="bottom" id="Android Profiler" order="1" />
+      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" weight="0.37785017" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5892094" side_tool="true" weight="0.13416989" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.3294686" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49839744" weight="0.46905538" />
@@ -666,7 +630,7 @@
       <window_info anchor="right" id="Palette&#9;" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Assistant" order="4" weight="0.20543806" />
-      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.260574" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.260574" />
       <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" weight="0.32930514" />
     </layout>
   </component>
@@ -705,13 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -825,19 +782,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/AutoStartReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -920,9 +870,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/drawable/background_splash.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
+        <state relative-caret-position="272">
           <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="e#893#1340#0" />
@@ -932,17 +896,17 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/res/drawable/background_splash.xml">
+    <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        <state relative-caret-position="486">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
         </state>
       </provider>
     </entry>

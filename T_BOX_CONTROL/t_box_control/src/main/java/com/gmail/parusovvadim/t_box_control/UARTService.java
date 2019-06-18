@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
 import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
@@ -38,9 +39,6 @@ public class UARTService extends Service
     public void onCreate()
     {
         super.onCreate();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
-        intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
         createUART();
     }
 
@@ -106,9 +104,17 @@ public class UARTService extends Service
     {
         super.onDestroy();
         m_isStartThread = false;
+        try
+        {
+            m_senderThread.interrupt(); // завершам поток
+        } catch(NullPointerException e)
+        {
+            Log.d("onDestroy", e.toString());
+        }
+
         m_isCheckConnectionStart = false;
         m_UARTPort.Disconnect();
-        m_senderThread.interrupt(); // завершам поток
+
     }
 
     @Override
@@ -255,6 +261,13 @@ public class UARTService extends Service
         if(data[2] == (byte) CMD_DATA.AUX)
         {
             startSync();
+            StringBuffer buf = new StringBuffer();
+            for(Byte da : data)
+            {
+                buf.append(Integer.toHexString(da));
+            }
+
+            Log.d("startSync", "data " + buf.toString());
         }
     }
 
@@ -320,15 +333,13 @@ public class UARTService extends Service
         @Override
         public void run()
         {
-            while(m_isStartThread)
+            try
             {
-                try
-                {
-                    Execute();
-                } catch(InterruptedException e)
-                {
-                    m_isStartThread = false;
-                }
+                while(m_isStartThread) Execute();
+            } catch(InterruptedException e)
+            {
+                Log.d("ThreadPool", "Error");
+                m_isStartThread = false;
             }
         }
 

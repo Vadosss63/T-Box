@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
     private void exitApp() {
         Intent intent = new Intent(this, ReceiverService.class);
         stopService(intent);
-
         Intent intentUART = new Intent(this, UARTService.class);
         stopService(intentUART);
         finish();

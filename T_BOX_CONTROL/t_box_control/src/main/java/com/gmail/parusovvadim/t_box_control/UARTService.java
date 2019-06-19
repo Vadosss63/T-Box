@@ -1,9 +1,7 @@
 package com.gmail.parusovvadim.t_box_control;
 
 import android.app.Service;
-import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -34,6 +32,7 @@ public class UARTService extends Service
     // класс подключения для COM
     private DataPort m_UARTPort = null;
     private boolean m_isStartThread = true;
+    private Timer m_timerConnect = new Timer();
 
     @Override
     public void onCreate()
@@ -69,7 +68,7 @@ public class UARTService extends Service
 
     private void runCheck()
     {
-        new Timer().schedule(new TimerTask()
+        m_timerConnect.schedule(new TimerTask()
         {
             @Override
             public void run()
@@ -104,17 +103,14 @@ public class UARTService extends Service
     {
         super.onDestroy();
         m_isStartThread = false;
-        try
-        {
-            m_senderThread.interrupt(); // завершам поток
-        } catch(NullPointerException e)
-        {
-            Log.d("onDestroy", e.toString());
-        }
-
+        if(m_senderThread != null)
+            if(m_senderThread.isAlive()) m_senderThread.interrupt(); // завершам поток
+        m_senderThread = null;
+        Log.d("UARTService", "onDestroy: ");
         m_isCheckConnectionStart = false;
         m_UARTPort.Disconnect();
-
+        if(m_timerConnect != null) m_timerConnect.cancel();
+        m_timerConnect = null;
     }
 
     @Override
@@ -261,7 +257,7 @@ public class UARTService extends Service
         if(data[2] == (byte) CMD_DATA.AUX)
         {
             startSync();
-            StringBuffer buf = new StringBuffer();
+            StringBuilder buf = new StringBuilder();
             for(Byte da : data)
             {
                 buf.append(Integer.toHexString(da));

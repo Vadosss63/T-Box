@@ -91,7 +91,6 @@ public class ReceiverService extends Service
 
         if(list.isEmpty()) return;
 
-        // TODO выполнить проверку на закрытия основного плеера
         for(MediaController player : list)
         {
             // Выполняем синхронизацию в случае подключенного плеера
@@ -163,6 +162,8 @@ public class ReceiverService extends Service
     {
         super.onCreate();
         Sync();
+
+        Log.d("ReceiverService", "onCreate: ");
     }
 
     @Override
@@ -184,6 +185,23 @@ public class ReceiverService extends Service
     public void onDestroy()
     {
         super.onDestroy();
+        Log.d("ReceiverService", "onDestroy: ");
+        StopALL();
+    }
+
+    private void StopALL()
+    {
+        m_onActiveSessionsChangedListener = null;
+        m_activePlayer = null;
+        try
+        {
+            if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
+        } catch(RuntimeException e)
+        {
+            e.fillInStackTrace();
+        }
+        m_timeThread = null;
+        m_callback = null;
     }
 
     @Override

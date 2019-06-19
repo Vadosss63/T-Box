@@ -10,7 +10,7 @@ import android.util.Log;
 public class BluetoothReceiver extends BroadcastReceiver
 {
 
-    //   static final String m_deviceName = "JBL Clip 2";
+    //  static final String m_deviceName = "JBL Clip 2";
     static final String m_deviceName = "T-BOX audio";
 
     @Override

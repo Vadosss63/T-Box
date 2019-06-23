@@ -103,13 +103,27 @@ public class UARTService extends Service
     {
         super.onDestroy();
         m_isStartThread = false;
-        if(m_senderThread != null)
-            if(m_senderThread.isAlive()) m_senderThread.interrupt(); // завершам поток
+        try
+        {
+            if(m_senderThread != null)
+                if(m_senderThread.isAlive()) m_senderThread.interrupt(); // завершам поток
+        } catch(RuntimeException e)
+        {
+            e.fillInStackTrace();
+        }
+
         m_senderThread = null;
         Log.d("UARTService", "onDestroy: ");
         m_isCheckConnectionStart = false;
-        m_UARTPort.Disconnect();
-        if(m_timerConnect != null) m_timerConnect.cancel();
+
+        try
+        {
+            m_UARTPort.Disconnect();
+            if(m_timerConnect != null) m_timerConnect.cancel();
+        } catch(RuntimeException e)
+        {
+            e.fillInStackTrace();
+        }
         m_timerConnect = null;
     }
 

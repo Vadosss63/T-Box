@@ -34,6 +34,7 @@ import com.gmail.parusovvadim.media_directory.TrackInfo;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.Vector;
 
 // TODO пренести в контрол
@@ -81,6 +82,9 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     private MusicFiles m_musicFiles;
     private boolean m_isPause = false;
 
+    private boolean m_shuffle = false;
+    private Random m_rand = new Random();
+
     @Override
     public void onCreate()
     {
@@ -91,6 +95,16 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         changeRoot();
         m_notificationSoundControl = new NotificationSoundControl(this, m_mediaSessionCompat);
         selectTrack(1, 0);
+    }
+
+    public void setShuffle()
+    {
+        m_shuffle = !m_shuffle;
+    }
+
+    public boolean isShuffle()
+    {
+        return m_shuffle;
     }
 
     private void createAudioManager()
@@ -188,25 +202,45 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     {
         if(m_currentTrack != null)
         {
-            int indexTrack = m_currentTrack.getNumber() + 1;
-            int countTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
-            if(indexTrack < countTrack)
+            if(isShuffle())
             {
-                selectTrack(m_currentTrack.getParentNumber(), indexTrack);
+                int newSong = m_currentTrack.getNumber();
+                int sizeListTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
+
+                if(sizeListTrack > 1)
+                    while(newSong == m_currentTrack.getNumber())
+                    {
+                        newSong = m_rand.nextInt(sizeListTrack);
+                    }
+                selectTrack(m_currentTrack.getParentNumber(), newSong);
+
             } else
             {
-                int parentNumber = m_currentTrack.getParentNumber() + 1;
-                while(parentNumber <= (m_musicFiles.getFolders().size()))
+                int indexTrack = m_currentTrack.getNumber() + 1;
+                int countTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
+                if(indexTrack < countTrack)
                 {
-                    NodeDirectory trackNode = m_musicFiles.getTrack(parentNumber, 0);
-                    if(trackNode != null)
-                    {
-                        // запускаем трек
-                        m_currentTrack = trackNode;
-                        startPlayer();
-                        break;
-                    }
+                    selectTrack(m_currentTrack.getParentNumber(), indexTrack);
+                } else
+                {
+                    nextFolder();
                 }
+            }
+        }
+    }
+
+    private void nextFolder()
+    {
+        int parentNumber = m_currentTrack.getParentNumber() + 1;
+        while(parentNumber <= (m_musicFiles.getFolders().size()))
+        {
+            NodeDirectory trackNode = m_musicFiles.getTrack(parentNumber, 0);
+            if(trackNode != null)
+            {
+                // запускаем трек
+                m_currentTrack = trackNode;
+                startPlayer();
+                break;
             }
         }
     }
@@ -457,6 +491,25 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         @Override
+        public void onSetShuffleMode(int shuffleMode)
+        {
+            switch(shuffleMode)
+            {
+                case PlaybackStateCompat.SHUFFLE_MODE_NONE:
+                    m_shuffle = false;
+                    break;
+                case PlaybackStateCompat.SHUFFLE_MODE_ALL:
+                case PlaybackStateCompat.SHUFFLE_MODE_GROUP:
+                    m_shuffle = true;
+
+                    break;
+                case PlaybackStateCompat.SHUFFLE_MODE_INVALID:
+                    break;
+            }
+        }
+
+
+        @Override
         public void onSeekTo(long pos)
         {
             if(m_currentTrack == null) return;
@@ -564,6 +617,12 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         {
             return m_mediaSessionCompat.getSessionToken();
         }
+
+        public Boolean getShuffle()
+        {
+            return m_shuffle;
+        }
+
     }
 
     ////TODO перенести все в control

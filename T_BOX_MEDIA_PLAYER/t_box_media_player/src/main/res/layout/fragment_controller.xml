@@ -49,16 +49,16 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/folderImageBack"
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
+                                android:id="@+id/shuffleButton"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
                                 android:layout_gravity="center"
-                                android:layout_marginStart="20dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginEnd="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/play_dot" />
+                                android:src="@drawable/shuffle_off" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"

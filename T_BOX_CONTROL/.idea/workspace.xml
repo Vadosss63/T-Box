@@ -179,11 +179,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="408" column="5" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
+            <state relative-caret-position="264">
+              <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#1868:2829" />
@@ -199,7 +199,6 @@
                 <element signature="method#SendKeyRewind#0;class#ReceiverService#0" />
                 <element signature="method#CreateTimer#0;class#ReceiverService#0" />
                 <element signature="method#SendData#0;class#ReceiverService#0" />
-                <element signature="e#8351#8712#0" />
                 <element signature="method#OnAUX#0;class#ReceiverService#0" />
                 <element signature="method#GetTitle#0;class#ReceiverService#0" />
                 <element signature="method#SendInfoTrack#0;class#ReceiverService#0" />
@@ -211,19 +210,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="288">
               <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="90">
               <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1818">
+              <caret line="122" selection-start-line="122" selection-end-line="125" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#onStartCommand#0;class#UARTService#0" />
+                <element signature="method#showNotification#0;class#UARTService#0" />
+                <element signature="method#parser#0;class#UARTService#0" />
+                <element signature="method#sendDataByte#0;class#UARTService#0" />
+                <element signature="method#sendTime#0;class#UARTService#0" />
+                <element signature="method#sendSelectTrack#0;class#UARTService#0" />
+                <element signature="method#createUARTPort#0;class#UARTService#0" />
+                <element signature="method#readCommand#0;class#UARTService#0" />
+                <element signature="method#startSync#0;class#UARTService#0" />
+                <element signature="method#SenderThread#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#SetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#GetCMD#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="method#Execute#0;class#SenderThread#0;class#UARTService#0" />
+                <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
               </folding>
             </state>
           </provider>
@@ -290,13 +317,13 @@
         <option value="$PROJECT_DIR$/t_box_control/src/main/res/drawable/background_splash.xml" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/MainActivity.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" />
+        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java" />
         <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" />
         <option value="$PROJECT_DIR$/t_box_control/build.gradle" />
-        <option value="$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="386" />
     <option name="y" value="180" />
     <option name="width" value="1364" />
@@ -308,6 +335,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
@@ -408,44 +448,6 @@
               <item name="androidTest" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="T_BOX_CONTROL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="t_box_control" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="t_box_control" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="T_BOX_CONTROL" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -691,8 +693,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="7" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.41216215" side_tool="true" weight="0.113247864" />
       <window_info id="Designer" order="1" />
@@ -703,8 +704,8 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Structure" order="7" sideWeight="0.42380953" side_tool="true" weight="0.15936556" />
       <window_info id="Resources Explorer" order="8" weight="0.32905984" />
-      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" visible="true" weight="0.43648207" />
-      <window_info anchor="bottom" id="Android Profiler" order="1" />
+      <window_info anchor="bottom" id="Build" order="0" sideWeight="0.4107906" visible="true" weight="0.10912052" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5892094" side_tool="true" weight="0.13416989" />
       <window_info anchor="bottom" id="TODO" order="3" sideWeight="0.49946582" weight="0.2068404" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49839744" weight="0.42508143" />
@@ -966,65 +967,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="408" column="5" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#1868:2829" />
-            <element signature="method#onSessionDestroyed#0;class#1868:2829" />
-            <element signature="method#onPlaybackStateChanged#0;class#1868:2829" />
-            <element signature="method#onMetadataChanged#0;class#1868:2829" />
-            <element signature="method#ChangedActiveSessions#0;class#ReceiverService#0" />
-            <element signature="method#SendState#0;class#ReceiverService#0" />
-            <element signature="method#SendCurrentTrack#0;class#ReceiverService#0" />
-            <element signature="method#SendAUX#0;class#ReceiverService#0" />
-            <element signature="method#Parser#0;class#ReceiverService#0" />
-            <element signature="method#SendKey#0;class#ReceiverService#0" />
-            <element signature="method#SendKeyRewind#0;class#ReceiverService#0" />
-            <element signature="method#CreateTimer#0;class#ReceiverService#0" />
-            <element signature="method#SendData#0;class#ReceiverService#0" />
-            <element signature="e#8351#8712#0" />
-            <element signature="method#OnAUX#0;class#ReceiverService#0" />
-            <element signature="method#GetTitle#0;class#ReceiverService#0" />
-            <element signature="method#SendInfoTrack#0;class#ReceiverService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Android/Sdk/sources/android-28/java/util/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="434" column="16" selection-start-line="434" selection-start-column="16" selection-end-line="434" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onStartCommand#0;class#UARTService#0" />
-            <element signature="method#showNotification#0;class#UARTService#0" />
-            <element signature="e#2102#2251#0" expanded="true" />
-            <element signature="e#2250#2251#0" expanded="true" />
-            <element signature="method#parser#0;class#UARTService#0" />
-            <element signature="method#sendDataByte#0;class#UARTService#0" />
-            <element signature="method#sendTime#0;class#UARTService#0" />
-            <element signature="method#sendSelectTrack#0;class#UARTService#0" />
-            <element signature="method#createUARTPort#0;class#UARTService#0" />
-            <element signature="method#readCommand#0;class#UARTService#0" />
-            <element signature="method#startSync#0;class#UARTService#0" />
-            <element signature="method#SenderThread#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#SetAnswer#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#GetCMD#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="method#Execute#0;class#SenderThread#0;class#UARTService#0" />
-            <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,19 +986,71 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="195" column="11" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#1868:2829" />
+            <element signature="method#onSessionDestroyed#0;class#1868:2829" />
+            <element signature="method#onPlaybackStateChanged#0;class#1868:2829" />
+            <element signature="method#onMetadataChanged#0;class#1868:2829" />
+            <element signature="method#ChangedActiveSessions#0;class#ReceiverService#0" />
+            <element signature="method#SendState#0;class#ReceiverService#0" />
+            <element signature="method#SendCurrentTrack#0;class#ReceiverService#0" />
+            <element signature="method#SendAUX#0;class#ReceiverService#0" />
+            <element signature="method#Parser#0;class#ReceiverService#0" />
+            <element signature="method#SendKey#0;class#ReceiverService#0" />
+            <element signature="method#SendKeyRewind#0;class#ReceiverService#0" />
+            <element signature="method#CreateTimer#0;class#ReceiverService#0" />
+            <element signature="method#SendData#0;class#ReceiverService#0" />
+            <element signature="method#OnAUX#0;class#ReceiverService#0" />
+            <element signature="method#GetTitle#0;class#ReceiverService#0" />
+            <element signature="method#SendInfoTrack#0;class#ReceiverService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
+        <state relative-caret-position="288">
           <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/BluetoothReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="90">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1818">
+          <caret line="122" selection-start-line="122" selection-end-line="125" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#onStartCommand#0;class#UARTService#0" />
+            <element signature="method#showNotification#0;class#UARTService#0" />
+            <element signature="method#parser#0;class#UARTService#0" />
+            <element signature="method#sendDataByte#0;class#UARTService#0" />
+            <element signature="method#sendTime#0;class#UARTService#0" />
+            <element signature="method#sendSelectTrack#0;class#UARTService#0" />
+            <element signature="method#createUARTPort#0;class#UARTService#0" />
+            <element signature="method#readCommand#0;class#UARTService#0" />
+            <element signature="method#startSync#0;class#UARTService#0" />
+            <element signature="method#SenderThread#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#SetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#GetAnswer#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#GetCMD#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#run#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="method#Execute#0;class#SenderThread#0;class#UARTService#0" />
+            <element signature="class#PoolTaskCMD#0;class#SenderThread#0;class#UARTService#0" />
           </folding>
         </state>
       </provider>

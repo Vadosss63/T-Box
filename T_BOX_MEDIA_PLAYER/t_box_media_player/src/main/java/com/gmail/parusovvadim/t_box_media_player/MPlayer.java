@@ -59,7 +59,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     // метаданных трека
     final private MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder();
     // состояния плеера и обрабатываемые действия
-    final private PlaybackStateCompat.Builder m_playbackStateCompat = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_STOP | PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_PLAY_PAUSE | PlaybackStateCompat.ACTION_SKIP_TO_NEXT | PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS | PlaybackStateCompat.ACTION_SEEK_TO | PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM | PlaybackStateCompat.ACTION_REWIND | PlaybackStateCompat.ACTION_FAST_FORWARD);
+    final private PlaybackStateCompat.Builder m_playbackStateCompat = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_STOP | PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_PLAY_PAUSE | PlaybackStateCompat.ACTION_SKIP_TO_NEXT | PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS | PlaybackStateCompat.ACTION_SEEK_TO | PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM | PlaybackStateCompat.ACTION_REWIND | PlaybackStateCompat.ACTION_FAST_FORWARD | PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID);
     // Медиасессия плеера
     private MediaSessionCompat m_mediaSessionCompat = null;
     // Шторка управления плеером
@@ -95,11 +95,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         changeRoot();
         m_notificationSoundControl = new NotificationSoundControl(this, m_mediaSessionCompat);
         selectTrack(1, 0);
-    }
-
-    public void setShuffle()
-    {
-        m_shuffle = !m_shuffle;
     }
 
     public boolean isShuffle()
@@ -171,8 +166,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
 
     private void abandonAudioFocus()
     {
-        if(m_afLiListener == null) return;
-
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             m_audioManager.abandonAudioFocusRequest(m_audioFocusRequest);
         else m_audioManager.abandonAudioFocus(m_afLiListener);
@@ -207,11 +200,10 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 int newSong = m_currentTrack.getNumber();
                 int sizeListTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
 
-                if(sizeListTrack > 1)
-                    while(newSong == m_currentTrack.getNumber())
-                    {
-                        newSong = m_rand.nextInt(sizeListTrack);
-                    }
+                if(sizeListTrack > 1) while(newSong == m_currentTrack.getNumber())
+                {
+                    newSong = m_rand.nextInt(sizeListTrack);
+                }
                 selectTrack(m_currentTrack.getParentNumber(), newSong);
 
             } else
@@ -229,6 +221,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
     }
 
+    ///TODO сделать тест на переходы по папкам
     private void nextFolder()
     {
         int parentNumber = m_currentTrack.getParentNumber() + 1;
@@ -380,7 +373,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     // Аудио фокус
     class AFListener implements AudioManager.OnAudioFocusChangeListener
     {
-
         @Override
         public void onAudioFocusChange(int i)
         {
@@ -508,7 +500,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             }
         }
 
-
         @Override
         public void onSeekTo(long pos)
         {
@@ -535,8 +526,14 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         @Override
         public void onPlayFromMediaId(String mediaId, Bundle extras)
         {
-            if(m_currentTrack == null) return;
-            selectTrack(m_currentTrack.getParentNumber(), Integer.parseInt(mediaId));
+            String[] ids = mediaId.split(";");
+            if(ids.length == 2)
+            {
+                int folder = Integer.parseInt(ids[0]);
+                int track = Integer.parseInt(ids[1]);
+                selectTrack(folder, track);
+                m_mediaSessionCallback.onPlay();
+            }
         }
 
         @Override
@@ -746,8 +743,6 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             if(i != 0) list.lastElement().addAll(0, dataHeader);
             i++;
         }
-
-
         return list;
     }
 

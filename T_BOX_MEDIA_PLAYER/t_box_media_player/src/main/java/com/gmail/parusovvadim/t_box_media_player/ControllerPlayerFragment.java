@@ -70,6 +70,12 @@ public class ControllerPlayerFragment extends Fragment
         return m_view;
     }
 
+    public void selectTrack(String mediaId)
+    {
+        if(m_mediaController != null)
+            m_mediaController.getTransportControls().playFromMediaId(mediaId, new Bundle());
+    }
+
     private void setTime(int mSec)
     {
         String timeString = getStringTime(mSec);
@@ -296,8 +302,7 @@ public class ControllerPlayerFragment extends Fragment
             else
                 m_mediaController.getTransportControls().setShuffleMode(PlaybackStateCompat.SHUFFLE_MODE_ALL);
 
-            if(!isShuffle)
-                shuffleButton.setImageResource(R.drawable.shuffle_on);
+            if(!isShuffle) shuffleButton.setImageResource(R.drawable.shuffle_on);
             else shuffleButton.setImageResource(R.drawable.shuffle_off);
         });
 

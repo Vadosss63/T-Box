@@ -15,11 +15,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
-
 public class UARTService extends Service
 {
-
-    final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
     static final public int CMD_SEND_DATA = 0xAA;
     static final public int CMD_RESET = 0x00;
 
@@ -261,8 +258,7 @@ public class UARTService extends Service
             int folder = encoderTrack.GetFolder();
             int track = encoderTrack.GetTrackNumber();
 
-            Intent intent = new Intent();
-            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
+            Intent intent = new Intent(this, ReceiverService.class);
             intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
             intent.putExtra("folder", folder);
             intent.putExtra("track", track);
@@ -271,13 +267,11 @@ public class UARTService extends Service
         if(data[2] == (byte) CMD_DATA.AUX)
         {
             startSync();
-            StringBuilder buf = new StringBuilder();
-            for(Byte da : data)
-            {
-                buf.append(Integer.toHexString(da));
-            }
-
-            Log.d("startSync", "data " + buf.toString());
+//            StringBuilder buf = new StringBuilder();
+//            for(Byte da : data)
+//                buf.append(Integer.toHexString(da));
+//
+//            Log.d("startSync", "data " + buf.toString());
         }
     }
 
@@ -388,5 +382,3 @@ public class UARTService extends Service
     }
 
 }
-
-/// TODO сделать отдельный анонимный класс для обработки данных из порта и отдельный класс для сброса сервиса

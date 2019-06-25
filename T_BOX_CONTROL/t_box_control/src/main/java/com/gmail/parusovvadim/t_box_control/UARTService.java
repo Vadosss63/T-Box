@@ -263,7 +263,18 @@ public class UARTService extends Service
             intent.putExtra("folder", folder);
             intent.putExtra("track", track);
             startService(intent);
+            return;
         }
+        if(data[2] == (byte) 12)
+        {
+            int isShuffle = data[5];
+            Intent intent = new Intent(this, ReceiverService.class);
+            intent.putExtra("CMD", 12);
+            intent.putExtra("isShuffle", isShuffle);
+            startService(intent);
+            return;
+        }
+
         if(data[2] == (byte) CMD_DATA.AUX)
         {
             startSync();
@@ -272,6 +283,8 @@ public class UARTService extends Service
 //                buf.append(Integer.toHexString(da));
 //
 //            Log.d("startSync", "data " + buf.toString());
+
+//            return;
         }
     }
 

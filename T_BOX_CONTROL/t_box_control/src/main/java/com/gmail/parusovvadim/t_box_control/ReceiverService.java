@@ -22,7 +22,6 @@ import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.EncoderTrackInfo;
 import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 
-import java.util.BitSet;
 import java.util.List;
 import java.util.Vector;
 
@@ -241,6 +240,18 @@ public class ReceiverService extends Service
                 }
                 break;
             }
+
+            case 12:
+            {
+                int isShuffle = intent.getIntExtra("isShuffle", 0);
+                if(m_activePlayer != null)
+                {
+                    Bundle shuffleBundle = new Bundle();
+                    shuffleBundle.putInt("isShuffle", isShuffle);
+                    m_activePlayer.getTransportControls().sendCustomAction("shuffleMode", shuffleBundle);
+                }
+                break;
+            }
             case CMD_SYNC:
             {
                 Sync();
@@ -404,11 +415,12 @@ public class ReceiverService extends Service
     {
         if(m_isAudioPlayer)
         {
-            Intent intent = new Intent();
-            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
-            intent.putExtra("CMD", CMD_SYNCHRONIZATION);
-            startService(intent);
+//            Intent intent = new Intent();
+//            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
+//            intent.putExtra("CMD", CMD_SYNCHRONIZATION);
+//            startService(intent);
 
+            m_activePlayer.getTransportControls().sendCustomAction("synchronization", new Bundle());
             MediaMetadata metadata = m_activePlayer.getMetadata();
             SendCurrentTrack(metadata);
         } else

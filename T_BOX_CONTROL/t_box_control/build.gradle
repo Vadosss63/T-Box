@@ -13,10 +13,10 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId 'com.gmail.parusovvadim.t_box_control'
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
-        versionName '2.1.2'
+        versionName '2.1.3'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

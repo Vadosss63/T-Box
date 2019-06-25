@@ -501,6 +501,21 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         @Override
+        public void onCustomAction(String action, Bundle extras)
+        {
+            if(action.equals("shuffleMode"))
+            {
+                int shuffle = extras.getInt("isShuffle");
+                this.onSetShuffleMode(shuffle);
+                return;
+            }
+            if(action.equals("synchronization"))
+            {
+                startUART();
+            }
+        }
+
+        @Override
         public void onSeekTo(long pos)
         {
             if(m_currentTrack == null) return;

@@ -256,7 +256,7 @@ public class UARTService extends Service
 
             EncoderTrack encoderTrack = new EncoderTrack(dataTrack);
             int folder = encoderTrack.GetFolder();
-            int track = encoderTrack.GetTrackNumber();
+            int track = encoderTrack.GetTrackNumber() - 1;
 
             Intent intent = new Intent(this, ReceiverService.class);
             intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);

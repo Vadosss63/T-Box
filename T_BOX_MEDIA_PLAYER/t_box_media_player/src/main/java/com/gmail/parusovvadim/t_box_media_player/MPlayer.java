@@ -506,6 +506,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             if(action.equals("shuffleMode"))
             {
                 int shuffle = extras.getInt("isShuffle");
+                m_mediaSessionCompat.setShuffleMode(shuffle);
                 this.onSetShuffleMode(shuffle);
                 return;
             }

@@ -52,6 +52,7 @@ public class ControllerPlayerFragment extends Fragment
     private float m_startPosX = 0;
 
     boolean m_shuffle = false;
+    private ImageView shuffleButton;
 
 
     private MPlayer.MPlayerBinder m_playerServiceBinder;
@@ -225,6 +226,22 @@ public class ControllerPlayerFragment extends Fragment
                             }
 
                         }
+
+                        @Override
+                        public void onShuffleModeChanged(int shuffleMode)
+                        {
+                            if(PlaybackStateCompat.SHUFFLE_MODE_NONE == shuffleMode)
+                            {
+                                shuffleButton.setImageResource(R.drawable.shuffle_off);
+                                return;
+                            }
+
+                            if(PlaybackStateCompat.SHUFFLE_MODE_ALL == shuffleMode ||
+                                    PlaybackStateCompat.SHUFFLE_MODE_GROUP == shuffleMode)
+                            {
+                                shuffleButton.setImageResource(R.drawable.shuffle_on);
+                            }
+                        }
                     });
                 } catch(RemoteException e)
                 {
@@ -284,7 +301,7 @@ public class ControllerPlayerFragment extends Fragment
 
         });
 
-        final ImageView shuffleButton = m_view.findViewById(R.id.shuffleButton);
+        shuffleButton = m_view.findViewById(R.id.shuffleButton);
         if(m_playerServiceBinder != null)
         {
             if(m_playerServiceBinder.getShuffle())
@@ -297,13 +314,22 @@ public class ControllerPlayerFragment extends Fragment
 
             boolean isShuffle = m_playerServiceBinder.getShuffle();
 
-            if(isShuffle)
-                m_mediaController.getTransportControls().setShuffleMode(PlaybackStateCompat.SHUFFLE_MODE_NONE);
-            else
-                m_mediaController.getTransportControls().setShuffleMode(PlaybackStateCompat.SHUFFLE_MODE_ALL);
+//            if(isShuffle)
+//                m_mediaController.getTransportControls().setShuffleMode(PlaybackStateCompat.SHUFFLE_MODE_NONE);
+//            else
+//                m_mediaController.getTransportControls().setShuffleMode(PlaybackStateCompat.SHUFFLE_MODE_ALL);
 
-            if(!isShuffle) shuffleButton.setImageResource(R.drawable.shuffle_on);
-            else shuffleButton.setImageResource(R.drawable.shuffle_off);
+
+            Bundle shuffleBundle = new Bundle();
+
+
+            if(isShuffle)
+                shuffleBundle.putInt("isShuffle", 0);
+            else
+                shuffleBundle.putInt("isShuffle", 1);
+
+            m_mediaController.getTransportControls().sendCustomAction("shuffleMode", shuffleBundle);
+
         });
 
     }

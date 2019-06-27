@@ -7,6 +7,14 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class MusicFiles {
+    // Поддерживаемые форматы
+    public static final String[] MUSIC_FORMAT = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
+    // Компоратор для сортировки дерикторий музыкальных треков
+    private static Comparator<File> m_fileComparator = new MusicFileComparator();
+
+    private static MusicFiles m_ourInstance = new MusicFiles();
+
+
     // Номер для новой папки
     private int m_newFolderNumber = 0;
     // Мап для хранения папок
@@ -17,15 +25,65 @@ public class MusicFiles {
     private HashMap<Integer, Vector<NodeDirectory>> m_mapChaldeanFolders = new HashMap<>();
     // Мар с для доступа к по пути
     private HashMap<String, NodeDirectory> m_mapPaths = new HashMap<>();
-    // Поддерживаемые форматы
-    private static final String[] m_musicFormat = new String[]{".mp3", ".flac", ".m4a", ".wma", ".ogg"};
+
+    private String m_rootPathFolder = "";
+
+    private void CleanFiles() {
+        // Номер для новой папки
+        m_newFolderNumber = 0;
+        m_mapFolders = new Vector<>();
+        m_mapTracks = new HashMap<>();
+        m_mapChaldeanFolders = new HashMap<>();
+        m_mapPaths = new HashMap<>();
+    }
+
+    private MusicFiles() {
+    }
+
+    public static MusicFiles getInstance() {
+        return m_ourInstance;
+    }
+
+    public void setPathRoot(String rootPathFolder) {
+        if (!m_rootPathFolder.isEmpty() && m_rootPathFolder.equals(rootPathFolder)) return;
+        m_rootPathFolder = rootPathFolder;
+        CleanFiles();
+        IReaderTrackInfo.setReaderTrackInfo(null);
+        getAllFiles(rootPathFolder, 0);
+    }
+
+    public void setPathRoot(String rootPathFolder, TrackInfo readerTrackInfo) {
+
+        if (!m_rootPathFolder.isEmpty() && m_rootPathFolder.equals(rootPathFolder)) return;
+        m_rootPathFolder = rootPathFolder;
+        CleanFiles();
+        IReaderTrackInfo.setReaderTrackInfo(readerTrackInfo);
+        getAllFiles(rootPathFolder, 0);
+        //Запуск прогрузки информации
+        LouderThread louderThread = new LouderThread();
+        louderThread.start();
+    }
+
+    private class LouderThread extends Thread {
+        @Override
+        public void run() {
+            loudInfo();
+        }
+    }
+
+    // выполнение загрузки данных
+    private void loudInfo() {
+        Vector<NodeDirectory> folders = getFolders();
+        for (NodeDirectory folder : folders) {
+            Vector<NodeDirectory> tracks = getTracks(folder.getNumber());
+            for (NodeDirectory track : tracks)
+                ((TrackInfo) track).initInfo();
+        }
+    }
+
 
     public Vector<NodeDirectory> getFolders() {
         return m_mapFolders;
-    }
-
-    public MusicFiles(String rootPathFolder) {
-        getAllFiles(rootPathFolder, 0);
     }
 
     public NodeDirectory getParentFolder(NodeDirectory childFolder) {
@@ -156,7 +214,7 @@ public class MusicFiles {
             // проверяем типы файлов
             String filename = file.getName();
 
-            for (String musicFormat : m_musicFormat) {
+            for (String musicFormat : MUSIC_FORMAT) {
                 if (filename.endsWith(musicFormat)) {
                     filename = filename.replace(musicFormat, "");
                     Track track = new Track(filename);
@@ -177,15 +235,4 @@ public class MusicFiles {
         m_mapPaths.put(parentFolder.getPathDir(), parentFolder);
     }
 
-    // Компоратор для сортировки дерикторий музыкальных треков
-    private Comparator<? super File> m_fileComparator = (Comparator<File>) (file1, file2) -> {
-
-        if (file1.isDirectory() && !file2.isDirectory()) return -1;
-
-        if (file2.isDirectory() && !file1.isDirectory()) return 1;
-
-        String pathLowerCaseFile1 = file1.getName().toLowerCase();
-        String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return pathLowerCaseFile1.compareTo(pathLowerCaseFile2);
-    };
 }

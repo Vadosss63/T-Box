@@ -1,6 +1,5 @@
 package com.gmail.parusovvadim.encoder_uart;
 
-import java.util.Collections;
 import java.util.Vector;
 
 public class Encoder_UART {

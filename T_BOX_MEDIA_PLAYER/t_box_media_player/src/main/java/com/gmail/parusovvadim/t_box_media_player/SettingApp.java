@@ -14,26 +14,35 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 class SettingApp {
+    static final private SettingApp m_ourInstance = new SettingApp();
+    private Context m_context;
+
+    private SettingApp() {
+    }
+
+    public static SettingApp getInstance() {
+        return m_ourInstance;
+    }
+
+    public void initSetting(Context context) {
+        m_context = context;
+        m_paths = getAllPaths();
+        changeCurrentPath(0);
+        loadSetting();
+    }
 
     // Путь к папке смузыкой
     private final static String SAVED_MUSIC_PATH = "music_path";
     // Выбор внутреннего или внешнего накопителя
     private final static String SAVED_STORAGE_DIRECTORY = "storage_directory";
+    private final String m_defaultPath = "/Music";
 
     // корневая папка
     private SharedPreferences m_setting;
-    private Context m_context;
     private String m_pathMusicFiles;
-    private String m_defaultPath = "/Music";
     private String m_storageDirectory;
     private int m_currentPathStorage = 0;
     private List<String> m_paths;
-
-    SettingApp(Context context) {
-        m_context = context;
-        m_paths = getAllPaths();
-        changeCurrentPath(0);
-    }
 
     int getCurrentPathStorage() {
         return m_currentPathStorage;

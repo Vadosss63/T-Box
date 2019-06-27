@@ -13,12 +13,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,19 +25,21 @@ import android.widget.TextView;
 import com.gmail.parusovvadim.media_directory.Folder;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
 import com.gmail.parusovvadim.media_directory.NodeDirectory;
+import com.gmail.parusovvadim.media_directory.TrackInfo;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
+{
 
-    static final String BROADCAST_ACTION = "com.gmail.parusovvadim.audioplayer";
-    static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
+    private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
+    public static final int CMD_EXIT = -1;
 
-    static final int MENU_SETTING = 2;
-    static final int MENU_EXIT = 4;
-    static final public int CMD_EXIT = -1;
+    static final String BROADCAST_ACTION = "com.gmail.parusovvadim.t_box_media_player";
 
     private ControllerPlayerFragment m_controllerPlayerFragment = null;
 
@@ -52,11 +53,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Текущий выбранный трек
     private NodeDirectory m_currentTrack = null;
 
-    private Folder m_backFolder = new Folder("вверх");
+    private final Folder m_backFolder = new Folder("Вверх");
 
-    private TextView m_pathTextView;
-
-    private SettingApp m_settingApp;
+    private final SettingApp m_settingApp = SettingApp.getInstance();
 
     // адаптер
     private ArrayAdapter<NodeDirectory> m_adapterPlayList = null;
@@ -64,26 +63,39 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView m_mainView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        m_settingApp.initSetting(this);
+
         setContentView(R.layout.activity_main);
+        //        http://java-online.ru/android-menu.xhtml
+
+        Button scrollButton = findViewById(R.id.scrollButton);
+        scrollButton.setOnClickListener(v->scrollDown());
         m_controllerPlayerFragment = new ControllerPlayerFragment();
         changeStateController();
+        final Button exitButton = findViewById(R.id.exitButton);
+        exitButton.setOnClickListener(v->exitApp());
+        final Button menuButton = findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(v->{
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivityForResult(intent, 1);
+        });
+
     }
 
     // Выделение воспроизводимого элемента и выключение приложения со шторки
-    private void createBroadcast() {
+    private void createBroadcast()
+    {
         // создаем BroadcastReceiver
-        m_broadcastReceiver = new BroadcastReceiver() {
+        m_broadcastReceiver = new BroadcastReceiver()
+        {
             // действия при получении сообщений
-            public void onReceive(Context context, Intent intent) {
-
+            public void onReceive(Context context, Intent intent)
+            {
                 int task = intent.getIntExtra(getString(R.string.CMD), 0);
-
-                if (task == CMD_EXIT) {
-                    exitApp();
-                }
-
+                if(task == CMD_EXIT) exitApp();
             }
         };
         // создаем фильтр для BroadcastReceiver
@@ -92,12 +104,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         registerReceiver(m_broadcastReceiver, intentFilter);
     }
 
-    public void selectCurrentTrack(int folder, int track) {
+    public void selectCurrentTrack(int folder, int track)
+    {
 
         NodeDirectory trackNode = m_musicFiles.getTrack(folder, track);
 
-        if (trackNode != null) {
-            if (m_currentTrack != trackNode) {
+        if(trackNode != null)
+        {
+            if(m_currentTrack != trackNode)
+            {
                 m_currentTrack = trackNode;
                 m_adapterPlayList.notifyDataSetChanged();
                 scrollToSelectTrack();
@@ -106,112 +121,99 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy()
+    {
         super.onDestroy();
         // дерегистрируем (выключаем) BroadcastReceiver
-        if (m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
+        if(m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
     }
 
-    @Override /// TODO переделать чтобы нормально работало
-    protected void onResume() {
+    @Override
+    protected void onResume()
+    {
         super.onResume();
 
         int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
-        if (permissionStatus != PackageManager.PERMISSION_GRANTED) {
+        if(permissionStatus != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
-        }
 
-        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+        if(permissionStatus == PackageManager.PERMISSION_GRANTED)
+        {
 
-            if (m_currentTrack == null) {
-                m_pathTextView = findViewById(R.id.pathShow);
+            if(m_currentTrack == null)
+            {
                 m_mainView = findViewById(R.id.playList);
-                m_settingApp = new SettingApp(this);
-
                 loudSettings();
                 createBroadcast();
-                showCurrentDir();
 
-            } else {
+            } else
+            {
                 scrollToSelectTrack();
             }
         }
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, MENU_SETTING, 0, "Настройки");
-        menu.add(0, MENU_EXIT, 0, "Выход");
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_SETTING: {
-                Intent intent = new Intent(this, SettingActivity.class);
-                startActivityForResult(intent, 1);
-                break;
-            }
-            case MENU_EXIT:
-                exitApp();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void exitApp() {
+    private void exitApp()
+    {
         stopService(new Intent(this, MPlayer.class));
         finish();
         System.exit(0);
     }
 
-    private void createAdapter() {
-        if (m_musicFiles.getFolders().isEmpty()) {
-            if (m_adapterPlayList != null) m_adapterPlayList.clear();
+    private void createAdapter()
+    {
+        if(m_musicFiles.getFolders().isEmpty())
+        {
+            if(m_adapterPlayList != null) m_adapterPlayList.clear();
             return;
         }
         m_currentDirectory = m_musicFiles.getFolders().get(0);
 
-        m_adapterPlayList = new ArrayAdapter<NodeDirectory>(this, R.layout.music_track_item, m_musicFiles.getAllFiles(1)) {
+        m_adapterPlayList = new ArrayAdapter<NodeDirectory>(this, R.layout.music_track_item, m_musicFiles.getAllFiles(1))
+        {
 
-            @SuppressLint("InflateParams")
+            @SuppressLint ("InflateParams")
             @NotNull
             @Override
-            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            public View getView(int position, View convertView, @NonNull ViewGroup parent)
+            {
                 NodeDirectory node = getItem(position);
-                if (node == null) return convertView;
+                if(node == null) return convertView;
 
-                if (node.isFolder()) {
-                    if (node.isFolderUp()) {
+                if(node.isFolder())
+                {
+                    if(node.isFolderUp())
+                    {
                         convertView = getLayoutInflater().inflate(R.layout.folder_up_item, null);
-                    } else {
+                    } else
+                    {
                         convertView = getLayoutInflater().inflate(R.layout.folder_item, null);
                         TextView titleFolder = convertView.findViewById(R.id.titleFolder);
                         titleFolder.setText(node.getName());
                     }
-                } else {
+                } else
+                {
 
                     convertView = getLayoutInflater().inflate(R.layout.music_track_item, null);
 
                     TextView trackLabel = convertView.findViewById(R.id.titleTrack);
-
-                    ImageView imageView = convertView.findViewById(R.id.TrackSelected);
+                    TextView sizeTimeLabel = convertView.findViewById(R.id.sizeTime);
+                    ImageView imageView = convertView.findViewById(R.id.trackSelected);
 
                     String title = node.getName();
                     trackLabel.setText(title);
 
-                    if (m_currentTrack == node) {
-                        imageView.setSelected(true);
-                        trackLabel.setSelected(true);
-                    } else {
-                        imageView.setSelected(false);
-                        trackLabel.setSelected(false);
-                    }
+                    TrackInfo trackInfo = (TrackInfo) node;
+
+                    sizeTimeLabel.setText(getStringTime(trackInfo.getDuration()));
+
+                    boolean isSelected = m_currentTrack == node;
+
+                    imageView.setSelected(isSelected);
+                    trackLabel.setSelected(isSelected);
+                    sizeTimeLabel.setSelected(isSelected);
+
                 }
                 return convertView;
             }
@@ -222,11 +224,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         scrollToSelectTrack();
     }
 
-    private void openDirectory() {
+    private void openDirectory()
+    {
         m_adapterPlayList.clear();
         Vector<NodeDirectory> files = new Vector<>();
         NodeDirectory back = m_musicFiles.getParentFolder(m_currentDirectory);
-        if (back != null) {
+        if(back != null)
+        {
             m_backFolder.setPath(back.getPathDir());
             m_backFolder.setNumber(back.getNumber());
             m_backFolder.setParentNumber(back.getParentNumber());
@@ -238,69 +242,82 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         m_adapterPlayList.addAll(files);
     }
 
-    private void scrollToSelectTrack() {
+    private void scrollToSelectTrack()
+    {
         int scrollPos = m_adapterPlayList.getPosition(m_currentTrack);
         m_mainView.smoothScrollToPosition(scrollPos);
         m_adapterPlayList.notifyDataSetChanged();
     }
 
+    private void scrollDown()
+    {
+        if(m_mainView == null || m_adapterPlayList == null) return;
+
+        m_mainView.smoothScrollByOffset(5);
+        m_adapterPlayList.notifyDataSetChanged();
+    }
+
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {   // обработка нажатий на элементах списка
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+    {   // обработка нажатий на элементах списка
         NodeDirectory nodeDirectory = (NodeDirectory) (parent.getItemAtPosition(position));
         // пока у нас есть треки мы их воспроизводим
-        if (nodeDirectory.isFolder()) {
-            if (nodeDirectory.isFolderUp())
+        if(nodeDirectory.isFolder())
+        {
+            if(nodeDirectory.isFolderUp())
                 m_currentDirectory = m_musicFiles.getFolders().get(nodeDirectory.getNumber() - 1);
-            else
-                m_currentDirectory = nodeDirectory;
-
-
-            showCurrentDir();
+            else m_currentDirectory = nodeDirectory;
             openDirectory();
-        } else {
+        } else
+        {
             m_currentTrack = nodeDirectory;
             selectedTrack();
             m_adapterPlayList.notifyDataSetChanged();
         }
     }
 
-    private void showCurrentDir() {
-        m_pathTextView.setText(m_settingApp.getMusicPath());
-    }
-
-    // Изменение дериктории воспроизведения
-    private void ChangeRoot() {
-        m_musicFiles = new MusicFiles(m_settingApp.getAbsolutePath());
+    // Изменение дериктории воспроизведени
+    private void changeRoot()
+    {
+        m_musicFiles = MusicFiles.getInstance();
+        m_musicFiles.setPathRoot(m_settingApp.getAbsolutePath(), new ReaderTrackInfo());
         Intent intent = new Intent(this, MPlayer.class);
         intent.putExtra(getString(R.string.CMD), MPlayer.CMD_CHANGE_ROOT);
         startService(intent);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) return;
-
-        if (resultCode == RESULT_OK) loudSettings();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(data == null) return;
+        if(resultCode == RESULT_OK) loudSettings();
     }
 
-    private void loudSettings() {
-        m_settingApp.loadSetting();
-        ChangeRoot();
+    private void loudSettings()
+    {
+        changeRoot();
         createAdapter();
     }
 
     // Отправка выбранного трека
-    private void selectedTrack() {
-        Intent intent = new Intent(this, MPlayer.class);
-        intent.putExtra(getString(R.string.CMD), MPlayer.CMD_SELECT_TRACK);
-        intent.putExtra("folder", m_currentTrack.getParentNumber());
-        intent.putExtra("track", m_currentTrack.getNumber() + 1);
-        startService(intent);
+    private void selectedTrack()
+    {
+        int folder = m_currentTrack.getParentNumber();
+        int track = m_currentTrack.getNumber();
+        String mediaId = folder + ";" + track;
+        m_controllerPlayerFragment.selectTrack(mediaId);
     }
 
-    private void changeStateController() {
+    private void changeStateController()
+    {
         FragmentTransaction m_fragmentTransaction = getFragmentManager().beginTransaction();
         m_fragmentTransaction.replace(R.id.mainFragment, m_controllerPlayerFragment);
         m_fragmentTransaction.commit();
+    }
+
+    private String getStringTime(int mSec)
+    {
+        @SuppressLint ("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("m:ss");
+        return sdf.format(new Date(mSec));
     }
 }

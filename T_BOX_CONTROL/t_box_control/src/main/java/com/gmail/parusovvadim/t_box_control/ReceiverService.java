@@ -9,12 +9,12 @@ import android.media.session.MediaController;
 import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
 import android.os.Build;
-import android.os.Handler;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
@@ -25,7 +25,8 @@ import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 import java.util.List;
 import java.util.Vector;
 
-public class ReceiverService extends Service {
+public class ReceiverService extends Service
+{
 
     // Поддерживаемые плееры
 //    final static String YA_MUSIC = "ru.yandex.music";
@@ -44,39 +45,39 @@ public class ReceiverService extends Service {
     private String m_title = "";
 
     private MediaController m_activePlayer = null;
-
-    private Handler m_handler;
-    private Runnable m_runnable;
-
+    private TimeThread m_timeThread = null;
     private boolean m_isStop = true;
     private boolean m_isAudioPlayer = false;
-    private MediaController.Callback m_callback = new MediaController.Callback() {
+    private MediaController.Callback m_callback = new MediaController.Callback()
+    {
         @Override
-        public void onSessionDestroyed() {
+        public void onSessionDestroyed()
+        {
             super.onSessionDestroyed();
             StopMediaSession();
             m_isStop = true;
         }
 
         @Override
-        public void onPlaybackStateChanged(PlaybackState state) {
-            if (state == null) return;
-            boolean playing = state.getState() == PlaybackState.STATE_PLAYING;
-            if (playing) {
-                if (m_isStop) { // если плеер остановлен включаем таймер
-                    m_isStop = false;
-                    CreateTimer();
-                }
-            } else {
-                m_isStop = true;
-            }
+        public void onPlaybackStateChanged(PlaybackState state)
+        {
+            if(state == null) return;
+            if(state.getState() == PlaybackState.STATE_PLAYING)
+            {
+                if(m_isStop) CreateTimer();
+            } else m_isStop = true;
+
         }
 
         @Override // колбек при изменении данных
-        public void onMetadataChanged(@Nullable MediaMetadata metadata) {
+        public void onMetadataChanged(@Nullable MediaMetadata metadata)
+        {
             String title = GetTitle(metadata);
+
+            Log.d("MetadataChanged", title);
             SendCurrentTrack(metadata);
-            if (!m_title.equals(title)) {
+            if(!m_title.equals(title))
+            {
                 m_title = title;
                 SendAUX();
                 SendInfoTrack(metadata);
@@ -85,17 +86,19 @@ public class ReceiverService extends Service {
     };
 
     // Действие при смене активной сессии
-    private void ChangedActiveSessions(List<MediaController> list) {
-        if (list == null) return;
+    private void ChangedActiveSessions(List<MediaController> list)
+    {
+        if(list == null) return;
 
-        if (list.isEmpty()) return;
+        if(list.isEmpty()) return;
 
-        // TODO выполнить проверку на закрытия основного плеера
-        for (MediaController player : list) {
+        for(MediaController player : list)
+        {
             // Выполняем синхронизацию в случае подключенного плеера
             String playerName = player.getPackageName();
             m_isAudioPlayer = AUDIO_PLAYER.equals(playerName);
-            if (m_isAudioPlayer) {
+            if(m_isAudioPlayer)
+            {
                 m_activePlayer = player;
                 NotificationRunnableService notification = new NotificationRunnableService(this);
                 notification.showNotification(this, "T-BoX", "Плеер");
@@ -103,7 +106,7 @@ public class ReceiverService extends Service {
             }
         }
 
-        if (!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
+        if(!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
             m_activePlayer = list.get(list.size() - 1);
 
         // Устанавливаем колбеки
@@ -112,26 +115,30 @@ public class ReceiverService extends Service {
         SendState();
     }
 
-    private void SendState() {
+    private void SendState()
+    {
         PlaybackState state = m_activePlayer.getPlaybackState();
-        if (state == null) return;
+        if(state == null) return;
 
         m_callback.onPlaybackStateChanged(state);
-        if (m_activePlayer.getMetadata() != null)
+        if(m_activePlayer.getMetadata() != null)
             m_callback.onMetadataChanged(m_activePlayer.getMetadata());
 
     }
 
-    private void SendCurrentTrack(MediaMetadata metadata) {
+    private void SendCurrentTrack(MediaMetadata metadata)
+    {
 
-        if (!m_isAudioPlayer) return;
+        if(!m_isAudioPlayer) return;
 
-        if (metadata == null) return;
+        if(metadata == null) return;
 
-        if (metadata.containsKey(MediaMetadata.METADATA_KEY_MEDIA_ID)) {
+        if(metadata.containsKey(MediaMetadata.METADATA_KEY_MEDIA_ID))
+        {
             String id = metadata.getString(MediaMetadata.METADATA_KEY_MEDIA_ID);
-            String ids[] = id.split(";");
-            if (ids.length == 2) {
+            String[] ids = id.split(";");
+            if(ids.length == 2)
+            {
                 int folder = Integer.parseInt(ids[0]);
                 int track = Integer.parseInt(ids[1]);
 
@@ -145,60 +152,113 @@ public class ReceiverService extends Service {
         }
     }
 
-    private void SendAUX() {
-        if (m_isAudioPlayer) OnAUX((byte) 0x00);
+    private void SendAUX()
+    {
+        if(m_isAudioPlayer) OnAUX((byte) 0x00);
         else OnAUX((byte) 0x01);
     }
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
         Sync();
+
+        Log.d("ReceiverService", "onCreate: ");
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
         Parser(intent);
         NotificationRunnableService notification = new NotificationRunnableService(this);
         notification.showNotification(this, "Сервис включен", "Статус");
         return super.onStartCommand(intent, flags, startId);
     }
 
-    public void StopMediaSession() {
+    public void StopMediaSession()
+    {
         NotificationRunnableService notification = new NotificationRunnableService(this);
         notification.showNotification(this, "Нет активного плеера", "Статус");
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
+        Log.d("ReceiverService", "onDestroy: ");
+        StopALL();
+    }
+
+    private void StopALL()
+    {
+        m_onActiveSessionsChangedListener = null;
+        m_activePlayer = null;
+        try
+        {
+            if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
+        } catch(RuntimeException e)
+        {
+            e.fillInStackTrace();
+        }
+        m_timeThread = null;
+        m_callback = null;
     }
 
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(Intent intent)
+    {
         return null;
     }
 
-    private void Parser(Intent intent) {
-
-        if (intent == null) return;
+    private void Parser(Intent intent)
+    {
+        if(intent == null) return;
 
         int cmd = intent.getIntExtra("CMD", -1);
-        switch (cmd) {
-            case CMD_MEDIA_KEY: {
+        switch(cmd)
+        {
+            case CMD_MEDIA_KEY:
+            {
                 int key = intent.getIntExtra("keycodeMedia", -1);
                 int action = intent.getIntExtra("action", -1);
 
-                if (action == -1) SendKey(key);
+                if(action == -1) SendKey(key);
                 else SendKeyRewind(key, action);
 
                 break;
             }
-            case CMD_SYNC: {
+
+            case CMD_DATA.SELECTED_TRACK:
+            {
+                int folder = intent.getIntExtra("folder", -1);
+                int track = intent.getIntExtra("track", -1);
+                if(m_activePlayer != null)
+                {
+                    String mediaId = folder + ";" + track;
+                    m_activePlayer.getTransportControls().playFromMediaId(mediaId, new Bundle());
+                }
+                break;
+            }
+
+            case 12:
+            {
+                int isShuffle = intent.getIntExtra("isShuffle", 0);
+                if(m_activePlayer != null)
+                {
+                    Bundle shuffleBundle = new Bundle();
+                    shuffleBundle.putInt("isShuffle", isShuffle);
+                    m_activePlayer.getTransportControls().sendCustomAction("shuffleMode", shuffleBundle);
+                }
+                break;
+            }
+            case CMD_SYNC:
+            {
                 Sync();
                 break;
             }
-            case CMD_DATA.AUX: {
+            case CMD_DATA.AUX:
+            {
                 SyncUART();
                 break;
             }
@@ -207,51 +267,56 @@ public class ReceiverService extends Service {
         }
     }
 
-    private void SendKey(int key) {
-        if (m_activePlayer == null) return;
+    private void SendKey(int key)
+    {
+        if(m_activePlayer == null) return;
         SendKeyRewind(key, KeyEvent.ACTION_DOWN);
         SendKeyRewind(key, KeyEvent.ACTION_UP);
     }
 
-    private void SendKeyRewind(int key, int action) {
-        if (m_activePlayer == null) return;
+    private void SendKeyRewind(int key, int action)
+    {
+        if(m_activePlayer == null) return;
         m_activePlayer.dispatchMediaButtonEvent(new KeyEvent(action, key));
     }
 
     // Таймер отправки времени в com порт
-    private void CreateTimer() {
-        m_handler = new Handler();
-        m_runnable = () -> {
-            if (m_activePlayer == null || m_isStop) return;
-            GetTime();
-            m_handler.postDelayed(m_runnable, 1000);
-        };
+    private void CreateTimer()
+    {
+        if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
 
-        m_handler.postDelayed(m_runnable, 1000);
+        m_isStop = false;
+        m_timeThread = new TimeThread();
+        m_timeThread.start();
     }
 
-    private void SendData(EncoderMainHeader headerData) {
+    private void SendData(EncoderMainHeader headerData)
+    {
         Intent intent = new Intent(this, UARTService.class);
         intent.putExtra("CMD", UARTService.CMD_SEND_DATA);
         intent.putExtra("Data", headerData.GetDataByte());
         startService(intent);
     }
 
-    void Sync() {
+    void Sync()
+    {
 
         MediaSessionManager mediaSessionManager = (MediaSessionManager) getApplicationContext().getSystemService(Context.MEDIA_SESSION_SERVICE);
-        if (mediaSessionManager == null) return;
+        if(mediaSessionManager == null) return;
 
-        try {
+        try
+        {
             // Проверяем запущенные сессии
             List<MediaController> mediaControllerList = mediaSessionManager.getActiveSessions(new ComponentName(getApplicationContext(), NotificationReceiverService.class));
             ChangedActiveSessions(mediaControllerList);
             // Устанавливаем прослушку на новые сессии
             mediaSessionManager.addOnActiveSessionsChangedListener(m_onActiveSessionsChangedListener, new ComponentName(getApplicationContext(), NotificationReceiverService.class));
 
-        } catch (SecurityException e) {
+        } catch(SecurityException e)
+        {
             // Запрашиваем разрешение на соединение
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1)
+            {
 
                 Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -260,7 +325,8 @@ public class ReceiverService extends Service {
         }
     }
 
-    private void SendTime(int msec) {
+    private void SendTime(int msec)
+    {
         Intent intentUART = new Intent(this, UARTService.class);
         intentUART.putExtra("CMD", CMD_DATA.TIME);
         intentUART.putExtra("time", msec);
@@ -268,14 +334,15 @@ public class ReceiverService extends Service {
     }
 
     // Перевод в aux режим
-    private void OnAUX(byte on) {
+    private void OnAUX(byte on)
+    {
         Vector<Byte> data = new Vector<>();
         data.add(on);
 
         String title = GetTransliterate(m_title);
-        if (title.length() > 29) title = title.substring(0, 28);
+        if(title.length() > 29) title = title.substring(0, 28);
 
-        for (byte byteName : title.getBytes())
+        for(byte byteName : title.getBytes())
             data.add(byteName);
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(data);
@@ -283,36 +350,39 @@ public class ReceiverService extends Service {
         SendData(mainHeader);
     }
 
-    private String GetTitle(MediaMetadata mediaMetadata) {
+    private String GetTitle(MediaMetadata mediaMetadata)
+    {
         String title = "No title";
-        if (mediaMetadata != null) {
+        if(mediaMetadata != null)
+        {
 
-            if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE)) {
-                if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
+            if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE))
+            {
+                if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
                     title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST) + " - " + mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
-                else
-                    title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
+                else title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
 
             }
         }
         return title;
     }
 
-    private void SendInfoTrack(MediaMetadata mediaMetadata) {
-        if (mediaMetadata == null) return;
+    private void SendInfoTrack(MediaMetadata mediaMetadata)
+    {
+        if(mediaMetadata == null) return;
 
         EncoderTrackInfo trackInfo = new EncoderTrackInfo();
 
-        if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE))
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE))
             trackInfo.setTitle(mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE));
 
-        if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
             trackInfo.setArtist(mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST));
 
-        if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ALBUM))
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ALBUM))
             trackInfo.setAlbum(mediaMetadata.getString(MediaMetadata.METADATA_KEY_ALBUM));
 
-        if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_YEAR))
+        if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_YEAR))
             trackInfo.setYear((int) mediaMetadata.getLong(MediaMetadata.METADATA_KEY_YEAR));
 
 
@@ -322,39 +392,67 @@ public class ReceiverService extends Service {
 
     }
 
-    private void GetTime() {
+    private void GetTime()
+    {
 
-        if (m_activePlayer == null) return;
+        if(m_activePlayer == null) return;
 
         PlaybackState state = m_activePlayer.getPlaybackState();
 
-        if (state == null) return;
+        if(state == null) return;
 
         long time = state.getPosition();
         SendTime((int) time);
-
     }
 
     @NonNull
-    private static String GetTransliterate(String msg) {
+    private static String GetTransliterate(String msg)
+    {
         return TranslitAUDI.translate(msg);
     }
 
-    private void SyncUART() {
-        if (m_isAudioPlayer) {
-            Intent intent = new Intent();
-            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
-            intent.putExtra("CMD", CMD_SYNCHRONIZATION);
-            startService(intent);
+    private void SyncUART()
+    {
+        if(m_isAudioPlayer)
+        {
+//            Intent intent = new Intent();
+//            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
+//            intent.putExtra("CMD", CMD_SYNCHRONIZATION);
+//            startService(intent);
 
+            m_activePlayer.getTransportControls().sendCustomAction("synchronization", new Bundle());
             MediaMetadata metadata = m_activePlayer.getMetadata();
             SendCurrentTrack(metadata);
-        } else {
+        } else
+        {
             m_title = "";
             SendState();
         }
     }
 
+    // класс отправки времени
+    private class TimeThread extends Thread
+    {
+        @Override
+        public void run()
+        {
+            try
+            {
+                while(!m_isStop)
+                {
+                    if(m_activePlayer == null) return;
+                    GetTime();
+                    Log.d("TimeThread", "Send time");
+
+                    sleep(1000);
+                }
+            } catch(InterruptedException e)
+            {
+                Log.d("TimeThread", "run: Interrupted");
+            }
+        }
+    }
 }
+
 
 

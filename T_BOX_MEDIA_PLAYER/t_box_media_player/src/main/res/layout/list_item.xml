@@ -4,6 +4,7 @@
     android:id="@+id/titleTrack"
     android:layout_width="match_parent"
     android:layout_height="30dp"
+    android:background="@color/Black"
     android:textSize="23sp"
     android:textColor="@color/OrangePressed"
     tools:ignore="MissingDefaultResource" />

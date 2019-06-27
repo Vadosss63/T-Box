@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
-import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Binder;
@@ -30,20 +29,22 @@ import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
 import com.gmail.parusovvadim.media_directory.NodeDirectory;
+import com.gmail.parusovvadim.media_directory.TrackInfo;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 // TODO пренести в контрол
-class UARTService {
+class UARTService
+{
     static final int CMD_SEND_DATA = 0xAA;
 }
 
-public class MPlayer extends Service implements OnCompletionListener, MediaPlayer.OnErrorListener {
+public class MPlayer extends Service implements OnCompletionListener, MediaPlayer.OnErrorListener
+{
     static final public int CMD_SELECT_TRACK = 0x05;
     static final public int CMD_PLAY = 0x06;
     static final public int CMD_PAUSE = 0x07;
@@ -53,12 +54,12 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     static final public int CMD_PLAY_PAUSE = 0x0B;
     static final public int CMD_SYNCHRONIZATION = 0x20;
 
-    static final private int MAX_SIZE_DATA = 2816;
+    static final private int MAX_SIZE_DATA = 2816 - 10;
 
     // метаданных трека
     final private MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder();
     // состояния плеера и обрабатываемые действия
-    final private PlaybackStateCompat.Builder m_playbackStateCompat = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_STOP | PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_PLAY_PAUSE | PlaybackStateCompat.ACTION_SKIP_TO_NEXT | PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS | PlaybackStateCompat.ACTION_SEEK_TO | PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM | PlaybackStateCompat.ACTION_REWIND | PlaybackStateCompat.ACTION_FAST_FORWARD);
+    final private PlaybackStateCompat.Builder m_playbackStateCompat = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_STOP | PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_PLAY_PAUSE | PlaybackStateCompat.ACTION_SKIP_TO_NEXT | PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS | PlaybackStateCompat.ACTION_SEEK_TO | PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM | PlaybackStateCompat.ACTION_REWIND | PlaybackStateCompat.ACTION_FAST_FORWARD | PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID);
     // Медиасессия плеера
     private MediaSessionCompat m_mediaSessionCompat = null;
     // Шторка управления плеером
@@ -68,29 +69,27 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     private MediaPlayer m_mediaPlayer = null;
 
     // Действие при смене источника звука
-    private NoisyAudioStreamReceiver m_noisyAudioStreamReceiver = new NoisyAudioStreamReceiver();
+    private final NoisyAudioStreamReceiver m_noisyAudioStreamReceiver = new NoisyAudioStreamReceiver();
 
     // аудио фокус
     private AudioManager m_audioManager = null;
-    private AFListener m_afLiListener = new AFListener();
+    private final AFListener m_afLiListener = new AFListener();
     private AudioFocusRequest m_audioFocusRequest = null;
 
     // Текущий выбранный трек
     private NodeDirectory m_currentTrack = null; // Установить на первую песню
     // дериктория для воспроизведения
     private MusicFiles m_musicFiles;
-    // корневая папка для воспроизведения музыки
-    private String m_rootPath = "/Music";
-    // Настройки папки воспроизведения
-    private SettingApp m_settingApp;
-    //
     private boolean m_isPause = false;
 
+    private boolean m_shuffle = false;
+    private Random m_rand = new Random();
+
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
         createMediaSession();
-        m_settingApp = new SettingApp(this);
         createAudioManager();
         createPlayer();
         changeRoot();
@@ -98,8 +97,15 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         selectTrack(1, 0);
     }
 
-    private void createAudioManager() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    public boolean isShuffle()
+    {
+        return m_shuffle;
+    }
+
+    private void createAudioManager()
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     // Собираемся воспроизводить звуковой контент
                     // (а не звук уведомления или звонок будильника)
@@ -118,27 +124,31 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
-        if (m_mediaPlayer != null) m_mediaPlayer.release();
+        if(m_mediaPlayer != null) m_mediaPlayer.release();
         m_isPause = false;
         stopPlayback();
         m_mediaSessionCompat.release();
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
         MediaButtonReceiver.handleIntent(m_mediaSessionCompat, intent);
         parserCMD(intent);
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
-    public void onCompletion(MediaPlayer mp) {
+    public void onCompletion(MediaPlayer mp)
+    {
         m_mediaSessionCallback.onSkipToNext();
     }
 
-    private void createMediaSession() {
+    private void createMediaSession()
+    {
 
         Context appContext = getApplicationContext();
 
@@ -154,118 +164,161 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         m_mediaSessionCompat.setMediaButtonReceiver(PendingIntent.getBroadcast(appContext, 0, mediaButtonIntent, 0));
     }
 
-    private void abandonAudioFocus() {
-        if (m_afLiListener == null) return;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+    private void abandonAudioFocus()
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             m_audioManager.abandonAudioFocusRequest(m_audioFocusRequest);
         else m_audioManager.abandonAudioFocus(m_afLiListener);
     }
 
-    private void play() {
+    private void play()
+    {
         startPlayback();
         m_isPause = false;
         m_mediaPlayer.start();
     }
 
-    private void pause() {
+    private void pause()
+    {
         stopPlayback();
         m_mediaPlayer.pause();
     }
 
-    private void stop() {
+    private void stop()
+    {
         m_isPause = false;
         stopPlayback();
         m_mediaPlayer.stop();
     }
 
-    private void playNext() {
-        if (m_currentTrack != null) {
-            int indexTrack = m_currentTrack.getNumber() + 1;
-            int countTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
-            if (indexTrack < countTrack) {
-                selectTrack(m_currentTrack.getParentNumber(), indexTrack);
-            } else {
-                int parentNumber = m_currentTrack.getParentNumber() + 1;
-                while (parentNumber <= (m_musicFiles.getFolders().size())) {
-                    NodeDirectory trackNode = m_musicFiles.getTrack(parentNumber, 0);
-                    if (trackNode != null) {
-                        // запускаем трек
-                        m_currentTrack = trackNode;
-                        startPlayer();
-                        break;
-                    }
+    private void playNext()
+    {
+        if(m_currentTrack != null)
+        {
+            if(isShuffle())
+            {
+                int newSong = m_currentTrack.getNumber();
+                int sizeListTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
+
+                if(sizeListTrack > 1) while(newSong == m_currentTrack.getNumber())
+                {
+                    newSong = m_rand.nextInt(sizeListTrack);
+                }
+                selectTrack(m_currentTrack.getParentNumber(), newSong);
+
+            } else
+            {
+                int indexTrack = m_currentTrack.getNumber() + 1;
+                int countTrack = m_musicFiles.getTracks(m_currentTrack.getParentNumber()).size();
+                if(indexTrack < countTrack)
+                {
+                    selectTrack(m_currentTrack.getParentNumber(), indexTrack);
+                } else
+                {
+                    nextFolder();
                 }
             }
         }
     }
 
-    private void playPrevious() {
-        if (m_currentTrack != null) {
+    ///TODO сделать тест на переходы по папкам
+    private void nextFolder()
+    {
+        int parentNumber = m_currentTrack.getParentNumber() + 1;
+        while(parentNumber <= (m_musicFiles.getFolders().size()))
+        {
+            NodeDirectory trackNode = m_musicFiles.getTrack(parentNumber, 0);
+            if(trackNode != null)
+            {
+                // запускаем трек
+                m_currentTrack = trackNode;
+                startPlayer();
+                break;
+            }
+        }
+    }
+
+    private void playPrevious()
+    {
+        if(m_currentTrack != null)
+        {
             int indexTrack = m_currentTrack.getNumber() - 1;
             selectTrack(m_currentTrack.getParentNumber(), indexTrack);
         }
     }
 
-    private void selectTrack(int folder, int track) {
+    private void selectTrack(int folder, int track)
+    {
         NodeDirectory trackNode = m_musicFiles.getTrack(folder, track);
-        if (trackNode != null) {
+        if(trackNode != null)
+        {
             // запускаем трек
             m_currentTrack = trackNode;
             startPlayer();
         }
     }
 
-    private void startPlayer() {
+    private void startPlayer()
+    {
         // Устанавливаем дорожу
         setupPlayer(m_currentTrack.getPathDir());
     }
 
-    private boolean isPlay() {
+    private boolean isPlay()
+    {
         return m_mediaPlayer.isPlaying();
     }
 
     // получение в времени в мсек
-    private int getCurrentPosition() {
+    private int getCurrentPosition()
+    {
         return m_mediaPlayer.getCurrentPosition();
     }
 
     // получение в времени в мсек
-    private void setCurrentPosition(long pos) {
-        if (m_mediaPlayer != null) m_mediaPlayer.seekTo((int) pos);
+    private void setCurrentPosition(long pos)
+    {
+        if(m_mediaPlayer != null) m_mediaPlayer.seekTo((int) pos);
     }
 
     // Установка громкости плеера
-    private void setVolume(float leftVolume, float rightVolume) {
+    private void setVolume(float leftVolume, float rightVolume)
+    {
         m_mediaPlayer.setVolume(leftVolume, rightVolume);
     }
 
     // создает плеер
-    private void createPlayer() {
+    private void createPlayer()
+    {
         m_mediaPlayer = new MediaPlayer();
         // Устанавливаем наблюдателя по оканчанию дорожки
         m_mediaPlayer.setOnCompletionListener(this);
     }
 
     // Устанавливаем дорожку для запуска плеера
-    private void setupPlayer(String audio) {
-        try {
+    private void setupPlayer(String audio)
+    {
+        try
+        {
             m_mediaPlayer.reset();
             m_mediaPlayer.setDataSource(audio);
             m_mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
             m_mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             m_mediaPlayer.prepare();
 
-        } catch (IOException e) {
+        } catch(IOException e)
+        {
             e.printStackTrace();
         }
     }
 
-    private void parserCMD(Intent intent) {
-        if (intent == null) return;
+    private void parserCMD(Intent intent)
+    {
+        if(intent == null) return;
 
         int cmd = intent.getIntExtra("CMD", 0);
-        switch (cmd) {
+        switch(cmd)
+        {
             case CMD_NEXT:
                 m_mediaSessionCallback.onSkipToNext();
                 break;
@@ -280,7 +333,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 break;
 
             case CMD_PLAY_PAUSE:
-                if (isPlay()) m_mediaSessionCallback.onPause();
+                if(isPlay()) m_mediaSessionCallback.onPause();
                 else m_mediaSessionCallback.onPlay();
 
                 break;
@@ -291,7 +344,8 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             case CMD_SYNCHRONIZATION:
                 startUART();
                 break;
-            case CMD_SELECT_TRACK: {
+            case CMD_SELECT_TRACK:
+            {
                 int folder = intent.getIntExtra("folder", -1);
                 int track = intent.getIntExtra("track", 0) - 1;
                 selectTrack(folder, track);
@@ -303,25 +357,27 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
     }
 
-    private void changeRoot() {
-        m_settingApp.loadSetting();
-        if (m_rootPath.equals(m_settingApp.getAbsolutePath()) && !m_musicFiles.isEmpty()) return;
-        m_rootPath = m_settingApp.getAbsolutePath();
-        m_musicFiles = new MusicFiles(m_rootPath);
+    private void changeRoot()
+    {
+        m_mediaSessionCallback.onStop();
+        m_musicFiles = MusicFiles.getInstance();
         selectTrack(1, 0);
     }
 
     @Override
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
+    public boolean onError(MediaPlayer mediaPlayer, int i, int i1)
+    {
         return false;
     }
 
     // Аудио фокус
-    class AFListener implements AudioManager.OnAudioFocusChangeListener {
-
+    class AFListener implements AudioManager.OnAudioFocusChangeListener
+    {
         @Override
-        public void onAudioFocusChange(int i) {
-            switch (i) {
+        public void onAudioFocusChange(int i)
+        {
+            switch(i)
+            {
                 case AudioManager.AUDIOFOCUS_LOSS:
                     m_isPause = true;
                     m_mediaSessionCallback.onPause();
@@ -334,7 +390,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                     setVolume(0.5f, 0.5f);
                     break;
                 case AudioManager.AUDIOFOCUS_GAIN:
-                    if (!isPlay()) m_mediaSessionCallback.onPlay();
+                    if(!isPlay()) m_mediaSessionCallback.onPlay();
                     setVolume(1.0f, 1.0f);
                     break;
             }
@@ -342,50 +398,62 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     }
 
     // Действия при смене источника звука
-    private class NoisyAudioStreamReceiver extends BroadcastReceiver {
+    private class NoisyAudioStreamReceiver extends BroadcastReceiver
+    {
         @Override
-        public void onReceive(Context context, Intent intent) {
-            if (AudioManager.ACTION_AUDIO_BECOMING_NOISY.equals(intent.getAction()))
+        public void onReceive(Context context, Intent intent)
+        {
+            if(AudioManager.ACTION_AUDIO_BECOMING_NOISY.equals(intent.getAction()))
                 m_mediaSessionCallback.onPause();
         }
     }
 
-    private void startPlayback() {
-        if (!m_isPause) // выполняем инициализацию фокуса если только мы не на паузе
+    private void startPlayback()
+    {
+        if(!m_isPause) // выполняем инициализацию фокуса если только мы не на паузе
         {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 m_audioManager.requestAudioFocus(m_audioFocusRequest);
             else
                 m_audioManager.requestAudioFocus(m_afLiListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
         }
-        try {
+        try
+        {
             registerReceiver(m_noisyAudioStreamReceiver, new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY));
-        } catch (IllegalArgumentException ignored) {
+        } catch(IllegalArgumentException ignored)
+        {
         }
     }
 
-    private void stopPlayback() {
-        if (!m_isPause) abandonAudioFocus(); // сбрасываем только по стопу
-        try {
+    private void stopPlayback()
+    {
+        if(!m_isPause) abandonAudioFocus(); // сбрасываем только по стопу
+        try
+        {
             unregisterReceiver(m_noisyAudioStreamReceiver);
-        } catch (IllegalArgumentException e) {
+        } catch(IllegalArgumentException e)
+        {
             e.fillInStackTrace();
         }
     }
 
     // Колбэки для обработки медиасесси
-    MediaSessionCompat.Callback m_mediaSessionCallback = new MediaSessionCompat.Callback() {
+    private final MediaSessionCompat.Callback m_mediaSessionCallback = new MediaSessionCompat.Callback()
+    {
         @Override
-        public void onPlay() {
-            if (m_currentTrack == null) return;
+        public void onPlay()
+        {
+            if(m_currentTrack == null) return;
             setMetaData();
             play();
             startMediaSession();
         }
 
         @Override
-        public void onPause() {
-            if (m_currentTrack == null) return;
+        public void onPause()
+        {
+            if(m_currentTrack == null) return;
+            if(!isPlay()) return;
             // Останавливаем воспроизведение
             pause();
             // Сообщаем новое состояние
@@ -394,14 +462,16 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         @Override
-        public void onSkipToQueueItem(long id) {
-            if (m_currentTrack == null) return;
+        public void onSkipToQueueItem(long id)
+        {
+            if(m_currentTrack == null) return;
             selectTrack(m_currentTrack.getParentNumber(), (int) id);
         }
 
         @Override
-        public void onStop() {
-            if (m_currentTrack == null) return;
+        public void onStop()
+        {
+            if(m_currentTrack == null) return;
             // Останавливаем воспроизведение
             stop();
             // Все, больше мы не "главный" плеер, уходим со сцены
@@ -413,51 +483,98 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         @Override
-        public void onSeekTo(long pos) {
-            if (m_currentTrack == null) return;
+        public void onSetShuffleMode(int shuffleMode)
+        {
+            switch(shuffleMode)
+            {
+                case PlaybackStateCompat.SHUFFLE_MODE_NONE:
+                    m_shuffle = false;
+                    break;
+                case PlaybackStateCompat.SHUFFLE_MODE_ALL:
+                case PlaybackStateCompat.SHUFFLE_MODE_GROUP:
+                    m_shuffle = true;
+
+                    break;
+                case PlaybackStateCompat.SHUFFLE_MODE_INVALID:
+                    break;
+            }
+        }
+
+        @Override
+        public void onCustomAction(String action, Bundle extras)
+        {
+            if(action.equals("shuffleMode"))
+            {
+                int shuffle = extras.getInt("isShuffle");
+                m_mediaSessionCompat.setShuffleMode(shuffle);
+                this.onSetShuffleMode(shuffle);
+                return;
+            }
+            if(action.equals("synchronization"))
+            {
+                startUART();
+            }
+        }
+
+        @Override
+        public void onSeekTo(long pos)
+        {
+            if(m_currentTrack == null) return;
             setCurrentPosition(pos);
         }
 
         @Override
-        public void onSkipToNext() {
-            if (m_currentTrack == null) return;
+        public void onSkipToNext()
+        {
+            if(m_currentTrack == null) return;
             playNext();
             onPlay();
         }
 
         @Override
-        public void onSkipToPrevious() {
-            if (m_currentTrack == null) return;
+        public void onSkipToPrevious()
+        {
+            if(m_currentTrack == null) return;
             playPrevious();
             onPlay();
         }
 
         @Override
-        public void onPlayFromMediaId(String mediaId, Bundle extras) {
-            if (m_currentTrack == null) return;
-            selectTrack(m_currentTrack.getParentNumber(), Integer.parseInt(mediaId));
+        public void onPlayFromMediaId(String mediaId, Bundle extras)
+        {
+            String[] ids = mediaId.split(";");
+            if(ids.length == 2)
+            {
+                int folder = Integer.parseInt(ids[0]);
+                int track = Integer.parseInt(ids[1]);
+                selectTrack(folder, track);
+                m_mediaSessionCallback.onPlay();
+            }
         }
 
         @Override
-        public void onFastForward() {
-            if (m_currentTrack == null) return;
+        public void onFastForward()
+        {
+            if(m_currentTrack == null) return;
             int pos = getCurrentPosition() + 5000;
             setCurrentPosition(pos);
             m_mediaSessionCompat.setPlaybackState(m_playbackStateCompat.setState(PlaybackStateCompat.STATE_PLAYING, getCurrentPosition(), 1).build());
         }
 
         @Override
-        public void onRewind() {
-            if (m_currentTrack == null) return;
+        public void onRewind()
+        {
+            if(m_currentTrack == null) return;
             int pos = getCurrentPosition() - 5000;
-            if (pos < 0) pos = 0;
+            if(pos < 0) pos = 0;
 
             setCurrentPosition(pos);
             m_mediaSessionCompat.setPlaybackState(m_playbackStateCompat.setState(PlaybackStateCompat.STATE_PLAYING, getCurrentPosition(), 1).build());
         }
 
         // Делаем медиа сессию активной
-        void startMediaSession() {
+        void startMediaSession()
+        {
             // Указываем, что наше приложение теперь активный плеер и кнопки
             // на окне блокировки должны управлять именно нами
             m_mediaSessionCompat.setActive(true);
@@ -466,34 +583,32 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
 
         // Установка данных о треке
-        private void setMetaData() {
-            if (m_currentTrack == null) return;
-            String path = m_currentTrack.getPathDir();
+        private void setMetaData()
+        {
+            if(m_currentTrack == null) return;
 
-            try {
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                mediaMetadataRetriever.setDataSource(path);
-                String artist = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
-                String title = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                String album = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
-                if (album == null) album = artist;
-
-                long durationMs = Long.parseLong(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
-
-                byte[] art = mediaMetadataRetriever.getEmbeddedPicture();
+            try
+            {
+                TrackInfo trackInfo = (TrackInfo) m_currentTrack;
+                String artist = trackInfo.getArtist();
+                String title = trackInfo.getTitle();
+                String album = trackInfo.getAlbum();
+                long durationMs = trackInfo.getDuration();
+                byte[] art = trackInfo.getImage();
 
                 // Заполняем данные о треке
-                if (art != null)
+                if(art != null)
                     metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeByteArray(art, 0, art.length));
                 else
-                    metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                    metadataBuilder.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, BitmapFactory.decodeResource(getResources(), R.drawable.image_t_box));
 
-                metadataBuilder.putString(MediaMetadataCompat.METADATA_KEY_TITLE, title).putString(MediaMetadataCompat.METADATA_KEY_ALBUM, album).putString(MediaMetadataCompat.METADATA_KEY_ARTIST, artist).putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, String.valueOf(m_currentTrack.getParentNumber()) + ";" + String.valueOf(m_currentTrack.getNumber())).putLong(MediaMetadataCompat.METADATA_KEY_DURATION, durationMs);
+                metadataBuilder.putString(MediaMetadataCompat.METADATA_KEY_TITLE, title).putString(MediaMetadataCompat.METADATA_KEY_ALBUM, album).putString(MediaMetadataCompat.METADATA_KEY_ARTIST, artist).putString(MediaMetadataCompat.METADATA_KEY_MEDIA_ID, m_currentTrack.getParentNumber() + ";" + m_currentTrack.getNumber()).putLong(MediaMetadataCompat.METADATA_KEY_DURATION, durationMs);
 
                 MediaMetadataCompat metadata = metadataBuilder.build();
                 m_mediaSessionCompat.setMetadata(metadata);
 
-            } catch (RuntimeException e) {
+            } catch(RuntimeException e)
+            {
                 e.fillInStackTrace();
                 onSkipToPrevious();
             }
@@ -504,40 +619,67 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
 
     // Для доступа извне к MediaSession требуется токен
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(Intent intent)
+    {
         return new MPlayerBinder();
     }
 
-    public class MPlayerBinder extends Binder {
-        public MediaSessionCompat.Token getMediaSessionToken() {
+    public class MPlayerBinder extends Binder
+    {
+        public MediaSessionCompat.Token getMediaSessionToken()
+        {
             return m_mediaSessionCompat.getSessionToken();
         }
+
+        public Boolean getShuffle()
+        {
+            return m_shuffle;
+        }
+
     }
 
     ////TODO перенести все в control
     // Синхронизация с АУДИ
-    private void startUART() {
+    private void startUART()
+    {
         sendInfoFoldersToComPort();
         sendInfoTracksToComPort();
     }
 
-    private void sendInfoTracksToComPort() {
+    private void sendInfoTracksToComPort()
+    {
         Vector<NodeDirectory> folders = m_musicFiles.getFolders();
         EncoderByteMainHeader.EncoderListTracks encoderListTracks = new EncoderByteMainHeader.EncoderListTracks();
 
-        for (NodeDirectory folder : folders) {
+        for(NodeDirectory folder : folders)
+        {
+            int lastNumberBlock = 0;
+            int startNewBlock = 0;
+            Vector<Integer> endBlocks = new Vector<>();
             encoderListTracks.AddHeader(folder.getNumber());
+
+            Vector<Byte> headerDatas = (Vector<Byte>) encoderListTracks.GetVectorByte().clone();
             Vector<NodeDirectory> tracks = m_musicFiles.getTracks(folder.getNumber());
-            for (NodeDirectory track : tracks) {
+            for(NodeDirectory track : tracks)
+            {
                 encoderListTracks.AddTrackNumber(track.getNumber() + 1);
                 encoderListTracks.AddName(getTranslate(track.getName()));
+                if((encoderListTracks.size() - startNewBlock) > MAX_SIZE_DATA)
+                {
+                    endBlocks.add(lastNumberBlock);
+                    startNewBlock = lastNumberBlock;
+                }
+                lastNumberBlock = encoderListTracks.size();
             }
 
             encoderListTracks.AddEnd();
+            endBlocks.add(encoderListTracks.size());
 
-            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte());
 
-            for (int i = 0; i < dataList.size(); i++) {
+            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte(), endBlocks, headerDatas);
+
+            for(int i = 0; i < dataList.size(); i++)
+            {
 
                 dataList.get(i).insertElementAt((byte) i, 0);
                 dataList.get(i).insertElementAt((byte) dataList.size(), 0);
@@ -554,24 +696,41 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         }
     }
 
-    private void sendInfoFoldersToComPort() {
+    private void sendInfoFoldersToComPort()
+    {
         Vector<NodeDirectory> folders = m_musicFiles.getFolders();
+        int lastNumberBlock = 0;
+        int startNewBlock = 0;
+        Vector<Integer> endBlocks = new Vector<>();
+
         EncoderFolders encoderFolders = new EncoderFolders();
         encoderFolders.AddHeader();
+        Vector<Byte> headerDatas = (Vector<Byte>) encoderFolders.GetVectorByte().clone();
 
-        for (NodeDirectory folder : folders) {
+        for(NodeDirectory folder : folders)
+        {
             encoderFolders.AddName(getTranslate(folder.getName()));
             encoderFolders.AddNumber(folder.getNumber());
             encoderFolders.AddNumberTracks(folder.getNumberTracks());
             encoderFolders.AddParentNumber(folder.getParentNumber());
+
+            if((encoderFolders.size() - startNewBlock) > MAX_SIZE_DATA)
+            {
+                endBlocks.add(lastNumberBlock);
+                startNewBlock = lastNumberBlock;
+            }
+            lastNumberBlock = encoderFolders.size();
         }
 
         encoderFolders.AddEnd();
 
-        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte());
+        endBlocks.add(encoderFolders.size());
 
 
-        for (int i = 0; i < dataList.size(); i++) {
+        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte(), endBlocks, headerDatas);
+
+        for(int i = 0; i < dataList.size(); i++)
+        {
 
             dataList.get(i).insertElementAt((byte) i, 0);
             dataList.get(i).insertElementAt((byte) dataList.size(), 0);
@@ -585,36 +744,35 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             startService(intent);
         }
 
-
     }
 
-    private static Vector<Vector<Byte>> GetListData(Vector<Byte> data) {
+    private static Vector<Vector<Byte>> GetListData(Vector<Byte> data, Vector<Integer> endBlocks, Vector<Byte> dataHeader)
+    {
         Vector<Vector<Byte>> list = new Vector<>();
         int startIndex = 0;
-        int stopIndex;
 
-        do {
-            stopIndex = startIndex + MAX_SIZE_DATA;
-            if (stopIndex > data.size())
-                stopIndex = data.size();
-
+        int i = 0;
+        for(Integer stopIndex : endBlocks)
+        {
             list.add(new Vector<>(data.subList(startIndex, stopIndex)));
-            startIndex += MAX_SIZE_DATA;
-
-        } while (stopIndex < data.size());
-
+            startIndex = stopIndex;
+            if(i != 0) list.lastElement().addAll(0, dataHeader);
+            i++;
+        }
         return list;
     }
 
     // Получение Intent для отправки в UART
-    private Intent getIntentServiceUART() {
+    private Intent getIntentServiceUART()
+    {
         Intent intent = new Intent();
         intent.setClassName("com.gmail.parusovvadim.t_box_control", "com.gmail.parusovvadim.t_box_control.UARTService");
         return intent;
     }
 
     @NotNull
-    private String getTranslate(String msg) {
+    private String getTranslate(String msg)
+    {
         return TranslitAUDI.translate(msg);
     }
 

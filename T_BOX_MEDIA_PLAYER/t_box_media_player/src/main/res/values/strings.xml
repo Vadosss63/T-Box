@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">T-BOX MEDIA PLAYER</string>
-    <string name="timerTrack">00:00</string>
-    <string name="ok_button">Ok</string>
+    <string name="timerTrack">0:00</string>
+    <string name="ok_button">OK</string>
     <string name="cancel_button">Отмена</string>
     <string name="CMD">CMD</string>
     <string name="CMD_data">Data</string>
+    <string name="folder_back">Back</string>
+
+    <string name="app_name_Title">
+    <b>
+        <font color="#FE880C">T-BOX</font>
+    </b>
+         <font color="#FFFFFF">
+                MEDIA PLAYER
+         </font>
+    </string>
+    <string name="Settings">Настройки</string>
+    <string name="pathStorageText">Источник: </string>
+    <string name="titleDefault">Новая композиция</string>
 
 </resources>

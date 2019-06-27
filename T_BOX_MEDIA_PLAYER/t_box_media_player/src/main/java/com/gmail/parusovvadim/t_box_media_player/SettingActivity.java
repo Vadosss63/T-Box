@@ -1,22 +1,32 @@
 package com.gmail.parusovvadim.t_box_media_player;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.gmail.parusovvadim.media_directory.MusicFileComparator;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+
+import static com.gmail.parusovvadim.media_directory.MusicFiles.MUSIC_FORMAT;
 
 public class SettingActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -26,19 +36,18 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     private SettingApp m_settingApp;
     private String m_currentDir;
     private TextView m_pathTextView;
-    private ArrayAdapter<String> m_adapter;
+    // Компоратор для сортировки дерикторий музыкальных треков
+    private final Comparator<File> m_fileComparator = new MusicFileComparator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
-        m_settingApp = new SettingApp(this);
-
+        m_settingApp = SettingApp.getInstance();
         m_changeFolderFragment = new ChangeFolderFragment();
         m_pathView = findViewById(R.id.pathList);
         m_pathView.setOnItemClickListener(this);
-        m_pathTextView = (TextView) findViewById(R.id.PathMusicFiles);
+        m_pathTextView = findViewById(R.id.pathMusicFiles);
 
         loadSetting();
         getDir(m_settingApp.getAbsolutePath()); // выводим список файлов и папок в корневой папке системы
@@ -48,8 +57,8 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     }
 
     private void createAdapterSpinner() {
-        final Spinner spinner = findViewById(R.id.PathStorage);
-        m_adapter = new ArrayAdapter<>(this, R.layout.list_item, m_settingApp.getPaths());
+        final Spinner spinner = findViewById(R.id.pathStorage);
+        ArrayAdapter<String> m_adapter = new ArrayAdapter<>(this, R.layout.list_item, m_settingApp.getPaths());
 
         spinner.setAdapter(m_adapter);
         spinner.setSelection(m_settingApp.getCurrentPathStorage());
@@ -65,7 +74,6 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
 
             }
         });
-
     }
 
 
@@ -75,7 +83,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         changeStateSelectRoot();
     }
 
-    public void changeStateSelectRoot() {
+    private void changeStateSelectRoot() {
         FragmentTransaction m_fragmentTransaction = getFragmentManager().beginTransaction();
         m_fragmentTransaction.replace(R.id.settingFragment, m_changeFolderFragment);
         m_fragmentTransaction.commit();
@@ -85,7 +93,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
         m_pathTextView.setText("Путь: " + m_settingApp.getTrimmPath(dirPath)); // где мы сейчас
         m_currentDir = dirPath;
 
-        List<String> itemList = new ArrayList<>();
+        ArrayList<NodeSettingShow> itemList = new ArrayList<>();
         m_pathList = new ArrayList<>();
         File file = new File(dirPath);
 
@@ -95,7 +103,11 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
 
             // если мы не в корневой папке
             if (!dirPath.equals(m_settingApp.getStorageDirectory())) {
-                itemList.add("../");
+                NodeSettingShow upFolder = new NodeSettingShow();
+                upFolder.title = "../";
+                upFolder.isFolder = true;
+                upFolder.isFolderUp = true;
+                itemList.add(upFolder);
                 m_pathList.add(file.getParent());
             }
 
@@ -112,18 +124,34 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
                 // Работаем только с доступными папками и файлами
                 if (!file.isHidden() && file.canRead()) if (file.isDirectory()) {
                     m_pathList.add(file.getPath());
-                    itemList.add(file.getName() + "/");
-                } else if (filename.endsWith(".mp3") || filename.endsWith(".wma") || filename.endsWith(".ogg")) {
-                    m_pathList.add(file.getPath());
-                    itemList.add(file.getName());
+                    NodeSettingShow folder = new NodeSettingShow();
+                    folder.title = file.getName();
+                    folder.isFolder = true;
+                    folder.isFolderUp = false;
+                    itemList.add(folder);
+
+                } else {
+                    for (String musicFormat : MUSIC_FORMAT)
+                        if (filename.endsWith(musicFormat)) {
+                            m_pathList.add(file.getPath());
+
+                            NodeSettingShow track = new NodeSettingShow();
+                            track.title = file.getName();
+                            track.isFolder = false;
+                            track.isFolderUp = false;
+
+                            itemList.add(track);
+                            break;
+                        }
                 }
             }
         } else {
             getDir(m_settingApp.getStorageDirectory());
             return;
         }
+
         // Можно выводить на экран список
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item, itemList);
+        ArrayAdapter<NodeSettingShow> adapter = new SettingArrayAdapter(this, itemList);
         m_pathView.setAdapter(adapter);
     }
 
@@ -137,10 +165,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
             {
                 getDir(m_pathList.get(position));
             } else { // если папка закрыта, то сообщаем об этом
-                new AlertDialog.Builder(this).setIcon(R.mipmap.ic_launcher).setTitle("[" + file.getName() + "] папка не доступна!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
+                new AlertDialog.Builder(this).setIcon(R.mipmap.ic_launcher).setTitle("[" + file.getName() + "] папка не доступна!").setPositiveButton("OK", (dialog, which) -> {
                 }).show();
             }
         }
@@ -149,22 +174,51 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
     void saveSetting() {
         m_settingApp.setMusicPath(m_currentDir);
         m_settingApp.saveSetting();
+        m_settingApp.loadSetting();
     }
 
-    void loadSetting() {
+    private void loadSetting() {
         m_settingApp.loadSetting();
         m_currentDir = m_settingApp.getMusicPath();
     }
 
-    // Компоратор для сортировки дерикторий музыкальных треков
-    private Comparator<? super File> m_fileComparator = (Comparator<File>) (file1, file2) -> {
 
-        if (file1.isDirectory() && !file2.isDirectory()) return -1;
+    class SettingArrayAdapter extends ArrayAdapter<NodeSettingShow> {
 
-        if (file2.isDirectory() && !file1.isDirectory()) return 1;
+        SettingArrayAdapter(Context context, List<NodeSettingShow> listItem) {
+            super(context, R.layout.music_track_item_setting, listItem);
+        }
 
-        String pathLowerCaseFile1 = file1.getName().toLowerCase();
-        String pathLowerCaseFile2 = file2.getName().toLowerCase();
-        return String.valueOf(pathLowerCaseFile1).compareTo(pathLowerCaseFile2);
-    };
+        @SuppressLint("InflateParams")
+        @NotNull
+        @Override
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            NodeSettingShow node = getItem(position);
+            if (node == null) return convertView;
+
+            if (node.isFolder) {
+                if (node.isFolderUp) {
+                    convertView = getLayoutInflater().inflate(R.layout.folder_up_item, null);
+                } else {
+                    convertView = getLayoutInflater().inflate(R.layout.folder_item_setting, null);
+                    TextView titleFolder = convertView.findViewById(R.id.titleFolderSetting);
+                    titleFolder.setText(node.title);
+                }
+            } else {
+
+                convertView = getLayoutInflater().inflate(R.layout.music_track_item_setting, null);
+                TextView trackLabel = convertView.findViewById(R.id.titleTrackSetting);
+                String title = node.title;
+                trackLabel.setText(title);
+            }
+            return convertView;
+        }
+    }
+
+    class NodeSettingShow {
+        String title;
+        boolean isFolder;
+        boolean isFolderUp;
+    }
 }
+

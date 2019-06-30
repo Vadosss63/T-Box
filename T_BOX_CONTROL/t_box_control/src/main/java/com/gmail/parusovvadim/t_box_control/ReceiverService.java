@@ -40,7 +40,7 @@ public class ReceiverService extends Service
     static final int CMD_SYNC = 0x01;
     static final int CMD_SYNCHRONIZATION = 0x20;
 
-    private MediaSessionManager.OnActiveSessionsChangedListener m_onActiveSessionsChangedListener = this::ChangedActiveSessions;
+    private MediaSessionManager.OnActiveSessionsChangedListener m_onActiveSessionsChangedListener = this::changedActiveSessions;
 
     private String m_title = "";
 
@@ -54,7 +54,7 @@ public class ReceiverService extends Service
         public void onSessionDestroyed()
         {
             super.onSessionDestroyed();
-            StopMediaSession();
+            stopMediaSession();
             m_isStop = true;
         }
 
@@ -64,7 +64,7 @@ public class ReceiverService extends Service
             if(state == null) return;
             if(state.getState() == PlaybackState.STATE_PLAYING)
             {
-                if(m_isStop) CreateTimer();
+                if(m_isStop) createTimer();
             } else m_isStop = true;
 
         }
@@ -72,21 +72,79 @@ public class ReceiverService extends Service
         @Override // колбек при изменении данных
         public void onMetadataChanged(@Nullable MediaMetadata metadata)
         {
-            String title = GetTitle(metadata);
+            String title = getTitle(metadata);
 
             Log.d("MetadataChanged", title);
-            SendCurrentTrack(metadata);
+            sendCurrentTrack(metadata);
             if(!m_title.equals(title))
             {
                 m_title = title;
-                SendAUX();
-                SendInfoTrack(metadata);
+                sendAUX();
+                sendInfoTrack(metadata);
             }
         }
     };
 
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        sync();
+
+        Log.d("ReceiverService", "onCreate: ");
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
+        parser(intent);
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, "Сервис включен", "Статус");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        return null;
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        Log.d("ReceiverService", "onDestroy: ");
+        stopALL();
+    }
+
+    private void stopALL()
+    {
+        if(m_callback != null) m_activePlayer.unregisterCallback(m_callback);
+        try
+        {
+            m_isStop = true;
+            if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
+        } catch(NullPointerException e)
+        {
+            e.fillInStackTrace();
+        } catch(RuntimeException e)
+        {
+            e.fillInStackTrace();
+        }
+        m_activePlayer = null;
+        m_onActiveSessionsChangedListener = null;
+        m_timeThread = null;
+        m_callback = null;
+    }
+
+    public void stopMediaSession()
+    {
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, "Нет активного плеера", "Статус");
+    }
+
     // Действие при смене активной сессии
-    private void ChangedActiveSessions(List<MediaController> list)
+    private void changedActiveSessions(List<MediaController> list)
     {
         if(list == null) return;
 
@@ -109,14 +167,14 @@ public class ReceiverService extends Service
         if(!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
             m_activePlayer = list.get(list.size() - 1);
 
-//        java.lang.IllegalArgumentException: callback must not be null
+        // java.lang.IllegalArgumentException: callback must not be null
         // Устанавливаем колбеки
-        m_activePlayer.registerCallback(m_callback);
+        if(m_callback != null) m_activePlayer.registerCallback(m_callback);
 
-        SendState();
+        sendState();
     }
 
-    private void SendState()
+    private void sendState()
     {
         PlaybackState state = m_activePlayer.getPlaybackState();
         if(state == null) return;
@@ -127,7 +185,7 @@ public class ReceiverService extends Service
 
     }
 
-    private void SendCurrentTrack(MediaMetadata metadata)
+    private void sendCurrentTrack(MediaMetadata metadata)
     {
 
         if(!m_isAudioPlayer) return;
@@ -153,66 +211,13 @@ public class ReceiverService extends Service
         }
     }
 
-    private void SendAUX()
+    private void sendAUX()
     {
-        if(m_isAudioPlayer) OnAUX((byte) 0x00);
-        else OnAUX((byte) 0x01);
+        if(m_isAudioPlayer) onAUX((byte) 0x00);
+        else onAUX((byte) 0x01);
     }
 
-    @Override
-    public void onCreate()
-    {
-        super.onCreate();
-        Sync();
-
-        Log.d("ReceiverService", "onCreate: ");
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
-        Parser(intent);
-        NotificationRunnableService notification = new NotificationRunnableService(this);
-        notification.showNotification(this, "Сервис включен", "Статус");
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    public void StopMediaSession()
-    {
-        NotificationRunnableService notification = new NotificationRunnableService(this);
-        notification.showNotification(this, "Нет активного плеера", "Статус");
-    }
-
-    @Override
-    public void onDestroy()
-    {
-        super.onDestroy();
-        Log.d("ReceiverService", "onDestroy: ");
-        StopALL();
-    }
-
-    private void StopALL()
-    {
-        m_onActiveSessionsChangedListener = null;
-        m_activePlayer = null;
-        try
-        {
-            if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
-        } catch(RuntimeException e)
-        {
-            e.fillInStackTrace();
-        }
-        m_timeThread = null;
-        m_callback = null;
-    }
-
-    @Override
-    public IBinder onBind(Intent intent)
-    {
-        return null;
-    }
-
-    private void Parser(Intent intent)
+    private void parser(Intent intent)
     {
         if(intent == null) return;
 
@@ -224,8 +229,8 @@ public class ReceiverService extends Service
                 int key = intent.getIntExtra("keycodeMedia", -1);
                 int action = intent.getIntExtra("action", -1);
 
-                if(action == -1) SendKey(key);
-                else SendKeyRewind(key, action);
+                if(action == -1) sendKey(key);
+                else sendKeyRewind(key, action);
 
                 break;
             }
@@ -255,12 +260,12 @@ public class ReceiverService extends Service
             }
             case CMD_SYNC:
             {
-                Sync();
+                sync();
                 break;
             }
             case CMD_DATA.AUX:
             {
-                SyncUART();
+                syncUART();
                 break;
             }
             default:
@@ -268,21 +273,21 @@ public class ReceiverService extends Service
         }
     }
 
-    private void SendKey(int key)
+    private void sendKey(int key)
     {
         if(m_activePlayer == null) return;
-        SendKeyRewind(key, KeyEvent.ACTION_DOWN);
-        SendKeyRewind(key, KeyEvent.ACTION_UP);
+        sendKeyRewind(key, KeyEvent.ACTION_DOWN);
+        sendKeyRewind(key, KeyEvent.ACTION_UP);
     }
 
-    private void SendKeyRewind(int key, int action)
+    private void sendKeyRewind(int key, int action)
     {
         if(m_activePlayer == null) return;
         m_activePlayer.dispatchMediaButtonEvent(new KeyEvent(action, key));
     }
 
     // Таймер отправки времени в com порт
-    private void CreateTimer()
+    private void createTimer()
     {
         if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
 
@@ -291,7 +296,7 @@ public class ReceiverService extends Service
         m_timeThread.start();
     }
 
-    private void SendData(EncoderMainHeader headerData)
+    private void sendData(EncoderMainHeader headerData)
     {
         Intent intent = new Intent(this, UARTService.class);
         intent.putExtra("CMD", UARTService.CMD_SEND_DATA);
@@ -299,7 +304,7 @@ public class ReceiverService extends Service
         startService(intent);
     }
 
-    void Sync()
+    void sync()
     {
 
         MediaSessionManager mediaSessionManager = (MediaSessionManager) getApplicationContext().getSystemService(Context.MEDIA_SESSION_SERVICE);
@@ -309,7 +314,7 @@ public class ReceiverService extends Service
         {
             // Проверяем запущенные сессии
             List<MediaController> mediaControllerList = mediaSessionManager.getActiveSessions(new ComponentName(getApplicationContext(), NotificationReceiverService.class));
-            ChangedActiveSessions(mediaControllerList);
+            changedActiveSessions(mediaControllerList);
             // Устанавливаем прослушку на новые сессии
             mediaSessionManager.addOnActiveSessionsChangedListener(m_onActiveSessionsChangedListener, new ComponentName(getApplicationContext(), NotificationReceiverService.class));
 
@@ -326,7 +331,7 @@ public class ReceiverService extends Service
         }
     }
 
-    private void SendTime(int msec)
+    private void sendTime(int msec)
     {
         Intent intentUART = new Intent(this, UARTService.class);
         intentUART.putExtra("CMD", CMD_DATA.TIME);
@@ -335,12 +340,12 @@ public class ReceiverService extends Service
     }
 
     // Перевод в aux режим
-    private void OnAUX(byte on)
+    private void onAUX(byte on)
     {
         Vector<Byte> data = new Vector<>();
         data.add(on);
 
-        String title = GetTransliterate(m_title);
+        String title = getTransliterate(m_title);
         if(title.length() > 29) title = title.substring(0, 28);
 
         for(byte byteName : title.getBytes())
@@ -348,10 +353,10 @@ public class ReceiverService extends Service
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(data);
         mainHeader.AddMainHeader((byte) CMD_DATA.AUX);
-        SendData(mainHeader);
+        sendData(mainHeader);
     }
 
-    private String GetTitle(MediaMetadata mediaMetadata)
+    private String getTitle(MediaMetadata mediaMetadata)
     {
         String title = "No title";
         if(mediaMetadata != null)
@@ -368,7 +373,7 @@ public class ReceiverService extends Service
         return title;
     }
 
-    private void SendInfoTrack(MediaMetadata mediaMetadata)
+    private void sendInfoTrack(MediaMetadata mediaMetadata)
     {
         if(mediaMetadata == null) return;
 
@@ -389,13 +394,12 @@ public class ReceiverService extends Service
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(trackInfo.build());
         mainHeader.AddMainHeader((byte) CMD_DATA.TRACK_INFO);
-        SendData(mainHeader);
+        sendData(mainHeader);
 
     }
 
-    private void GetTime()
+    private void getTime()
     {
-
         if(m_activePlayer == null) return;
 
         PlaybackState state = m_activePlayer.getPlaybackState();
@@ -403,16 +407,16 @@ public class ReceiverService extends Service
         if(state == null) return;
 
         long time = state.getPosition();
-        SendTime((int) time);
+        sendTime((int) time);
     }
 
     @NonNull
-    private static String GetTransliterate(String msg)
+    private static String getTransliterate(String msg)
     {
         return TranslitAUDI.translate(msg);
     }
 
-    private void SyncUART()
+    private void syncUART()
     {
         if(m_isAudioPlayer)
         {
@@ -423,11 +427,11 @@ public class ReceiverService extends Service
 
             m_activePlayer.getTransportControls().sendCustomAction("synchronization", new Bundle());
             MediaMetadata metadata = m_activePlayer.getMetadata();
-            SendCurrentTrack(metadata);
+            sendCurrentTrack(metadata);
         } else
         {
             m_title = "";
-            SendState();
+            sendState();
         }
     }
 
@@ -442,7 +446,7 @@ public class ReceiverService extends Service
                 while(!m_isStop)
                 {
                     if(m_activePlayer == null) return;
-                    GetTime();
+                    getTime();
                     Log.d("TimeThread", "Send time");
 
                     sleep(1000);

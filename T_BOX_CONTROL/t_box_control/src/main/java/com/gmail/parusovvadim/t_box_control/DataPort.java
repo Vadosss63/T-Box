@@ -4,25 +4,25 @@ import android.content.Context;
 
 public interface DataPort {
 
-    Boolean Initialisation(Context context);
+    Boolean initialisation(Context context);
 
-    void Connect();
+    void connect();
 
-    void Disconnect();
+    void disconnect();
 
-    void WriteData(byte[] bytes);
+    void writeData(byte[] bytes);
 
-    void RunReadData();
+    void runReadData();
 
-    void SetReadRunnable(Runnable runnable);
+    void setReadRunnable(Runnable runnable);
 
-    boolean IsConnected();
+    boolean isConnected();
 
-    boolean IsConfigured();
+    boolean isConfigured();
 
-    String GetTextLog();
+    String getTextLog();
 
-    byte[] GetReadDataByte();
+    byte[] getReadDataByte();
 
-    boolean CheckConnection();
+    boolean checkConnection();
 }

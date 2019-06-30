@@ -17,12 +17,11 @@ import java.util.Vector;
 
 public class UARTService extends Service
 {
-    static final public int CMD_SEND_DATA = 0xAA;
-    static final public int CMD_RESET = 0x00;
+    public static final int CMD_SEND_DATA = 0xAA;
+    public static final int CMD_RESET = 0x00;
 
-    static String m_showMassage = "Поиск соединения";
-
-    int m_iteration = 0;
+    private static final String m_showMassage = "Поиск соединения";
+    private int m_iteration = 0;
     // Поток отправки сообщений в port
     private SenderThread m_senderThread;
     private boolean m_isCheckConnectionStart = false;
@@ -41,7 +40,7 @@ public class UARTService extends Service
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
-        if(m_UARTPort.IsConfigured() && m_UARTPort.IsConnected())
+        if(m_UARTPort.isConfigured() && m_UARTPort.isConnected())
         {
             m_senderThread.AddCMD(intent);
             showNotification("Соединено с T-BOX data", "Статус Bluetooth");
@@ -55,44 +54,6 @@ public class UARTService extends Service
             }
         }
         return super.onStartCommand(intent, flags, startId);
-    }
-
-    private void showNotification(String msg, String title)
-    {
-        NotificationRunnableService notification = new NotificationRunnableService(this);
-        notification.showNotification(this, msg, title);
-    }
-
-    private void runCheck()
-    {
-        m_timerConnect.schedule(new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                findConnection();
-            }
-        }, 5000);
-    }
-
-    private void findConnection()
-    {
-        if(m_UARTPort.CheckConnection())
-        {
-            stopSelf();
-        } else
-        {
-            m_iteration = m_iteration % 3;
-            StringBuilder msg = new StringBuilder(m_showMassage);
-            for(int i = 0; i < m_iteration; i++)
-                msg.append(".");
-
-            showNotification(msg.toString(), "Подключение");
-
-            m_iteration++;
-            if(m_isCheckConnectionStart) runCheck();
-
-        }
     }
 
     @Override
@@ -115,7 +76,7 @@ public class UARTService extends Service
 
         try
         {
-            m_UARTPort.Disconnect();
+            m_UARTPort.disconnect();
             if(m_timerConnect != null) m_timerConnect.cancel();
         } catch(RuntimeException e)
         {
@@ -128,6 +89,44 @@ public class UARTService extends Service
     public IBinder onBind(Intent intent)
     {
         return null;
+    }
+
+    private void showNotification(String msg, String title)
+    {
+        NotificationRunnableService notification = new NotificationRunnableService(this);
+        notification.showNotification(this, msg, title);
+    }
+
+    private void runCheck()
+    {
+        m_timerConnect.schedule(new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                findConnection();
+            }
+        }, 5000);
+    }
+
+    private void findConnection()
+    {
+        if(m_UARTPort.checkConnection())
+        {
+            stopSelf();
+        } else
+        {
+            m_iteration = m_iteration % 3;
+            StringBuilder msg = new StringBuilder(m_showMassage);
+            for(int i = 0; i < m_iteration; i++)
+                msg.append(".");
+
+            showNotification(msg.toString(), "Подключение");
+
+            m_iteration++;
+            if(m_isCheckConnectionStart) runCheck();
+
+        }
     }
 
     // Создание соединения
@@ -145,10 +144,9 @@ public class UARTService extends Service
 
     private void parser(Intent intent)
     {
-
         if(intent == null) return;
 
-        if(!m_UARTPort.IsConnected()) return;
+        if(!m_UARTPort.isConnected()) return;
 
         int cmd = intent.getIntExtra("CMD", 0);
         switch(cmd)
@@ -178,7 +176,7 @@ public class UARTService extends Service
     {
         if(intent == null) return;
         byte[] data = intent.getByteArrayExtra("Data");
-        m_UARTPort.WriteData(data);
+        m_UARTPort.writeData(data);
     }
 
     private void sendTime(Intent intent)
@@ -190,37 +188,35 @@ public class UARTService extends Service
         timeTrack.AddCurrentTimePosition(time);
         EncoderMainHeader mainHeader = new EncoderMainHeader(timeTrack.GetVectorByte());
         mainHeader.AddMainHeader((byte) CMD_DATA.TIME);
-        m_UARTPort.WriteData(mainHeader.GetDataByte());
+        m_UARTPort.writeData(mainHeader.GetDataByte());
     }
 
     private void sendSelectTrack(Intent intent)
     {
-
         if(intent == null) return;
         int folder = intent.getIntExtra("folder", 0);
         int track = intent.getIntExtra("track", 0);
         EncoderTrack encoderTrack = new EncoderTrack(folder);
         encoderTrack.SetTrackNumber(track);
-
         EncoderMainHeader mainHeader = new EncoderMainHeader(encoderTrack.GetVectorByte());
         mainHeader.AddMainHeader((byte) CMD_DATA.SELECTED_TRACK);
-        m_UARTPort.WriteData(mainHeader.GetDataByte());
+        m_UARTPort.writeData(mainHeader.GetDataByte());
     }
 
     private void createUARTPort()
     {
         String msg;
-        if(m_UARTPort.Initialisation(this))
+        if(m_UARTPort.initialisation(this))
         {
-            m_UARTPort.Connect();
+            m_UARTPort.connect();
 
-            if(m_UARTPort.IsConnected())
+            if(m_UARTPort.isConnected())
             {
-                m_UARTPort.SetReadRunnable(this::readCommand);
+                m_UARTPort.setReadRunnable(this::readCommand);
                 // Запускаем прослушку команд управления
-                m_UARTPort.RunReadData();
+                m_UARTPort.runReadData();
 
-                msg = m_UARTPort.GetTextLog();
+                msg = m_UARTPort.getTextLog();
                 // запускаем поток отправки
                 m_isStartThread = true;
                 m_senderThread = new SenderThread();
@@ -240,7 +236,7 @@ public class UARTService extends Service
     // Обработка пришедших команд с порта
     private void readCommand()
     {
-        byte[] data = m_UARTPort.GetReadDataByte();
+        byte[] data = m_UARTPort.getReadDataByte();
 
         if(data.length == 1)
         {
@@ -297,20 +293,66 @@ public class UARTService extends Service
 
     private class SenderThread extends Thread
     {
-        // лист команд на выполнения
-        private final PoolTaskCMD m_poolTaskCMD = new PoolTaskCMD();
-
         class ErrorSender
         {
             Byte m_answer = -1;
         }
 
-        final ErrorSender m_errorSender = new ErrorSender();
+        // Класс синхронизации задач между потоками
+        private class PoolTaskCMD
+        {
+            // лист команд на выполнения
+            private final ArrayDeque<Intent> m_listCMD = new ArrayDeque<>();
+
+            // Добавление задачи в пул и оповещаем другой поток о наличии данных
+            private synchronized void addCMD(Intent intent)
+            {
+                m_listCMD.addLast(intent);
+                notify();
+            }
+
+            // Получение задачи из пула задач
+            private synchronized Intent getCMD() throws InterruptedException
+            {
+
+                while(m_listCMD.isEmpty()) // если очередь пуста блокируем поток пока не поступят новые данные
+                    wait();
+
+                Intent cmd = m_listCMD.getFirst();
+                m_listCMD.pollFirst();
+
+                return cmd;
+            }
+        }
+
+        // лист команд на выполнения
+        private final PoolTaskCMD m_poolTaskCMD = new PoolTaskCMD();
 
         // статус ответа
+        final ErrorSender m_errorSender = new ErrorSender();
+
 
         SenderThread()
         {
+        }
+
+        @Override
+        public void run()
+        {
+            try
+            {
+                while(m_isStartThread) Execute();
+            } catch(InterruptedException e)
+            {
+                Log.d("ThreadPool", "Error");
+                m_isStartThread = false;
+            }
+        }
+
+        private void Execute() throws InterruptedException
+        {
+            parser(GetCMD()); // получаем команду и распознаем ее
+            GetAnswer(); // проверяем ответ
         }
 
         private void SetAnswer(byte answer)
@@ -347,51 +389,6 @@ public class UARTService extends Service
             return m_poolTaskCMD.getCMD();
         }
 
-        @Override
-        public void run()
-        {
-            try
-            {
-                while(m_isStartThread) Execute();
-            } catch(InterruptedException e)
-            {
-                Log.d("ThreadPool", "Error");
-                m_isStartThread = false;
-            }
-        }
-
-        private void Execute() throws InterruptedException
-        {
-            parser(GetCMD()); // получаем команду и распознаем ее
-            byte answer = GetAnswer(); // проверяем ответ
-        }
-
-        // Класс синхронизации задач между потоками
-        private class PoolTaskCMD
-        {
-            // лист команд на выполнения
-            private final ArrayDeque<Intent> m_listCMD = new ArrayDeque<>();
-
-            // Добавление задачи в пул и оповещаем другой поток о наличии данных
-            private synchronized void addCMD(Intent intent)
-            {
-                m_listCMD.addLast(intent);
-                notify();
-            }
-
-            // Получение задачи из пула задач
-            private synchronized Intent getCMD() throws InterruptedException
-            {
-
-                while(m_listCMD.isEmpty()) // если очередь пуста блокируем поток пока не поступят новые данные
-                    wait();
-
-                Intent cmd = m_listCMD.getFirst();
-                m_listCMD.pollFirst();
-
-                return cmd;
-            }
-        }
     }
 
 }

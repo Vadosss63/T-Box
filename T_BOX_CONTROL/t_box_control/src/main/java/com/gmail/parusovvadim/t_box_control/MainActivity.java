@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CreateActions();
-        Sync();
+        createActions();
+        sync();
         if (Build.BRAND.equalsIgnoreCase("xiaomi")) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
@@ -31,22 +31,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private void CreateActions() {
+    private void createActions() {
 
         FloatingActionButton play = findViewById(R.id.play);
-        play.setOnClickListener(view -> SendKey(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, -1));
+        play.setOnClickListener(view -> sendKey(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, -1));
         FloatingActionButton prev = findViewById(R.id.prev);
-        prev.setOnClickListener(view -> SendKey(KeyEvent.KEYCODE_MEDIA_PREVIOUS, -1));
+        prev.setOnClickListener(view -> sendKey(KeyEvent.KEYCODE_MEDIA_PREVIOUS, -1));
 
         FloatingActionButton next = findViewById(R.id.next);
-        next.setOnClickListener(view -> SendKey(KeyEvent.KEYCODE_MEDIA_NEXT, -1));
+        next.setOnClickListener(view -> sendKey(KeyEvent.KEYCODE_MEDIA_NEXT, -1));
 
         FloatingActionButton rew = findViewById(R.id.rew);
         rew.setOnTouchListener((v, event) -> {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN: // нажатие
-                    SendKey(KeyEvent.KEYCODE_MEDIA_REWIND, KeyEvent.ACTION_DOWN);
+                    sendKey(KeyEvent.KEYCODE_MEDIA_REWIND, KeyEvent.ACTION_DOWN);
 
                     break;
                 case MotionEvent.ACTION_MOVE: // движение
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MotionEvent.ACTION_UP: // отпускание
                 case MotionEvent.ACTION_CANCEL:
-                    SendKey(KeyEvent.KEYCODE_MEDIA_REWIND, KeyEvent.ACTION_UP);
+                    sendKey(KeyEvent.KEYCODE_MEDIA_REWIND, KeyEvent.ACTION_UP);
                     break;
             }
             return true;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN: // нажатие
-                    SendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD, KeyEvent.ACTION_DOWN);
+                    sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD, KeyEvent.ACTION_DOWN);
 
                     break;
                 case MotionEvent.ACTION_MOVE: // движение
@@ -73,14 +73,14 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MotionEvent.ACTION_UP: // отпускание
                 case MotionEvent.ACTION_CANCEL:
-                    SendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD, KeyEvent.ACTION_UP);
+                    sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD, KeyEvent.ACTION_UP);
                     break;
             }
             return true;
         });
 
         FloatingActionButton sync = findViewById(R.id.sync);
-        sync.setOnClickListener(view -> Sync());
+        sync.setOnClickListener(view -> sync());
 
 
         FloatingActionButton exit = findViewById(R.id.exit);
@@ -96,14 +96,14 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private void Sync() {
+    private void sync() {
 
         Intent intent = new Intent(this, ReceiverService.class);
         intent.putExtra("CMD", ReceiverService.CMD_SYNC);
         startService(intent);
     }
 
-    private void SendKey(int keycodeMedia, int action) {
+    private void sendKey(int keycodeMedia, int action) {
         Intent intent = new Intent(this, ReceiverService.class);
         intent.putExtra("CMD", ReceiverService.CMD_MEDIA_KEY);
         intent.putExtra("keycodeMedia", keycodeMedia);

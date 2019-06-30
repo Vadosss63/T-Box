@@ -109,6 +109,7 @@ public class ReceiverService extends Service
         if(!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
             m_activePlayer = list.get(list.size() - 1);
 
+//        java.lang.IllegalArgumentException: callback must not be null
         // Устанавливаем колбеки
         m_activePlayer.registerCallback(m_callback);
 

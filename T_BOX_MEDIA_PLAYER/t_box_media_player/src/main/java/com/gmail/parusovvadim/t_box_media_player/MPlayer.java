@@ -235,6 +235,7 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 startPlayer();
                 break;
             }
+            parentNumber++;
         }
     }
 

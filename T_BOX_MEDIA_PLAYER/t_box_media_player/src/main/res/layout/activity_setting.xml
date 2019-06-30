@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/Black"
     android:orientation="vertical"
-    tools:context=".SettingActivity"
-    tools:ignore="MissingDefaultResource">
+    tools:context=".SettingActivityApps">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +26,6 @@
             android:layout_gravity="center"
             android:layout_weight="1" />
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/pathMusicFiles"
@@ -53,8 +51,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal">
-
-
     </FrameLayout>
 
 </LinearLayout>

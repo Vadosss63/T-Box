@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -79,10 +81,73 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         exitButton.setOnClickListener(v->exitApp());
         final Button menuButton = findViewById(R.id.menuButton);
         menuButton.setOnClickListener(v->{
-            Intent intent = new Intent(this, SettingActivity.class);
-            startActivityForResult(intent, 1);
+//            Intent intent = new Intent(this, SettingActivityApps.class);
+//            startActivityForResult(intent, 1);
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         });
 
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        // дерегистрируем (выключаем) BroadcastReceiver
+        if(m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if(permissionStatus != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
+
+        if(permissionStatus == PackageManager.PERMISSION_GRANTED)
+        {
+
+            if(m_currentTrack == null)
+            {
+                m_mainView = findViewById(R.id.playList);
+                loudSettings();
+                createBroadcast();
+
+            } else
+            {
+                scrollToSelectTrack();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data == null) return;
+        if(resultCode == RESULT_OK) loudSettings();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+    {   // обработка нажатий на элементах списка
+        NodeDirectory nodeDirectory = (NodeDirectory) (parent.getItemAtPosition(position));
+        // пока у нас есть треки мы их воспроизводим
+        if(nodeDirectory.isFolder())
+        {
+            if(nodeDirectory.isFolderUp())
+                m_currentDirectory = m_musicFiles.getFolders().get(nodeDirectory.getNumber() - 1);
+            else m_currentDirectory = nodeDirectory;
+            openDirectory();
+        } else
+        {
+            m_currentTrack = nodeDirectory;
+            selectedTrack();
+            m_adapterPlayList.notifyDataSetChanged();
+        }
     }
 
     // Выделение воспроизводимого элемента и выключение приложения со шторки
@@ -115,40 +180,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {
                 m_currentTrack = trackNode;
                 m_adapterPlayList.notifyDataSetChanged();
-                scrollToSelectTrack();
-            }
-        }
-    }
-
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        // дерегистрируем (выключаем) BroadcastReceiver
-        if(m_broadcastReceiver != null) unregisterReceiver(m_broadcastReceiver);
-    }
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-
-        int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-
-        if(permissionStatus != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE);
-
-        if(permissionStatus == PackageManager.PERMISSION_GRANTED)
-        {
-
-            if(m_currentTrack == null)
-            {
-                m_mainView = findViewById(R.id.playList);
-                loudSettings();
-                createBroadcast();
-
-            } else
-            {
                 scrollToSelectTrack();
             }
         }
@@ -257,25 +288,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         m_adapterPlayList.notifyDataSetChanged();
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-    {   // обработка нажатий на элементах списка
-        NodeDirectory nodeDirectory = (NodeDirectory) (parent.getItemAtPosition(position));
-        // пока у нас есть треки мы их воспроизводим
-        if(nodeDirectory.isFolder())
-        {
-            if(nodeDirectory.isFolderUp())
-                m_currentDirectory = m_musicFiles.getFolders().get(nodeDirectory.getNumber() - 1);
-            else m_currentDirectory = nodeDirectory;
-            openDirectory();
-        } else
-        {
-            m_currentTrack = nodeDirectory;
-            selectedTrack();
-            m_adapterPlayList.notifyDataSetChanged();
-        }
-    }
-
     // Изменение дериктории воспроизведени
     private void changeRoot()
     {
@@ -284,13 +296,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(this, MPlayer.class);
         intent.putExtra(getString(R.string.CMD), MPlayer.CMD_CHANGE_ROOT);
         startService(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if(data == null) return;
-        if(resultCode == RESULT_OK) loudSettings();
     }
 
     private void loudSettings()

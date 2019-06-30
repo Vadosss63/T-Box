@@ -16,24 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name=".SettingActivity"
+            android:name=".SettingActivityApps"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
@@ -41,13 +42,10 @@
             android:name=".MPlayer"
             android:enabled="true"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
-
         </service>
-
     </application>
 
 </manifest>

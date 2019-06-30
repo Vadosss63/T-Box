@@ -30,7 +30,7 @@ public class ChangeFolderFragment extends Fragment
     {
         Button previousButton = m_view.findViewById(R.id.okButton);
         previousButton.setOnClickListener((View v)->{
-            SettingActivity sa = ((SettingActivity) getActivity());
+            SettingActivityApps sa = ((SettingActivityApps) getActivity());
             sa.saveSetting();
             Intent intent = new Intent();
             sa.setResult(Activity.RESULT_OK, intent);
@@ -39,7 +39,7 @@ public class ChangeFolderFragment extends Fragment
 
         Button playButton = m_view.findViewById(R.id.cancelButton);
         playButton.setOnClickListener((View v)->{
-            SettingActivity sa = ((SettingActivity) getActivity());
+            SettingActivityApps sa = ((SettingActivityApps) getActivity());
             Intent intent = new Intent();
             sa.setResult(Activity.RESULT_CANCELED, intent);
             sa.finish();

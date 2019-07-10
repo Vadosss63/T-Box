@@ -6,19 +6,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-public class AutoStartReceiver extends BroadcastReceiver {
-    @TargetApi(Build.VERSION_CODES.O)
+public class AutoStartReceiver extends BroadcastReceiver
+{
+    @TargetApi (Build.VERSION_CODES.O)
     @Override
-    public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+    public void onReceive(Context context, Intent intent)
+    {
+        if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
+        {
 
             Intent autoRun = new Intent(context, ReceiverService.class);
             // everything here executes after system restart
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 context.startForegroundService(autoRun);
-            else
-                context.startService(autoRun);
+            else context.startService(autoRun);
 
+            context.stopService(autoRun);
         }
     }
 }

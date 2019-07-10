@@ -11,24 +11,17 @@ import com.gmail.parusovvadim.encoder_uart.EncoderTimeTrack;
 import com.gmail.parusovvadim.encoder_uart.EncoderTrack;
 
 import java.util.ArrayDeque;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.Vector;
 
 public class UARTService extends Service
 {
     public static final int CMD_SEND_DATA = 0xAA;
     public static final int CMD_RESET = 0x00;
-
-    private static final String m_showMassage = "Поиск соединения";
-    private int m_iteration = 0;
     // Поток отправки сообщений в port
     private SenderThread m_senderThread;
-    private boolean m_isCheckConnectionStart = false;
     // класс подключения для COM
     private DataPort m_UARTPort = null;
-    private boolean m_isStartThread = true;
-    private Timer m_timerConnect = new Timer();
+    private volatile boolean m_isStartThread = true;
 
     @Override
     public void onCreate()
@@ -44,14 +37,6 @@ public class UARTService extends Service
         {
             m_senderThread.AddCMD(intent);
             showNotification("Соединено с T-BOX data", "Статус Bluetooth");
-        } else
-        {
-            showNotification("Соединение разорвано", "Статус Bluetooth");
-            if(!m_isCheckConnectionStart)
-            {
-                m_isCheckConnectionStart = true;
-                runCheck();
-            }
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -72,17 +57,13 @@ public class UARTService extends Service
 
         m_senderThread = null;
         Log.d("UARTService", "onDestroy: ");
-        m_isCheckConnectionStart = false;
-
         try
         {
             m_UARTPort.disconnect();
-            if(m_timerConnect != null) m_timerConnect.cancel();
         } catch(RuntimeException e)
         {
             e.fillInStackTrace();
         }
-        m_timerConnect = null;
     }
 
     @Override
@@ -97,39 +78,7 @@ public class UARTService extends Service
         notification.showNotification(this, msg, title);
     }
 
-    private void runCheck()
-    {
-        m_timerConnect.schedule(new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                findConnection();
-            }
-        }, 5000);
-    }
-
-    private void findConnection()
-    {
-        if(m_UARTPort.checkConnection())
-        {
-            stopSelf();
-        } else
-        {
-            m_iteration = m_iteration % 3;
-            StringBuilder msg = new StringBuilder(m_showMassage);
-            for(int i = 0; i < m_iteration; i++)
-                msg.append(".");
-
-            showNotification(msg.toString(), "Подключение");
-
-            m_iteration++;
-            if(m_isCheckConnectionStart) runCheck();
-
-        }
-    }
-
-    // Создание соединения
+      // Создание соединения
     private void createUART()
     {
         setPort();

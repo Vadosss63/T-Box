@@ -9,50 +9,47 @@ import android.util.Log;
 
 public class BluetoothReceiver extends BroadcastReceiver
 {
-
-    //  static final String m_deviceName = "JBL Clip 2";
+    //static final String m_deviceName = "JBL Clip 2";
     static final String m_deviceName = "T-BOX audio";
+    static final String m_tag = "BluetoothReceiver";
 
     @Override
     public void onReceive(Context context, Intent intent)
     {
-
-        String tag = "MyBluetooth";
-        Log.d(tag, "MyBluetooth " + intent.getAction());
+        if(intent == null || context == null)
+        {
+            Log.d(m_tag, "intent == null || context == null");
+            return;
+        }
 
         if(BluetoothDevice.ACTION_ACL_CONNECTED.equals(intent.getAction()))
         {
-            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-            if(device != null)
-            {
-                if(device.getName().equals(m_deviceName))
-                {
-                    Log.d(tag, m_deviceName);
-                    Intent autoRun = new Intent(context, ReceiverService.class);
-                    // everything here executes after system restart
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                        context.startForegroundService(autoRun);
-                    else context.startService(autoRun);
-                }
-            }
+            if(!checkDeviceName(intent)) return;
+            Log.d(m_tag, "CONNECTED = " + m_deviceName);
+            startApps(context);
         }
-
-        if(BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(intent.getAction()))
-        {
-            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-            if(device != null)
-            {
-                if(device.getName().equals(m_deviceName))
-                {
-                    Log.d(tag, "DIS = " + m_deviceName);
-                    Intent intentReceiver = new Intent(context, ReceiverService.class);
-                    context.stopService(intentReceiver);
-                    Intent intentUART = new Intent(context, UARTService.class);
-                    context.stopService(intentUART);
-                }
-            }
-        }
-
     }
 
+    static private void startApps(Context context)
+    {
+        Intent autoRun = getIntent(context);
+        // everything here executes after system restart
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) context.startForegroundService(autoRun);
+        else context.startService(autoRun);
+    }
+
+    static private Intent getIntent(Context context)
+    {
+        return new Intent(context, ReceiverService.class);
+    }
+
+    // Проверка имени устройства
+    static public boolean checkDeviceName(Intent intent)
+    {
+        BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+        if(device == null) return false;
+        return m_deviceName.equals(device.getName());
+    }
 }
+
+

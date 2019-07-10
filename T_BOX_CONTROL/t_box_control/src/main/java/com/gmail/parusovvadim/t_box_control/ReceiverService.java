@@ -1,9 +1,13 @@
 package com.gmail.parusovvadim.t_box_control;
 
 import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.MediaMetadata;
 import android.media.session.MediaController;
 import android.media.session.MediaSessionManager;
@@ -24,21 +28,13 @@ import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 
 public class ReceiverService extends Service
 {
-
-    // Поддерживаемые плееры
-//    final static String YA_MUSIC = "ru.yandex.music";
-//    final static String GOOGLE_MUSIC = "com.google.android.music";
-//    final static String VK_MUSIC = "com.vkontakte.music";
-//    final static String ZYCEV_NET = "com.p74.player";
-//    final static String MI_PLAYER = "media.music.mp3player.musicplayer";
     final static String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
-
     static final int CMD_MEDIA_KEY = 0x00;
     static final int CMD_SYNC = 0x01;
-    static final int CMD_SYNCHRONIZATION = 0x20;
 
     private MediaSessionManager.OnActiveSessionsChangedListener m_onActiveSessionsChangedListener = this::changedActiveSessions;
 
@@ -46,8 +42,8 @@ public class ReceiverService extends Service
 
     private MediaController m_activePlayer = null;
     private TimeThread m_timeThread = null;
-    private boolean m_isStop = true;
-    private boolean m_isAudioPlayer = false;
+    private volatile boolean m_isStop = true;
+    private volatile boolean m_isAudioPlayer = false;
     private MediaController.Callback m_callback = new MediaController.Callback()
     {
         @Override
@@ -90,7 +86,9 @@ public class ReceiverService extends Service
     {
         super.onCreate();
         sync();
-
+        IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+        registerReceiver(mReceiver, filter);
         Log.d("ReceiverService", "onCreate: ");
     }
 
@@ -119,22 +117,14 @@ public class ReceiverService extends Service
 
     private void stopALL()
     {
-        if(m_callback != null) m_activePlayer.unregisterCallback(m_callback);
-        try
-        {
-            m_isStop = true;
-            if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
-        } catch(NullPointerException e)
-        {
-            e.fillInStackTrace();
-        } catch(RuntimeException e)
-        {
-            e.fillInStackTrace();
-        }
+        m_isStop = true;
+        if(m_timeThread != null) if(m_timeThread.isAlive()) m_timeThread.interrupt();
+
         m_activePlayer = null;
         m_onActiveSessionsChangedListener = null;
         m_timeThread = null;
         m_callback = null;
+        unregisterReceiver(mReceiver);
     }
 
     public void stopMediaSession()
@@ -146,9 +136,7 @@ public class ReceiverService extends Service
     // Действие при смене активной сессии
     private void changedActiveSessions(List<MediaController> list)
     {
-        if(list == null) return;
-
-        if(list.isEmpty()) return;
+        if(list == null || list.isEmpty()) return;
 
         for(MediaController player : list)
         {
@@ -170,6 +158,10 @@ public class ReceiverService extends Service
         // java.lang.IllegalArgumentException: callback must not be null
         // Устанавливаем колбеки
         if(m_callback != null) m_activePlayer.registerCallback(m_callback);
+        else
+        {
+            Log.d("BluetoothReceiver", "m_callback == null");
+        }
 
         sendState();
     }
@@ -323,7 +315,6 @@ public class ReceiverService extends Service
             // Запрашиваем разрешение на соединение
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1)
             {
-
                 Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -333,6 +324,8 @@ public class ReceiverService extends Service
 
     private void sendTime(int msec)
     {
+        Log.d("TimeThread", "Send time = " + TimeUnit.SECONDS.convert(msec, TimeUnit.MILLISECONDS));
+
         Intent intentUART = new Intent(this, UARTService.class);
         intentUART.putExtra("CMD", CMD_DATA.TIME);
         intentUART.putExtra("time", msec);
@@ -420,11 +413,6 @@ public class ReceiverService extends Service
     {
         if(m_isAudioPlayer)
         {
-//            Intent intent = new Intent();
-//            intent.setClassName(AUDIO_PLAYER, AUDIO_PLAYER + ".MPlayer");
-//            intent.putExtra("CMD", CMD_SYNCHRONIZATION);
-//            startService(intent);
-
             m_activePlayer.getTransportControls().sendCustomAction("synchronization", new Bundle());
             MediaMetadata metadata = m_activePlayer.getMetadata();
             sendCurrentTrack(metadata);
@@ -447,8 +435,6 @@ public class ReceiverService extends Service
                 {
                     if(m_activePlayer == null) return;
                     getTime();
-                    Log.d("TimeThread", "Send time");
-
                     sleep(1000);
                 }
             } catch(InterruptedException e)
@@ -457,6 +443,41 @@ public class ReceiverService extends Service
             }
         }
     }
+
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver()
+    {
+        @Override
+        public void onReceive(Context context, Intent intent)
+        {
+            String action = intent.getAction();
+            if(BluetoothAdapter.ACTION_STATE_CHANGED.equals(action))
+            {
+                int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1);
+                // Bluetooth is disconnected, do handling here
+                if(state == BluetoothAdapter.STATE_OFF)
+                {
+                    Log.d("BluetoothReceiver", "BroadcastReceiver stop");
+
+                    Intent intentUART = new Intent(context, UARTService.class);
+                    context.stopService(intentUART);
+                    stopSelf();
+                }
+                return;
+            }
+
+            if(BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(intent.getAction()))
+            {
+                if(!BluetoothReceiver.checkDeviceName(intent)) return;
+                Log.d("BluetoothReceiver", "DISCONNECTED");
+                Intent intentUART = new Intent(context, UARTService.class);
+                context.stopService(intentUART);
+                stopSelf();
+            }
+
+        }
+
+    };
 }
 
 

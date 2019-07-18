@@ -155,6 +155,8 @@ public class ReceiverService extends Service
         if(!m_isAudioPlayer) // если в списке сессий нет t_BOX плеера, берем последний
             m_activePlayer = list.get(list.size() - 1);
 
+        if(m_activePlayer == null) return;
+
         // java.lang.IllegalArgumentException: callback must not be null
         // Устанавливаем колбеки
         if(m_callback != null) m_activePlayer.registerCallback(m_callback);
@@ -168,6 +170,8 @@ public class ReceiverService extends Service
 
     private void sendState()
     {
+        if(m_activePlayer == null || m_callback == null) return;
+
         PlaybackState state = m_activePlayer.getPlaybackState();
         if(state == null) return;
 

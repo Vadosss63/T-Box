@@ -21,7 +21,7 @@ public class AutoStartReceiver extends BroadcastReceiver
                 context.startForegroundService(autoRun);
             else context.startService(autoRun);
 
-            context.stopService(autoRun);
+//            context.stopService(autoRun);
         }
     }
 }

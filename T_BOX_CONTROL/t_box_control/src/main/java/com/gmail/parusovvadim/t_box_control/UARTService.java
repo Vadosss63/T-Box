@@ -27,7 +27,7 @@ public class UARTService extends Service
     private boolean m_isCheckConnectionStart = false;
     // класс подключения для COM
     private DataPort m_UARTPort = null;
-    private boolean m_isStartThread = true;
+    private volatile boolean m_isStartThread = true;
     private Timer m_timerConnect = new Timer();
 
     @Override

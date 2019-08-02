@@ -38,6 +38,14 @@ public class UARTService extends Service
             m_senderThread.AddCMD(intent);
             showNotification("Соединено с T-BOX data", "Статус Bluetooth");
         }
+        else
+        {
+            Intent intentUART = new Intent(this, ReceiverService.class);
+            stopService(intentUART);
+            stopSelf();
+            Log.d("BluetoothReceiver", "UART stop");
+
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -207,7 +215,7 @@ public class UARTService extends Service
             intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
             intent.putExtra("folder", folder);
             intent.putExtra("track", track);
-            startService(intent);
+            StartService.start(this, intent);
             return;
         }
         if(data[2] == (byte) 12)
@@ -216,20 +224,13 @@ public class UARTService extends Service
             Intent intent = new Intent(this, ReceiverService.class);
             intent.putExtra("CMD", 12);
             intent.putExtra("isShuffle", isShuffle);
-            startService(intent);
+            StartService.start(this, intent);
             return;
         }
 
         if(data[2] == (byte) CMD_DATA.AUX)
         {
             startSync();
-//            StringBuilder buf = new StringBuilder();
-//            for(Byte da : data)
-//                buf.append(Integer.toHexString(da));
-//
-//            Log.d("startSync", "data " + buf.toString());
-
-//            return;
         }
     }
 
@@ -237,7 +238,7 @@ public class UARTService extends Service
     {
         Intent intent = new Intent(this, ReceiverService.class);
         intent.putExtra("CMD", CMD_DATA.AUX);
-        startService(intent);
+        StartService.start(this, intent);
     }
 
     private class SenderThread extends Thread

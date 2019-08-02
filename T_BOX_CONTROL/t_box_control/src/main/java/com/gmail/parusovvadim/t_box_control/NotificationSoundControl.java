@@ -36,7 +36,15 @@ class NotificationRunnableService {
 
     private Notification getNotification(Service service, String msg, String title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(service, CHANEL_ID);
-        builder.setContentTitle(title).setContentText(msg).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.mipmap.t_box).setColor(ContextCompat.getColor(service, R.color.colorNotif)).setShowWhen(false).setPriority(NotificationCompat.PRIORITY_HIGH).setOnlyAlertOnce(true);
+        builder.setContentTitle(title)
+                .setContentText(msg)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setSmallIcon(R.mipmap.t_box)
+                .setColor(ContextCompat.getColor(service, R.color.colorNotif))
+                .setShowWhen(false)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setOnlyAlertOnce(true)
+                .setAutoCancel(true);
         return builder.build();
     }
 

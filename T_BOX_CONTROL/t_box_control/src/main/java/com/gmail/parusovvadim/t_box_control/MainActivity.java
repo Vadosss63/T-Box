@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ReceiverService.class);
         intent.putExtra("CMD", ReceiverService.CMD_SYNC);
-        startService(intent);
+        StartService.start(this, intent);
     }
 
     private void sendKey(int keycodeMedia, int action) {
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("CMD", ReceiverService.CMD_MEDIA_KEY);
         intent.putExtra("keycodeMedia", keycodeMedia);
         intent.putExtra("action", action);
-        startService(intent);
+        StartService.start(this, intent);
     }
 
 }

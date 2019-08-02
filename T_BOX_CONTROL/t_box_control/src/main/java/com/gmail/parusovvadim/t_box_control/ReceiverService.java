@@ -157,9 +157,7 @@ public class ReceiverService extends Service
 
         if(m_activePlayer == null) return;
 
-        // java.lang.IllegalArgumentException: callback must not be null
-        // Устанавливаем колбеки
-        if(m_callback != null) m_activePlayer.registerCallback(m_callback);
+       if(m_callback != null) m_activePlayer.registerCallback(m_callback);
         else
         {
             Log.d("BluetoothReceiver", "m_callback == null");
@@ -202,7 +200,7 @@ public class ReceiverService extends Service
                 intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
                 intent.putExtra("folder", folder);
                 intent.putExtra("track", track + 1);
-                startService(intent);
+                StartService.start(this, intent);
             }
         }
     }
@@ -297,7 +295,7 @@ public class ReceiverService extends Service
         Intent intent = new Intent(this, UARTService.class);
         intent.putExtra("CMD", UARTService.CMD_SEND_DATA);
         intent.putExtra("Data", headerData.GetDataByte());
-        startService(intent);
+        StartService.start(this, intent);
     }
 
     void sync()
@@ -333,7 +331,7 @@ public class ReceiverService extends Service
         Intent intentUART = new Intent(this, UARTService.class);
         intentUART.putExtra("CMD", CMD_DATA.TIME);
         intentUART.putExtra("time", msec);
-        startService(intentUART);
+        StartService.start(this, intentUART);
     }
 
     // Перевод в aux режим

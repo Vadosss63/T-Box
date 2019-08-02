@@ -1,10 +1,10 @@
 package com.gmail.parusovvadim.t_box_control;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
 
 public class BluetoothReceiver extends BroadcastReceiver
@@ -27,6 +27,7 @@ public class BluetoothReceiver extends BroadcastReceiver
             if(!checkDeviceName(intent)) return;
             Log.d(m_tag, "CONNECTED = " + m_deviceName);
             startApps(context);
+            BluetoothAdapter ba = BluetoothAdapter.getDefaultAdapter();
         }
     }
 
@@ -34,8 +35,7 @@ public class BluetoothReceiver extends BroadcastReceiver
     {
         Intent autoRun = getIntent(context);
         // everything here executes after system restart
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) context.startForegroundService(autoRun);
-        else context.startService(autoRun);
+        StartService.start(context, autoRun);
     }
 
     static private Intent getIntent(Context context)

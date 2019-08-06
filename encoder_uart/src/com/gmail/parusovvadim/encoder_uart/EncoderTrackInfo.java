@@ -84,7 +84,7 @@ public class EncoderTrackInfo
 
 class RussianCode
 {
-
+     private RussianCode(){}
     // Особый случай
     private static final char[] m_eChar = {'Ё', 'ё', 0xC385, 0xC3A5};
     private static final char[] m_iChar = {'і', 'i'};

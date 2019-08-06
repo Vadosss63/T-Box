@@ -25,6 +25,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
 import com.gmail.parusovvadim.encoder_uart.EncoderByteMainHeader;
 import com.gmail.parusovvadim.encoder_uart.EncoderFolders;
+import com.gmail.parusovvadim.encoder_uart.EncoderListTracks;
 import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
 import com.gmail.parusovvadim.encoder_uart.TranslitAUDI;
 import com.gmail.parusovvadim.media_directory.MusicFiles;
@@ -650,21 +651,21 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     private void sendInfoTracksToComPort()
     {
         Vector<NodeDirectory> folders = m_musicFiles.getFolders();
-        EncoderByteMainHeader.EncoderListTracks encoderListTracks = new EncoderByteMainHeader.EncoderListTracks();
+        EncoderListTracks encoderListTracks = new EncoderListTracks();
 
         for(NodeDirectory folder : folders)
         {
             int lastNumberBlock = 0;
             int startNewBlock = 0;
             Vector<Integer> endBlocks = new Vector<>();
-            encoderListTracks.AddHeader(folder.getNumber());
+            encoderListTracks.addHeader(folder.getNumber());
 
-            Vector<Byte> headerDatas = (Vector<Byte>) encoderListTracks.GetVectorByte().clone();
+            Vector<Byte> headerDatas = (Vector<Byte>) encoderListTracks.getVectorByte().clone();
             Vector<NodeDirectory> tracks = m_musicFiles.getTracks(folder.getNumber());
             for(NodeDirectory track : tracks)
             {
-                encoderListTracks.AddTrackNumber(track.getNumber() + 1);
-                encoderListTracks.AddName(getTranslate(track.getName()));
+                encoderListTracks.addTrackNumber(track.getNumber() + 1);
+                encoderListTracks.addName(getTranslate(track.getName()));
                 if((encoderListTracks.size() - startNewBlock) > MAX_SIZE_DATA)
                 {
                     endBlocks.add(lastNumberBlock);
@@ -673,11 +674,11 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
                 lastNumberBlock = encoderListTracks.size();
             }
 
-            encoderListTracks.AddEnd();
+            encoderListTracks.addEnd();
             endBlocks.add(encoderListTracks.size());
 
 
-            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.GetVectorByte(), endBlocks, headerDatas);
+            Vector<Vector<Byte>> dataList = GetListData(encoderListTracks.getVectorByte(), endBlocks, headerDatas);
 
             for(int i = 0; i < dataList.size(); i++)
             {
@@ -687,11 +688,11 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
 
                 // Добавляем заголовок
                 EncoderMainHeader headerData = new EncoderMainHeader(dataList.get(i));
-                headerData.AddMainHeader((byte) CMD_DATA.LIST_TRACK);
+                headerData.addMainHeader((byte) CMD_DATA.LIST_TRACK);
 
                 Intent intent = getIntentServiceUART();
                 intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
-                intent.putExtra("Data", headerData.GetDataByte());
+                intent.putExtra("Data", headerData.getDataByte());
                 startService(intent);
             }
         }
@@ -705,15 +706,15 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         Vector<Integer> endBlocks = new Vector<>();
 
         EncoderFolders encoderFolders = new EncoderFolders();
-        encoderFolders.AddHeader();
-        Vector<Byte> headerDatas = (Vector<Byte>) encoderFolders.GetVectorByte().clone();
+        encoderFolders.addHeader();
+        Vector<Byte> headerDatas = (Vector<Byte>) encoderFolders.getVectorByte().clone();
 
         for(NodeDirectory folder : folders)
         {
-            encoderFolders.AddName(getTranslate(folder.getName()));
-            encoderFolders.AddNumber(folder.getNumber());
-            encoderFolders.AddNumberTracks(folder.getNumberTracks());
-            encoderFolders.AddParentNumber(folder.getParentNumber());
+            encoderFolders.addName(getTranslate(folder.getName()));
+            encoderFolders.addNumber(folder.getNumber());
+            encoderFolders.addNumberTracks(folder.getNumberTracks());
+            encoderFolders.addParentNumber(folder.getParentNumber());
 
             if((encoderFolders.size() - startNewBlock) > MAX_SIZE_DATA)
             {
@@ -723,12 +724,12 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             lastNumberBlock = encoderFolders.size();
         }
 
-        encoderFolders.AddEnd();
+        encoderFolders.addEnd();
 
         endBlocks.add(encoderFolders.size());
 
 
-        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.GetVectorByte(), endBlocks, headerDatas);
+        Vector<Vector<Byte>> dataList = GetListData(encoderFolders.getVectorByte(), endBlocks, headerDatas);
 
         for(int i = 0; i < dataList.size(); i++)
         {
@@ -737,11 +738,11 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
             dataList.get(i).insertElementAt((byte) dataList.size(), 0);
             // Добавляем заголовок
             EncoderMainHeader headerData = new EncoderMainHeader(dataList.get(i));
-            headerData.AddMainHeader((byte) CMD_DATA.LIST_FOLDER);
+            headerData.addMainHeader((byte) CMD_DATA.LIST_FOLDER);
 
             Intent intent = getIntentServiceUART();
             intent.putExtra(getString(R.string.CMD), UARTService.CMD_SEND_DATA);
-            intent.putExtra(getString(R.string.CMD_data), headerData.GetDataByte());
+            intent.putExtra(getString(R.string.CMD_data), headerData.getDataByte());
             startService(intent);
         }
 

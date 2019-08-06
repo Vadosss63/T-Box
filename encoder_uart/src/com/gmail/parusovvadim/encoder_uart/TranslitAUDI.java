@@ -2,6 +2,7 @@ package com.gmail.parusovvadim.encoder_uart;
 
 public class TranslitAUDI {
 
+    private TranslitAUDI(){}
     // Массив кириллицы
     private static final String[] m_abcLat = {"a", "b", "v", "g", "d", "e", "zh", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sch", "", "i", "", "e", "ju", "ja"};
     // Особый случай

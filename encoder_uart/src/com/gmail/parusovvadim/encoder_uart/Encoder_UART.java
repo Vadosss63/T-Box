@@ -17,6 +17,8 @@ public class Encoder_UART {
 
         }
 
+        EncoderByteMainHeader lh;
+
     }
 
     private static Vector<Vector<Byte>> GetListData(Vector<Byte> data) {

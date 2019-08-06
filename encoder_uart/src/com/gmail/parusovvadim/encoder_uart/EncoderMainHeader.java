@@ -12,18 +12,18 @@ public class EncoderMainHeader
         this.m_dataByte = dataByte;
     }
 
-    public void AddMainHeader(byte command)
+    public void addMainHeader(byte command)
     {
-        AddHeader();
-        AddCommand(command);
-        AddSize();
+        addHeader();
+        addCommand(command);
+        addSize();
         m_dataByte.addAll(0, m_vectorHeader);
         //  добавляем в конец CRC
-        byte crc = CheckSum();
+        byte crc = checkSum();
         m_dataByte.add(crc);
     }
 
-    public byte[] GetDataByte()
+    public byte[] getDataByte()
     {
         byte[] data = new byte[m_dataByte.size()];
         for(int i = 0; i < m_dataByte.size(); i++)
@@ -33,19 +33,19 @@ public class EncoderMainHeader
         return data;
     }
 
-    private void AddHeader()
+    private void addHeader()
     {
         m_vectorHeader.clear();
         m_vectorHeader.add((byte) 0xAB);
         m_vectorHeader.add((byte) 0xBA);
     }
 
-    private void AddCommand(byte command)
+    private void addCommand(byte command)
     {
         m_vectorHeader.add(command);
     }
 
-    private void AddSize()
+    private void addSize()
     {
         int size = m_dataByte.size();
         convertToByte(size);
@@ -59,7 +59,7 @@ public class EncoderMainHeader
         m_vectorHeader.add(b0);
     }
 
-    private byte CheckSum()
+    private byte checkSum()
     {
         byte sum = 0;
         for (Byte aByte : m_dataByte) sum += aByte;

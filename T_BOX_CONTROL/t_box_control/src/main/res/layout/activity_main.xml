@@ -79,6 +79,6 @@
         android:layout_height="400dp"
         android:layout_gravity="center"
         android:background="@color/whiteMainActivity"
-        app:srcCompat="@drawable/main_image" />
+        android:contentDescription="TODO" app:srcCompat="@drawable/main_image" />
 
 </android.support.design.widget.CoordinatorLayout>

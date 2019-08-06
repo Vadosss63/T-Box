@@ -6,17 +6,17 @@ public class EncoderTimeTrack
 {
     private Vector<Byte> m_dataByte = new Vector<>();
 
-    public void AddHeader()
+    public void addHeader()
     {
         m_dataByte.clear();
     }
 
-    public void AddCurrentTimePosition(int msec)
+    public void addCurrentTimePosition(int msec)
     {
         convertIntToByte(msec);
     }
 
-    public byte[] GetDataByte()
+    public byte[] getDataByte()
     {
         byte[] data = new byte[m_dataByte.size()];
         for(int i = 0; i < m_dataByte.size(); i++)
@@ -26,7 +26,7 @@ public class EncoderTimeTrack
         return data;
     }
 
-    public Vector<Byte> GetVectorByte()
+    public Vector<Byte> getVectorByte()
     {
         return m_dataByte;
     }

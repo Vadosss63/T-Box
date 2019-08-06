@@ -17,22 +17,22 @@ public class EncoderTrack
         convertToByte(numberFolder);
     }
 
-    public void SetTrackNumber(int trackNumber)
+    public void setTrackNumber(int trackNumber)
     {
         convertToByte(trackNumber);
     }
 
-    public int GetFolder()
+    public int getFolder()
     {
         return convertToInt(0);
     }
 
-    public int GetTrackNumber()
+    public int getTrackNumber()
     {
         return convertToInt(2);
     }
 
-    public Vector<Byte> GetVectorByte()
+    public Vector<Byte> getVectorByte()
     {
         return m_dataByte;
     }

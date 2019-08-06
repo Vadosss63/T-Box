@@ -294,7 +294,7 @@ public class ReceiverService extends Service
     {
         Intent intent = new Intent(this, UARTService.class);
         intent.putExtra("CMD", UARTService.CMD_SEND_DATA);
-        intent.putExtra("Data", headerData.GetDataByte());
+        intent.putExtra("Data", headerData.getDataByte());
         StartService.start(this, intent);
     }
 
@@ -347,7 +347,7 @@ public class ReceiverService extends Service
             data.add(byteName);
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(data);
-        mainHeader.AddMainHeader((byte) CMD_DATA.AUX);
+        mainHeader.addMainHeader((byte) CMD_DATA.AUX);
         sendData(mainHeader);
     }
 
@@ -388,7 +388,7 @@ public class ReceiverService extends Service
 
 
         EncoderMainHeader mainHeader = new EncoderMainHeader(trackInfo.build());
-        mainHeader.AddMainHeader((byte) CMD_DATA.TRACK_INFO);
+        mainHeader.addMainHeader((byte) CMD_DATA.TRACK_INFO);
         sendData(mainHeader);
 
     }

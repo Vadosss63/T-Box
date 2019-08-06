@@ -5,14 +5,14 @@ import java.util.Vector;
 public class EncoderFolders {
     private Vector<Byte> m_dataByte = new Vector<>();
 
-    public void AddHeader() {
+    public void addHeader() {
         m_dataByte.clear();
         // Заголовок из 2-х байт 0x0000
         m_dataByte.add((byte) 0x00);
         m_dataByte.add((byte) 0x00);
     }
 
-    public void AddName(String name) {
+    public void addName(String name) {
         // стартовый байт для названия папки
         m_dataByte.add((byte) 0x02);
         if (name.length() > 20) name = name.substring(0, 20);
@@ -24,21 +24,21 @@ public class EncoderFolders {
         m_dataByte.add((byte) 0x00);
     }
 
-    public void AddNumber(int number) {
+    public void addNumber(int number) {
         convertToByte(number);
     }
 
-    public void AddNumberTracks(int numberTracks) {
+    public void addNumberTracks(int numberTracks) {
         convertToByte(numberTracks);
         m_dataByte.add((byte) 0x00);
         m_dataByte.add((byte) 0x00);
     }
 
-    public void AddParentNumber(int parentNumber) {
+    public void addParentNumber(int parentNumber) {
         convertToByte(parentNumber);
     }
 
-    public void AddEnd() {
+    public void addEnd() {
         m_dataByte.add((byte) 0x01);
         m_dataByte.add((byte) 0x00);
 
@@ -55,7 +55,7 @@ public class EncoderFolders {
         m_dataByte.add((byte) 0x00);
     }
 
-    public byte[] GetDataByte() {
+    public byte[] getDataByte() {
         byte[] data = new byte[m_dataByte.size()];
         for (int i = 0; i < m_dataByte.size(); i++) {
             data[i] = m_dataByte.get(i);
@@ -63,7 +63,7 @@ public class EncoderFolders {
         return data;
     }
 
-    public Vector<Byte> GetVectorByte() {
+    public Vector<Byte> getVectorByte() {
         return m_dataByte;
     }
 
@@ -77,6 +77,4 @@ public class EncoderFolders {
         m_dataByte.add(b1);
         m_dataByte.add(b0);
     }
-
-
 }

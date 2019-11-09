@@ -40,6 +40,9 @@ public class ReceiverService extends Service
 
     private String m_title = "";
 
+    private Boolean m_isTitleTranslate = true;
+    private Boolean m_isTagTitleTranslate = false;
+
     private MediaController m_activePlayer = null;
     private TimeThread m_timeThread = null;
     private volatile boolean m_isStop = true;
@@ -157,7 +160,7 @@ public class ReceiverService extends Service
 
         if(m_activePlayer == null) return;
 
-       if(m_callback != null) m_activePlayer.registerCallback(m_callback);
+        if(m_callback != null) m_activePlayer.registerCallback(m_callback);
         else
         {
             Log.d("BluetoothReceiver", "m_callback == null");
@@ -339,8 +342,7 @@ public class ReceiverService extends Service
     {
         Vector<Byte> data = new Vector<>();
         data.add(on);
-
-        String title = getTransliterate(m_title);
+        String title = m_isTitleTranslate ? getTransliterate(m_title) : m_title;
         if(title.length() > 29) title = title.substring(0, 28);
 
         for(byte byteName : title.getBytes())
@@ -375,7 +377,12 @@ public class ReceiverService extends Service
         EncoderTrackInfo trackInfo = new EncoderTrackInfo();
 
         if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_TITLE))
-            trackInfo.setTitle(mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE));
+
+            if(m_isTagTitleTranslate)
+                trackInfo.setTitle(getTransliterate(mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE)));
+            else
+                trackInfo.setTitle(mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE));
+
 
         if(mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
             trackInfo.setArtist(mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST));

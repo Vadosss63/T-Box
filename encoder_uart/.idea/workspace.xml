@@ -7,39 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78f34c7d-4e0b-4082-bd92-264041fb84b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderListTracks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LIBS/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LIBS/encoder_uart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_T_BOX_CONTROL_t_box_control_libs_encoder_uart_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_T_BOX_CONTROL_t_box_control_libs_encoder_uart_jar_unspecified_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/libs/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/libs/encoder_uart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/ReceiverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_CONTROL/t_box_control/src/main/java/com/gmail/parusovvadim/t_box_control/UARTService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_AUDIPlayer_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_AUDIPlayer_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_T_BOX_MEDIA_PLAYER_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars___C__Users_Vadosss63_Desktop_T_Box_T_BOX_MEDIA_PLAYER_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars____home_vadosss63_MyPoject_T_Box_T_BOX_MEDIA_PLAYER_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/libraries/Gradle____local_aars____home_vadosss63_MyPoject_T_Box_T_BOX_MEDIA_PLAYER_t_box_media_player_libs_encoder_uart_jar_unspecified_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/libs/encoder_uart.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/libs/encoder_uart.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T_BOX_MEDIA_PLAYER/t_box_media_player/src/main/java/com/gmail/parusovvadim/t_box_media_player/MPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/encoder_uart_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/encoder_uart_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/CMD_DATA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/CMD_DATA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderByteMainHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderByteMainHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderFolders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderFolders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderMainHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTimeTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTimeTrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/EncoderTrackInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/parusovvadim/encoder_uart/TranslitAUDI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

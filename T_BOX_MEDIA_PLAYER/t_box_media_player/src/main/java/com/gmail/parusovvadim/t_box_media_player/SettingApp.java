@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -104,7 +105,7 @@ class SettingApp {
         if (file.isDirectory()) {
             m_currentPathStorage = m_setting.getInt(SAVED_STORAGE_DIRECTORY, 0);
             changeCurrentPath(m_currentPathStorage);
-            m_pathMusicFiles = getTrimmPath(savedText);
+            m_pathMusicFiles = getTrimmPath(Objects.requireNonNull(savedText));
         }
     }
 

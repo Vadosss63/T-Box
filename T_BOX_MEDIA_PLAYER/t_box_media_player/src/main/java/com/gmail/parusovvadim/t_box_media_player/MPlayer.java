@@ -23,7 +23,6 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 
 import com.gmail.parusovvadim.encoder_uart.CMD_DATA;
-import com.gmail.parusovvadim.encoder_uart.EncoderByteMainHeader;
 import com.gmail.parusovvadim.encoder_uart.EncoderFolders;
 import com.gmail.parusovvadim.encoder_uart.EncoderListTracks;
 import com.gmail.parusovvadim.encoder_uart.EncoderMainHeader;
@@ -46,16 +45,27 @@ class UARTService
 
 public class MPlayer extends Service implements OnCompletionListener, MediaPlayer.OnErrorListener
 {
-    static final public int CMD_SELECT_TRACK = 0x05;
-    static final public int CMD_PLAY = 0x06;
-    static final public int CMD_PAUSE = 0x07;
-    static final public int CMD_PREVIOUS = 0x08;
-    static final public int CMD_NEXT = 0x09;
-    static final public int CMD_CHANGE_ROOT = 0x0A;
-    static final public int CMD_PLAY_PAUSE = 0x0B;
-    static final public int CMD_SYNCHRONIZATION = 0x20;
+    private static final String EXTRA_CMD = "com.gmail.parusovvadim.t_box_media_player.CMD";
+    private static final String EXTRA_FOLDER = "com.gmail.parusovvadim.t_box_media_player.folder";
+    private static final String EXTRA_TRACK = "com.gmail.parusovvadim.t_box_media_player.track";
 
-    static final private int MAX_SIZE_DATA = 2816 - 10;
+    private static final int CMD_ERROR = 0x00;
+    private static final int CMD_SELECT_TRACK = 0x05;
+    private static final int CMD_PLAY = 0x06;
+    private static final int CMD_PAUSE = 0x07;
+    private static final int CMD_PREVIOUS = 0x08;
+    private static final int CMD_NEXT = 0x09;
+    private static final int CMD_CHANGE_ROOT = 0x0A;
+    private static final int CMD_PLAY_PAUSE = 0x0B;
+    private static final int CMD_SYNCHRONIZATION = 0x20;
+
+    private static final int MAX_SIZE_DATA = 2816 - 10;
+
+    private class InfoTrack
+    {
+        int folder;
+        int track;
+    }
 
     // метаданных трека
     final private MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder();
@@ -318,7 +328,8 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
     {
         if(intent == null) return;
 
-        int cmd = intent.getIntExtra("CMD", 0);
+        int cmd = getCMD(intent);
+
         switch(cmd)
         {
             case CMD_NEXT:
@@ -778,4 +789,88 @@ public class MPlayer extends Service implements OnCompletionListener, MediaPlaye
         return TranslitAUDI.translate(msg);
     }
 
+    /*
+    КОМАНДЫ УПРАВЛЕНИЯ ПЛЕЕРОМ
+     */
+
+    // Форммирование интента для выбора трека
+    public static Intent newIntentSelectTrack(Context packageContext, int folder, int track)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_SELECT_TRACK);
+        intent.putExtra(EXTRA_FOLDER, folder);
+        intent.putExtra(EXTRA_TRACK, track);
+        return intent;
+    }
+
+    // Форммирование интента плай
+    public static Intent newIntentPlay(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_PLAY);
+        return intent;
+    }
+
+    // Форммирование интента пауза
+    public static Intent newIntentPause(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_PAUSE);
+        return intent;
+    }
+
+    // Форммирование интента переключения на предыдущий
+    public static Intent newIntentPrevious(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_PREVIOUS);
+        return intent;
+    }
+
+    // Форммирование интента Следующего трека
+    public static Intent newIntentNext(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_NEXT);
+        return intent;
+    }
+
+    // Форммирование интента изменения корня пути данных
+    public static Intent newIntentChangeRoot(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_CHANGE_ROOT);
+        return intent;
+    }
+
+    // Форммирование интента Плай-Пауза
+    public static Intent newIntentPlayPause(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_PLAY_PAUSE);
+        return intent;
+    }
+
+    // Форммирование интента для синхронизации плеера
+    public static Intent newIntentSynchronization(Context packageContext)
+    {
+        Intent intent = new Intent(packageContext, MPlayer.class);
+        intent.putExtra(EXTRA_CMD, CMD_SYNCHRONIZATION);
+        return intent;
+    }
+
+    // Получение команды
+    private int getCMD(Intent intent)
+    {
+        return intent.getIntExtra(EXTRA_CMD, CMD_ERROR);
+    }
+
+    // Получение информации о выбранном треке
+    private InfoTrack getSelectTrack(Intent intent)
+    {
+        InfoTrack infoTrack = new InfoTrack();
+        infoTrack.folder = intent.getIntExtra(EXTRA_FOLDER, -1);
+        infoTrack.track = intent.getIntExtra(EXTRA_TRACK, 0) - 1;
+        return infoTrack;
+    }
 }

@@ -20,7 +20,8 @@ import android.support.v4.media.session.PlaybackStateCompat;
 /**
  * Helper APIs for constructing MediaStyle notifications
  */
-class MediaStyleHelper {
+class MediaStyleHelper
+{
     /**
      * Build a notification using the information from the given media session. Makes heavy use
      * of {@link MediaMetadataCompat#getDescription()} to extract the appropriate information.
@@ -29,32 +30,27 @@ class MediaStyleHelper {
      * @param mediaSession Media session to get information.
      * @return A pre-built notification with information from the given media session.
      */
-    static NotificationCompat.Builder from(Context context, MediaSessionCompat mediaSession, String idChanel) {
+    static NotificationCompat.Builder from(Context context, MediaSessionCompat mediaSession, String idChanel)
+    {
         MediaControllerCompat controller = mediaSession.getController();
         MediaMetadataCompat mediaMetadata = controller.getMetadata();
         MediaDescriptionCompat description = mediaMetadata.getDescription();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, idChanel);
-        builder
-                .setContentTitle(description.getTitle())
-                .setContentText(description.getSubtitle())
-                .setSubText(description.getDescription())
-                .setLargeIcon(description.getIconBitmap())
-                .setContentIntent(controller.getSessionActivity())
-                .setDeleteIntent(MediaButtonReceiver.buildMediaButtonPendingIntent(context, PlaybackStateCompat.ACTION_STOP))
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        builder.setContentTitle(description.getTitle()).setContentText(description.getSubtitle()).setSubText(description.getDescription()).setLargeIcon(description.getIconBitmap()).setContentIntent(controller.getSessionActivity()).setDeleteIntent(MediaButtonReceiver.buildMediaButtonPendingIntent(context, PlaybackStateCompat.ACTION_STOP)).setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
         return builder;
     }
 }
 
 
-class NotificationSoundControl {
+class NotificationSoundControl
+{
+    private static final String CHANEL_ID = "AUDIo";
+    private static final String CHANEL_NAME = "AUDIo";
+    private static final int NOTIFICATION_ID = 1;
 
-    static private final String CHANEL_ID = "AUDIo";
-    static private final String CHANEL_NAME = "AUDIo";
-    static private final int NOTIFICATION_ID = 1;
-
-    private enum requestCode {MainActivity, Next, Previous, Play, Pause, Exit}
+    private enum requestCode
+    {MainActivity, Next, Previous, Play, Pause, Exit}
 
     private final MPlayer m_service;
 
@@ -66,12 +62,14 @@ class NotificationSoundControl {
 
     private final MediaSessionCompat m_mediaSessionCompat;
 
-    NotificationSoundControl(MPlayer service, MediaSessionCompat mediaSessionCompat) {
+    NotificationSoundControl(MPlayer service, MediaSessionCompat mediaSessionCompat)
+    {
 
         this.m_mediaSessionCompat = mediaSessionCompat;
         this.m_service = service;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
 
             NotificationManager notificationManager = (NotificationManager) m_service.getSystemService(Context.NOTIFICATION_SERVICE);
             int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -86,44 +84,43 @@ class NotificationSoundControl {
         createPendingIntent();
     }
 
-    private void createPendingIntent() {
-
-        Intent intentNext = new Intent(m_service, MPlayer.class);
-        intentNext.putExtra("CMD", MPlayer.CMD_NEXT);
+    private void createPendingIntent()
+    {
+        Intent intentNext = MPlayer.newIntentNext(m_service);
         m_pendNext = PendingIntent.getService(m_service, requestCode.Next.ordinal(), intentNext, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent intentPrevious = new Intent(m_service, MPlayer.class);
-        intentPrevious.putExtra("CMD", MPlayer.CMD_PREVIOUS);
+        Intent intentPrevious = MPlayer.newIntentPrevious(m_service);
         m_pendPrevious = PendingIntent.getService(m_service, requestCode.Previous.ordinal(), intentPrevious, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent intentPlay = new Intent(m_service, MPlayer.class);
-        intentPlay.putExtra("CMD", MPlayer.CMD_PLAY);
+        Intent intentPlay = MPlayer.newIntentPlay(m_service);
         m_pendPlay = PendingIntent.getService(m_service, requestCode.Play.ordinal(), intentPlay, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent intentPause = new Intent(m_service, MPlayer.class);
-        intentPause.putExtra("CMD", MPlayer.CMD_PAUSE);
+        Intent intentPause = MPlayer.newIntentPause(m_service);
         m_pendPause = PendingIntent.getService(m_service, requestCode.Pause.ordinal(), intentPause, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent intentExit = new Intent(MainActivity.BROADCAST_ACTION);
-        intentExit.putExtra("CMD", MainActivity.CMD_EXIT);
-
+        Intent intentExit = MainActivity.newIntentExit();
         m_pendExit = PendingIntent.getBroadcast(m_service, requestCode.Exit.ordinal(), intentExit, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    void refreshNotificationAndForegroundStatus(int playbackState) {
-        switch (playbackState) {
-            case PlaybackStateCompat.STATE_PLAYING: {
+    void refreshNotificationAndForegroundStatus(int playbackState)
+    {
+        switch(playbackState)
+        {
+            case PlaybackStateCompat.STATE_PLAYING:
+            {
                 m_service.startForeground(NOTIFICATION_ID, getNotification(playbackState));
                 break;
             }
-            case PlaybackStateCompat.STATE_PAUSED: {
+            case PlaybackStateCompat.STATE_PAUSED:
+            {
                 // На паузе мы перестаем быть foreground, однако оставляем уведомление,
                 // чтобы пользователь мог play нажать
                 NotificationManagerCompat.from(m_service).notify(NOTIFICATION_ID, getNotification(playbackState));
                 m_service.stopForeground(false);
                 break;
             }
-            default: {
+            default:
+            {
                 // Все, можно прятать уведомление
                 m_service.stopForeground(true);
                 break;
@@ -131,7 +128,8 @@ class NotificationSoundControl {
         }
     }
 
-    private Notification getNotification(int playbackState) {
+    private Notification getNotification(int playbackState)
+    {
 
         NotificationCompat.Builder builder = MediaStyleHelper.from(m_service.getApplicationContext(), m_mediaSessionCompat, CHANEL_ID);
 
@@ -158,7 +156,7 @@ class NotificationSoundControl {
         builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_media_previous, "previous", m_pendPrevious));
 
         // play/pause
-        if (playbackState == PlaybackStateCompat.STATE_PLAYING)
+        if(playbackState == PlaybackStateCompat.STATE_PLAYING)
             builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_media_pause, "pause", m_pendPause));
         else
             builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_media_play, "play", m_pendPlay));
@@ -167,8 +165,7 @@ class NotificationSoundControl {
         builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_media_next, "next", m_pendNext));
 
         // выход
-        builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_menu_close_clear_cancel, "exit",
-                m_pendExit));
+        builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_menu_close_clear_cancel, "exit", m_pendExit));
 
 
         builder.setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()

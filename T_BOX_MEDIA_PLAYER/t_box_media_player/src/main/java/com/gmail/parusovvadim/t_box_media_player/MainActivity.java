@@ -35,9 +35,10 @@ import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
 {
+    private static final String EXTRA_CMD = "com.gmail.parusovvadim.t_box_media_player.CMD";
+    private static final int CMD_EXIT = -1;
 
     private static final int REQUEST_CODE_PERMISSION_READ_EXTERNAL_STORAGE = 1;
-    public static final int CMD_EXIT = -1;
 
     static final String BROADCAST_ACTION = "com.gmail.parusovvadim.t_box_media_player";
 
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             // действия при получении сообщений
             public void onReceive(Context context, Intent intent)
             {
-                int task = intent.getIntExtra(getString(R.string.CMD), 0);
+                int task = getCMD(intent);
                 if(task == CMD_EXIT) exitApp();
             }
         };
@@ -281,8 +282,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         m_musicFiles = MusicFiles.getInstance();
         m_musicFiles.setPathRoot(m_settingApp.getAbsolutePath(), new ReaderTrackInfo());
-        Intent intent = new Intent(this, MPlayer.class);
-        intent.putExtra(getString(R.string.CMD), MPlayer.CMD_CHANGE_ROOT);
+        Intent intent = MPlayer.newIntentChangeRoot(this);
         startService(intent);
     }
 
@@ -319,5 +319,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         @SuppressLint ("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("m:ss");
         return sdf.format(new Date(mSec));
+    }
+
+    // Форммирование интента выход
+    public static Intent newIntentExit()
+    {
+        Intent intent = new Intent(MainActivity.BROADCAST_ACTION);
+        intent.putExtra(EXTRA_CMD, CMD_EXIT);
+        return intent;
+    }
+
+    private int getCMD(Intent intent)
+    {
+        return intent.getIntExtra(EXTRA_CMD, 0);
     }
 }

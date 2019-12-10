@@ -18,5 +18,8 @@
     <string name="Settings">Настройки</string>
     <string name="pathStorageText">Источник: </string>
     <string name="titleDefault">Новая композиция</string>
+    <string name="empty_text">"Empty"</string>
+
+
 
 </resources>

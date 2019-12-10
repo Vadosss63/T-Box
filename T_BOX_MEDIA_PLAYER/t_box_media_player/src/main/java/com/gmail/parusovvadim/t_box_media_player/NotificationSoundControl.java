@@ -7,12 +7,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.MediaMetadataCompat;
-import android.support.v4.media.session.MediaButtonReceiver;
+
+import androidx.media.app.NotificationCompat.MediaStyle;
+import androidx.media.session.MediaButtonReceiver;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
@@ -168,7 +170,7 @@ class NotificationSoundControl
         builder.addAction(new NotificationCompat.Action(android.R.drawable.ic_menu_close_clear_cancel, "exit", m_pendExit));
 
 
-        builder.setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()
+        builder.setStyle(new MediaStyle()
                 // В компактном варианте показывать Action с данным порядковым номером.
                 // В нашем случае это play/pause.
                 .setShowActionsInCompactView(1)

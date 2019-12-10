@@ -6,14 +6,15 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
 
-class NotificationRunnableService {
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
-    static final private String CHANEL_ID = "T-BOX";
-    static final private String CHANEL_NAME = "CONTROL";
-    static final private int NOTIFICATION_ID = 1991;
+public class NotificationRunnableService {
+
+    private static final String CHANEL_ID = "T-BOX";
+    private static final String CHANEL_NAME = "CONTROL";
+    private static final int NOTIFICATION_ID = 1991;
 
     NotificationRunnableService(Service service) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -30,7 +31,7 @@ class NotificationRunnableService {
         }
     }
 
-    void showNotification(Service service, String msg, String title) {
+    public void showNotification(Service service, String msg, String title) {
         service.startForeground(NOTIFICATION_ID, getNotification(service, msg, title));
     }
 

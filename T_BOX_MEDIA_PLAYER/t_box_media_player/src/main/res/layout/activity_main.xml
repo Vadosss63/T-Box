@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:background="@color/Black"
     android:orientation="vertical"
+    android:stateListAnimator="@animator/state_animator"
     tools:context=".MainActivity"
-    tools:ignore="MissingDefaultResource"
-    android:stateListAnimator="@animator/state_animator">
+    tools:ignore="MissingDefaultResource">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,10 +47,7 @@
     <FrameLayout
         android:id="@+id/mainFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </FrameLayout>
+        android:layout_height="wrap_content" />
 
     <ListView
         android:id="@+id/playList"

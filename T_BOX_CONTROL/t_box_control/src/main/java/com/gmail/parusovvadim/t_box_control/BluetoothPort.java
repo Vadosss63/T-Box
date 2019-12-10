@@ -14,8 +14,7 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
-public class BluetoothPort implements DataPort
-{
+public class BluetoothPort implements DataPort {
 
     final static int REQUEST_ENABLE_BT = 1;
 
@@ -38,49 +37,40 @@ public class BluetoothPort implements DataPort
     private byte[] m_readDataByte = new byte[0];
     private boolean m_isUARTConfigured = false;
 
-    BluetoothPort()
-    {
+    BluetoothPort() {
     }
 
     @Override
-    public boolean isConnected()
-    {
-        if(m_connectThread == null) return false;
+    public boolean isConnected() {
+        if (m_connectThread == null) return false;
         return m_connectThread.socketIsConnect();
     }
 
     @Override
-    public boolean isConfigured()
-    {
+    public boolean isConfigured() {
         return m_isUARTConfigured;
     }
 
     @Override
-    public void writeData(byte[] bytes)
-    {
-        if(isConfigured() && m_connectedThread != null)
-        {
+    public void writeData(byte[] bytes) {
+        if (isConfigured() && m_connectedThread != null) {
             m_connectedThread.write(bytes);
         }
     }
 
     @Override
-    public void disconnect()
-    {
-        if(m_connectedThread != null)
-        {
+    public void disconnect() {
+        if (m_connectedThread != null) {
             m_connectedThread.cancel();
         }
     }
 
     @Override
-    public Boolean initialisation(Context context)
-    {
+    public Boolean initialisation(Context context) {
         m_context = context;
         // вполняем проверку наличия блютуз
         m_bluetooth = BluetoothAdapter.getDefaultAdapter();
-        if(m_bluetooth == null)
-        {
+        if (m_bluetooth == null) {
             m_textLog = "No bluetooth";
             m_isUARTConfigured = false;
             return false;
@@ -89,27 +79,22 @@ public class BluetoothPort implements DataPort
     }
 
     @Override
-    public void connect()
-    {
-        if(m_bluetooth != null && m_bluetooth.isEnabled())
-        {
+    public void connect() {
+        if (m_bluetooth != null && m_bluetooth.isEnabled()) {
             // Bluetooth включен. Работаем.
             showLostDevice();
-            if(m_device != null)
-            {
+            if (m_device != null) {
                 m_connectThread = new ConnectThread(m_device);
                 m_connectThread.run();
 
-                if(m_connectThread.socketIsConnect())
+                if (m_connectThread.socketIsConnect())
                     m_connectedThread = new ConnectedThread(m_connectThread.getSocket());
 
-            } else
-            {
+            } else {
                 m_isUARTConfigured = false;
                 m_textLog = "No bluetooth device";
             }
-        } else
-        {
+        } else {
             // Bluetooth выключен. Предложим пользователю включить его.
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             enableBtIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -118,68 +103,54 @@ public class BluetoothPort implements DataPort
 
     }
 
-    public boolean checkConnection()
-    {
+    public boolean checkConnection() {
         BluetoothAdapter ba = BluetoothAdapter.getDefaultAdapter();
-        if(ba == null) return false;
+        if (ba == null) return false;
 
-        if(!m_bluetooth.isEnabled()) return false;
+        if (!m_bluetooth.isEnabled()) return false;
 
         showLostDevice();
 
-        if(m_device == null) return false;
+        if (m_device == null) return false;
 
-        try
-        {
+        try {
             // MY_UUID это UUID, который используется и в сервере
             BluetoothSocket socket = m_device.createRfcommSocketToServiceRecord(UUID.fromString(m_UUID));
-            if(socket == null) return false;
+            if (socket == null) return false;
 
-            try
-            {
+            try {
                 // Соединяемся с устройством через сокет.
                 // Метод блокирует выполнение программы до
                 // установки соединения или возникновения ошибки
                 socket.connect();
-            } catch(IOException connectException)
-            {
+            } catch (IOException connectException) {
                 // Невозможно соединиться. Закрываем сокет и выходим.
-                try
-                {
+                try {
                     socket.close();
-                } catch(IOException closeException)
-                {
+                } catch (IOException closeException) {
 
                 }
-
             }
-
-            if(socket.isConnected())
-            {
+            if (socket.isConnected()) {
                 socket.close();
                 return true;
             } else return false;
-        } catch(IOException e)
-        {
+        } catch (IOException e) {
             return false;
         }
     }
 
     @Override
-    public void setReadRunnable(Runnable runnable)
-    {
+    public void setReadRunnable(Runnable runnable) {
         m_readRunnable = runnable;
     }
 
     @Override
-    public void runReadData()
-    {
+    public void runReadData() {
 
-        if(m_isUARTConfigured && m_connectedThread != null)
-        {
+        if (m_isUARTConfigured && m_connectedThread != null) {
             // управлчем соединением (в отдельном потоке)
-            if(m_connectThread.socketIsConnect())
-            {
+            if (m_connectThread.socketIsConnect()) {
                 m_connectedThread.start();
                 m_textLog = "Bluetooth ok";
             }
@@ -188,49 +159,41 @@ public class BluetoothPort implements DataPort
     }
 
     @Override
-    public String getTextLog()
-    {
+    public String getTextLog() {
         return m_textLog;
     }
 
     @Override
-    public byte[] getReadDataByte()
-    {
+    public byte[] getReadDataByte() {
         return m_readDataByte;
     }
 
     // Выполняем просмотр доступных устройств
-    private void showLostDevice()
-    {
+    private void showLostDevice() {
         Set<BluetoothDevice> pairedDevices = m_bluetooth.getBondedDevices();
         m_device = null;
         // Если список спаренных устройств не пуст
-        if(pairedDevices.size() > 0)
-        {
+        if (pairedDevices.size() > 0) {
             // проходимся в цикле по этому списку
-            for(BluetoothDevice device : pairedDevices)
-            {
+            for (BluetoothDevice device : pairedDevices) {
                 // Добавляем имена и адреса в mArrayAdapter, чтобы показать
                 // через ListView
                 // mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 
-                if(device.getName().equals("T-BOX data")) m_device = device;
+                if (device.getName().equals("T-BOX data")) m_device = device;
             }
         }
     }
 
     // Создаем BroadcastReceiver для ACTION_FOUND
-    private final BroadcastReceiver m_receiver = new BroadcastReceiver()
-    {
-        public void onReceive(Context context, Intent intent)
-        {
+    private final BroadcastReceiver m_receiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
 
-            if(intent == null) return;
+            if (intent == null) return;
 
             String action = intent.getAction();
             // Когда найдено новое устройство
-            if(BluetoothDevice.ACTION_FOUND.equals(action))
-            {
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 // Получаем объект BluetoothDevice из интента
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // Добавляем имя и адрес в array adapter, чтобы показвать в ListView
@@ -239,68 +202,56 @@ public class BluetoothPort implements DataPort
         }
     };
 
-    private class ConnectThread extends Thread
-    {
+    private class ConnectThread extends Thread {
 
         private final BluetoothSocket m_socket;
         private final BluetoothDevice m_device;
 
-        ConnectThread(BluetoothDevice device)
-        {
+        ConnectThread(BluetoothDevice device) {
             // используем вспомогательную переменную, которую в дальнейшем
             // свяжем с mmSocket,
             BluetoothSocket tmp = null;
             m_device = device;
 
             // получаем BluetoothSocket чтобы соединиться с BluetoothDevice
-            try
-            {
+            try {
                 // MY_UUID это UUID, который используется и в сервере
                 tmp = device.createRfcommSocketToServiceRecord(UUID.fromString(m_UUID));
 
-            } catch(IOException e)
-            {
+            } catch (IOException e) {
                 m_isUARTConfigured = false;
             }
             m_socket = tmp;
         }
 
         @Override
-        public void run()
-        {
+        public void run() {
             tryConnect();
         }
 
-        boolean socketIsConnect()
-        {
+        boolean socketIsConnect() {
             return m_socket.isConnected();
         }
 
-        BluetoothSocket getSocket()
-        {
+        BluetoothSocket getSocket() {
             return m_socket;
         }
 
         // Пытаемся соедениться с блютуз устройством
-        private void tryConnect()
-        {
+        private void tryConnect() {
             // Отменяем сканирование, поскольку оно тормозит соединение
             m_bluetooth.cancelDiscovery();
 
-            try
-            {
+            try {
                 // Соединяемся с устройством через сокет.
                 // Метод блокирует выполнение программы до
                 // установки соединения или возникновения ошибки
                 m_socket.connect();
-            } catch(IOException connectException)
-            {
+            } catch (IOException connectException) {
                 // Невозможно соединиться. Закрываем сокет и выходим.
-                try
-                {
+                try {
                     m_socket.close();
-                } catch(IOException closeException)
-                {
+                } catch (IOException closeException) {
 
                 }
 
@@ -310,20 +261,16 @@ public class BluetoothPort implements DataPort
         /**
          * отмена ожидания сокета
          */
-        public void cancel()
-        {
-            try
-            {
+        public void cancel() {
+            try {
                 m_socket.close();
-            } catch(IOException e)
-            {
+            } catch (IOException e) {
                 m_isUARTConfigured = false;
             }
         }
     }
 
-    private class ConnectedThread extends Thread
-    {
+    private class ConnectedThread extends Thread {
 
         // Сокет соединения
         private final BluetoothSocket m_socket;
@@ -334,23 +281,20 @@ public class BluetoothPort implements DataPort
 
         private Handler m_handler = new Handler();
 
-        ConnectedThread(BluetoothSocket socket)
-        {
+        ConnectedThread(BluetoothSocket socket) {
 
             m_socket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
             // Получить входящий и исходящий потоки данных
-            try
-            {
+            try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
 
                 m_isUARTConfigured = true;
 
-            } catch(IOException e)
-            {
+            } catch (IOException e) {
                 m_isUARTConfigured = false;
             }
             m_inStream = tmpIn;
@@ -359,59 +303,47 @@ public class BluetoothPort implements DataPort
 
         // Выполняем запуск прослушки входных данных
         @Override
-        public void run()
-        {
+        public void run() {
             read();
         }
 
         /* Вызываем этот метод из главной деятельности, чтобы отправить данные
         удаленному устройству */
-        void write(byte[] bytes)
-        {
-            try
-            {
+        void write(byte[] bytes) {
+            try {
                 m_outStream.write(bytes);
-            } catch(IOException e)
-            {
+            } catch (IOException e) {
                 m_isUARTConfigured = false;
             }
         }
 
         /* Вызываем этот метод из главной деятельности,
         чтобы разорвать соединение */
-        void cancel()
-        {
-            try
-            {
+        void cancel() {
+            try {
                 m_socket.close();
                 m_isUARTConfigured = false;
-            } catch(IOException e)
-            {
+            } catch (IOException e) {
                 m_isUARTConfigured = false;
             }
         }
 
-        private void read()
-        {
+        private void read() {
             byte[] buffer = new byte[1024];// буферный массив
             int bytes;// bytes returned from read()
 
             // Прослушиваем InputStream пока не произойдет исключение
-            while(true)
-            {
-                try
-                {
+            while (true) {
+                try {
                     // читаем из InputStream
                     bytes = m_inStream.read(buffer);
                     // посылаем прочитанные байты главной деятельности
-                    if(bytes > 0)
-                    {
+                    if (bytes > 0) {
                         m_readDataByte = new byte[bytes];
                         System.arraycopy(buffer, 0, m_readDataByte, 0, bytes);
                         m_handler.post(m_readRunnable);
                     }
-                } catch(IOException e)
-                {
+                } catch (IOException e) {
                     break;
                 }
             }

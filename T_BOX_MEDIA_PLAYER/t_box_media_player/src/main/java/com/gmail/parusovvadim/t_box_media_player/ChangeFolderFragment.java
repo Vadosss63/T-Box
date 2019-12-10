@@ -1,14 +1,15 @@
 package com.gmail.parusovvadim.t_box_media_player;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class ChangeFolderFragment extends Fragment
 {
@@ -33,7 +34,7 @@ public class ChangeFolderFragment extends Fragment
             SettingActivity sa = ((SettingActivity) getActivity());
             sa.saveSetting();
             Intent intent = new Intent();
-            sa.setResult(Activity.RESULT_OK, intent);
+            sa.setResult(AppCompatActivity.RESULT_OK, intent);
             sa.finish();
         });
 
@@ -41,7 +42,7 @@ public class ChangeFolderFragment extends Fragment
         playButton.setOnClickListener((View v)->{
             SettingActivity sa = ((SettingActivity) getActivity());
             Intent intent = new Intent();
-            sa.setResult(Activity.RESULT_CANCELED, intent);
+            sa.setResult(AppCompatActivity.RESULT_CANCELED, intent);
             sa.finish();
         });
 

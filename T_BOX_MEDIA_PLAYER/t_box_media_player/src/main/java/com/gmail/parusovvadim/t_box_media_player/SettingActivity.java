@@ -1,12 +1,8 @@
 package com.gmail.parusovvadim.t_box_media_player;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,6 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.gmail.parusovvadim.media_directory.MusicFileComparator;
 
@@ -25,7 +26,7 @@ import java.util.List;
 
 import static com.gmail.parusovvadim.media_directory.MusicFiles.MUSIC_FORMAT;
 
-public class SettingActivity extends Activity implements AdapterView.OnItemClickListener
+public class SettingActivity extends AppCompatActivity implements AdapterView.OnItemClickListener
 {
 
     private ChangeFolderFragment m_changeFolderFragment = null;
@@ -89,7 +90,7 @@ public class SettingActivity extends Activity implements AdapterView.OnItemClick
 
     private void changeStateSelectRoot()
     {
-        FragmentTransaction m_fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction m_fragmentTransaction = getSupportFragmentManager().beginTransaction();
         m_fragmentTransaction.replace(R.id.settingFragment, m_changeFolderFragment);
         m_fragmentTransaction.commit();
     }

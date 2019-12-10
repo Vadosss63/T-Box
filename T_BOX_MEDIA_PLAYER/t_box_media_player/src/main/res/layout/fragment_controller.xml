@@ -6,18 +6,19 @@
     android:background="@color/Black"
     android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageTitle"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/image_view_pager"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_t_box" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.viewpager.widget.ViewPager>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +59,7 @@
                                 android:layout_marginEnd="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/shuffle_off" />
+                                app:srcCompat="@drawable/shuffle_off" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -172,7 +173,7 @@
 
         </LinearLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
 

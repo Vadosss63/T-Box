@@ -18,6 +18,20 @@ class SettingApp {
     static final private SettingApp m_ourInstance = new SettingApp();
     private Context m_context;
 
+    // Путь к папке смузыкой
+    private final static String SAVED_MUSIC_PATH = "music_path";
+    // Выбор внутреннего или внешнего накопителя
+    private final static String SAVED_STORAGE_DIRECTORY = "storage_directory";
+    private final String m_defaultPath = "/Music";
+
+    // корневая папка
+    private SharedPreferences m_setting;
+    private String m_pathMusicFiles;
+    private String m_storageDirectory;
+    private int m_currentPathStorage = 0;
+    private List<String> m_paths;
+
+
     private SettingApp() {
     }
 
@@ -31,19 +45,6 @@ class SettingApp {
         changeCurrentPath(0);
         loadSetting();
     }
-
-    // Путь к папке смузыкой
-    private final static String SAVED_MUSIC_PATH = "music_path";
-    // Выбор внутреннего или внешнего накопителя
-    private final static String SAVED_STORAGE_DIRECTORY = "storage_directory";
-    private final String m_defaultPath = "/Music";
-
-    // корневая папка
-    private SharedPreferences m_setting;
-    private String m_pathMusicFiles;
-    private String m_storageDirectory;
-    private int m_currentPathStorage = 0;
-    private List<String> m_paths;
 
     int getCurrentPathStorage() {
         return m_currentPathStorage;

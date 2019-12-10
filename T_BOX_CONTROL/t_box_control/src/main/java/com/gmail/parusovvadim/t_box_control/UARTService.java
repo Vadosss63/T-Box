@@ -15,8 +15,11 @@ import java.util.ArrayDeque;
 import java.util.Vector;
 
 public class UARTService extends Service {
+
+    private static final String TAG = "UARTService";
     private static final String CMD = "CMD";
     private static final String DATA = "Data";
+    private static final String TIME = "time";
     private static final int CMD_SEND_DATA = 0xAA;
     private static final int CMD_RESET = 0x00;
     // Поток отправки сообщений в port
@@ -29,6 +32,13 @@ public class UARTService extends Service {
         Intent intent = new Intent(context, UARTService.class);
         intent.putExtra(CMD, CMD_SEND_DATA);
         intent.putExtra(DATA, data);
+        return intent;
+    }
+
+    public static Intent newSendTimeIntent(Context context, int msec) {
+        Intent intent = new Intent(context, UARTService.class);
+        intent.putExtra(CMD, CMD_DATA.TIME);
+        intent.putExtra(TIME, msec);
         return intent;
     }
 
@@ -64,7 +74,7 @@ public class UARTService extends Service {
         }
 
         mSenderThread = null;
-        Log.i("UARTService", "onDestroy: ");
+        Log.i(TAG, "onDestroy: ");
         try {
             mUARTPort.disconnect();
         } catch (RuntimeException e) {
@@ -129,7 +139,7 @@ public class UARTService extends Service {
 
     private void sendTime(Intent intent) {
         if (intent == null) return;
-        int time = intent.getIntExtra("time", 0);
+        int time = intent.getIntExtra(TIME, 0);
         EncoderTimeTrack timeTrack = new EncoderTimeTrack();
         timeTrack.addHeader();
         timeTrack.addCurrentTimePosition(time);
@@ -187,23 +197,16 @@ public class UARTService extends Service {
             Vector<Byte> dataTrack = new Vector<>();
             for (int i = 5; i < data.length - 1; i++)
                 dataTrack.add(data[i]);
-
             EncoderTrack encoderTrack = new EncoderTrack(dataTrack);
             int folder = encoderTrack.getFolder();
             int track = encoderTrack.getTrackNumber() - 1;
-
-            Intent intent = new Intent(this, ReceiverService.class);
-            intent.putExtra(CMD, CMD_DATA.SELECTED_TRACK);
-            intent.putExtra("folder", folder);
-            intent.putExtra("track", track);
+            Intent intent = ReceiverService.newSelectedTrackIntent(this, folder, track);
             StartService.start(this, intent);
             return;
         }
         if (data[2] == (byte) 12) {
             int isShuffle = data[5];
-            Intent intent = new Intent(this, ReceiverService.class);
-            intent.putExtra(CMD, 12);
-            intent.putExtra("isShuffle", isShuffle);
+            Intent intent = ReceiverService.newSetShuffleIntent(this, isShuffle);
             StartService.start(this, intent);
             return;
         }
@@ -214,8 +217,7 @@ public class UARTService extends Service {
     }
 
     private void startSync() {
-        Intent intent = new Intent(this, ReceiverService.class);
-        intent.putExtra(CMD, CMD_DATA.AUX);
+        Intent intent = ReceiverService.newSetAUXIntent(this);
         StartService.start(this, intent);
     }
 

@@ -24,6 +24,7 @@ public class TBoxControlFragment extends Fragment {
         if (Build.BRAND.equalsIgnoreCase("xiaomi")) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
     }
@@ -35,7 +36,6 @@ public class TBoxControlFragment extends Fragment {
         sync();
         return view;
     }
-
 
     @SuppressLint("ClickableViewAccessibility")
     private void createActions(View viewFragment) {

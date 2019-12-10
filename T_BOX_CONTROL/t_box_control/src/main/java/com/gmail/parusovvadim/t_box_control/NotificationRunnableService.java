@@ -16,7 +16,7 @@ public class NotificationRunnableService {
     private static final String CHANEL_NAME = "CONTROL";
     private static final int NOTIFICATION_ID = 1991;
 
-    NotificationRunnableService(Service service) {
+    public NotificationRunnableService(Service service) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = (NotificationManager) service.getSystemService(Context.NOTIFICATION_SERVICE);
             int importance = NotificationManager.IMPORTANCE_HIGH;

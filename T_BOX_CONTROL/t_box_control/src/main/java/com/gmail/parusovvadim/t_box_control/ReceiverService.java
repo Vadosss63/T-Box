@@ -36,11 +36,16 @@ public class ReceiverService extends Service {
     private static final String TAG = "ReceiverService";
     private static final String AUDIO_PLAYER = "com.gmail.parusovvadim.t_box_media_player";
     private static final String CMD = "CMD";
+    private static final String FOLDER = "folder";
+    private static final String TRACK = "track";
+    private static final String SHUFFLE = "isShuffle";
+
     private static final String KEYCODE_MEDIA = "keycodeMedia";
     private static final String KEYCODE_ACTION = "action";
 
     private static final int CMD_MEDIA_KEY = 0x00;
     private static final int CMD_SYNC = 0x01;
+    private static final int CMD_SHUFFLE = 12;
 
     private MediaSessionManager.OnActiveSessionsChangedListener mOnActiveSessionsChangedListener
             = this::changedActiveSessions;
@@ -99,6 +104,27 @@ public class ReceiverService extends Service {
         return new Intent(context, ReceiverService.class);
     }
 
+    public static Intent newSelectedTrackIntent(Context context, int folder, int track) {
+        Intent intent = new Intent(context, ReceiverService.class);
+        intent.putExtra(CMD, CMD_DATA.SELECTED_TRACK);
+        intent.putExtra(FOLDER, folder);
+        intent.putExtra(TRACK, track);
+        return intent;
+    }
+
+    public static Intent newSetShuffleIntent(Context context, int isShuffle) {
+        Intent intent = new Intent(context, ReceiverService.class);
+        intent.putExtra(CMD, CMD_SHUFFLE);
+        intent.putExtra(SHUFFLE, isShuffle);
+        return intent;
+    }
+
+    public static Intent newSetAUXIntent(Context context) {
+        Intent intent = new Intent(context, ReceiverService.class);
+        intent.putExtra(CMD, CMD_DATA.AUX);
+        return intent;
+    }
+
     public static Intent newSyncIntent(Context context) {
         Intent intent = new Intent(context, ReceiverService.class);
         intent.putExtra(CMD, CMD_SYNC);
@@ -129,7 +155,7 @@ public class ReceiverService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("ReceiverService", "onDestroy: ");
+        Log.i(TAG, "onDestroy: ");
         stopALL();
     }
 
@@ -172,7 +198,7 @@ public class ReceiverService extends Service {
 
         if (mCallback != null) mActivePlayer.registerCallback(mCallback);
         else {
-            Log.d("BluetoothReceiver", "mCallback == null");
+            Log.i("BluetoothReceiver", "mCallback == null");
         }
 
         sendState();
@@ -205,9 +231,9 @@ public class ReceiverService extends Service {
 
                 Intent intent = new Intent(this, UARTService.class);
 
-                intent.putExtra("CMD", CMD_DATA.SELECTED_TRACK);
-                intent.putExtra("folder", folder);
-                intent.putExtra("track", track + 1);
+                intent.putExtra(CMD, CMD_DATA.SELECTED_TRACK);
+                intent.putExtra(FOLDER, folder);
+                intent.putExtra(TRACK, track + 1);
                 StartService.start(this, intent);
             }
         }
@@ -233,8 +259,8 @@ public class ReceiverService extends Service {
             }
 
             case CMD_DATA.SELECTED_TRACK: {
-                int folder = intent.getIntExtra("folder", -1);
-                int track = intent.getIntExtra("track", -1);
+                int folder = intent.getIntExtra(FOLDER, -1);
+                int track = intent.getIntExtra(TRACK, -1);
                 if (mActivePlayer != null) {
                     String mediaId = folder + ";" + track;
                     mActivePlayer.getTransportControls().playFromMediaId(mediaId, new Bundle());
@@ -242,11 +268,11 @@ public class ReceiverService extends Service {
                 break;
             }
 
-            case 12: {
-                int isShuffle = intent.getIntExtra("isShuffle", 0);
+            case CMD_SHUFFLE: {
+                int isShuffle = intent.getIntExtra(SHUFFLE, 0);
                 if (mActivePlayer != null) {
                     Bundle shuffleBundle = new Bundle();
-                    shuffleBundle.putInt("isShuffle", isShuffle);
+                    shuffleBundle.putInt(SHUFFLE, isShuffle);
                     mActivePlayer.getTransportControls().sendCustomAction("shuffleMode", shuffleBundle);
                 }
                 break;
@@ -290,7 +316,6 @@ public class ReceiverService extends Service {
     }
 
     void sync() {
-
         MediaSessionManager mediaSessionManager = (MediaSessionManager) getApplicationContext().getSystemService(Context.MEDIA_SESSION_SERVICE);
         if (mediaSessionManager == null) return;
 
@@ -312,12 +337,9 @@ public class ReceiverService extends Service {
     }
 
     private void sendTime(int msec) {
-        Log.d("TimeThread", "Send time = " + TimeUnit.SECONDS.convert(msec, TimeUnit.MILLISECONDS));
-
-        Intent intentUART = new Intent(this, UARTService.class);
-        intentUART.putExtra("CMD", CMD_DATA.TIME);
-        intentUART.putExtra("time", msec);
-        StartService.start(this, intentUART);
+        Log.i("TimeThread", "Send time = " + TimeUnit.SECONDS.convert(msec, TimeUnit.MILLISECONDS));
+        Intent intent = UARTService.newSendTimeIntent(this, msec);
+        StartService.start(this, intent);
     }
 
     // Перевод в aux режим
@@ -343,7 +365,6 @@ public class ReceiverService extends Service {
                 if (mediaMetadata.containsKey(MediaMetadata.METADATA_KEY_ARTIST))
                     title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_ARTIST) + " - " + mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
                 else title = mediaMetadata.getString(MediaMetadata.METADATA_KEY_TITLE);
-
             }
         }
         return title;
@@ -440,12 +461,11 @@ public class ReceiverService extends Service {
 
             if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(intent.getAction())) {
                 if (!BluetoothReceiver.checkDeviceName(intent)) return;
-                Log.d("BluetoothReceiver", "DISCONNECTED");
+                Log.i("BluetoothReceiver", "DISCONNECTED");
                 Intent intentUART = new Intent(context, UARTService.class);
                 context.stopService(intentUART);
                 stopSelf();
             }
-
         }
 
     };

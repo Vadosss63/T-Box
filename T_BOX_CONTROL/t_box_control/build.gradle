@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword 'Emachinese525@'
-            storeFile file('C:\\Users\\Vadosss63\\MyAPKStore.jks')
+            storeFile file('D:\\AndroidProject\\MyAPKStore.jks')
             storePassword 'Emachinese525@'
         }
     }
@@ -16,7 +16,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 4
-        versionName '3.0.0'
+        versionName '3.0.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
@@ -42,5 +42,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
 }

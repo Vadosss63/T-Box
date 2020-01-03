@@ -93,6 +93,9 @@ public class ReceiverService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        mIsTitleTranslate = SettingPreferences.getStoreIsTitleTranslate(this);
+        mIsTagTitleTranslate = SettingPreferences.getStoreIsTagTitleTranslate(this);
+
         sync();
         IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
         filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);

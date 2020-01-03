@@ -10,13 +10,18 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class TBoxControlFragment extends Fragment {
+
+    private static final String DIALOG_SETTING = "settingDialog";
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,6 +96,17 @@ public class TBoxControlFragment extends Fragment {
 
         FloatingActionButton exit = viewFragment.findViewById(R.id.exit);
         exit.setOnClickListener(view -> exitApp());
+
+        final ImageView imageView = viewFragment.findViewById(R.id.imageView);
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                SettingDialogFragment dialog = SettingDialogFragment.newInstance();
+                dialog.show(fm, DIALOG_SETTING);
+                return false;
+            }
+        });
 
     }
 

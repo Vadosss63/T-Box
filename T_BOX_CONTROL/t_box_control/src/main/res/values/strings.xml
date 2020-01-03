@@ -3,4 +3,7 @@
     <string name="action_prev">Previous</string>
     <string name="action_play">Play</string>
     <string name="action_next">Next</string>
+    <string name="title_translate">Транслит Title</string>
+    <string name="tag_title_translate">Транслит Tag Title</string>
+    <string name="setting_title">Настройки</string>
 </resources>
